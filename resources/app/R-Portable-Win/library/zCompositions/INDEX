@@ -1,0 +1,27 @@
+LPdata                  La Paloma data set
+LPdataZM                La Paloma data set (incl. zeros and missing
+                        data)
+Pigs                    Pigs data set
+Water                   Water data set
+cmultRepl               Bayesian-Multiplicative replacement of count
+                        zeros
+lcTest                  Log-contrast homogeneity test
+lrDA                    Log-ratio DA algorithm
+lrEM                    Log-ratio EM algorithm
+lrEMplus                Log-ratio EM algorithm (plus)
+mdl                     Water data set: matrix of limits of detection
+multKM                  Multiplicative Kaplan-Meier smoothing spline
+                        (KMSS) replacement
+multLN                  Multiplicative lognormal replacement
+multRepl                Multiplicative simple replacement
+multReplus              Multiplicative simple replacement (plus)
+splineKM                Display Kaplan-Meier empirical cumulative
+                        distribution function and smoothing spline
+                        curve fit
+zCompositions           Treatment of zeros and nondetects in
+                        compositional data sets
+zPatterns               Find and display patterns of zeros/missing
+                        values in a data set
+zVarArray               Variation array for grouped data
+zVarArrayError          Variation array relative error
+zVarArrayTest           Variation array homogeneity test

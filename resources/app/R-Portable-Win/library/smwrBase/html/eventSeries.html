@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Regular Series</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for eventSeries {smwrBase}"><tr><td>eventSeries {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Regular Series</h2>
+
+<h3>Description</h3>
+
+<p>Some time-series analyses require data that are uniformly spaced in time.
+This function will construct a regular series from randomly spaced events.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+eventSeries(times, period = "hour", which = "cumsum", begin, end,
+  k.period = 1)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>times</code></td>
+<td>
+<p>a date-like vector corresponding to data.</p>
+</td></tr>
+<tr valign="top"><td><code>period</code></td>
+<td>
+<p>character string that is valid input to the POSIXct method
+for the <code>seq</code> function is acceptable, specifying the spacing between 
+successive periods. For example &quot;year,&quot; &quot;month,&quot; or &quot;day.&quot;</p>
+</td></tr>
+<tr valign="top"><td><code>which</code></td>
+<td>
+<p>a character string indicating the method to use. 
+See <b>Details</b> for options.</p>
+</td></tr>
+<tr valign="top"><td><code>begin</code></td>
+<td>
+<p>the beginning date as POSIXt or as character.</p>
+</td></tr>
+<tr valign="top"><td><code>end</code></td>
+<td>
+<p>the end date as POSIXt or as character.</p>
+</td></tr>
+<tr valign="top"><td><code>k.period</code></td>
+<td>
+<p>the number of units of <code>period</code> in each period of the
+output series.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If there is no observation during a period, then that value
+is set to 0 if <code>which</code> is &quot;sum&quot; or the value for the previous period if
+<code>which</code> is &quot;cumsum.&quot; The initial value of the series is always 0.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The function <code>eventSeries</code> returns a data frame with two columns:
+</p>
+<table summary="R valueblock">
+<tr valign="top"><td><code>DateTime</code></td>
+<td>
+<p>the date and time.</p>
+</td></tr>
+<tr valign="top"><td><code>Sum</code></td>
+<td>
+<p>the sum of the number of events in the period if <code>which</code>
+is &quot;sum.&quot;</p>
+</td></tr>
+<tr valign="top"><td><code>CumSum</code></td>
+<td>
+<p>the cumulative sum of the number of events up to and
+including the period if <code>which</code> is &quot;cumsum.&quot;</p>
+</td></tr>
+</table>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+library(smwrData)
+data(QW05078470)
+# Count the number of samples per month
+with(QW05078470, eventSeries(DATES, "month", which="sum"))
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

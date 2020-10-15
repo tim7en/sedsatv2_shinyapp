@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Water Year</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for waterYear {smwrBase}"><tr><td>waterYear {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Water Year</h2>
+
+<h3>Description</h3>
+
+<p>Create an ordered factor or numeric values from a vector of dates based on
+the water year.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+waterYear(x, numeric = FALSE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>an object of class &quot;Date&quot; or &quot;POSIXt.&quot; Missing values are permitted and
+result in corresponding missing values in the output.</p>
+</td></tr>
+<tr valign="top"><td><code>numeric</code></td>
+<td>
+<p>a logical value that indicates whether the returned values
+should be numeric <code>TRUE</code> or an ordered factor <code>FALSE</code>. The default
+value is <code>FALSE</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>An ordered factor or numeric vector corresponding to the water year.
+</p>
+
+
+<h3>Note</h3>
+
+<p>The water year is defined as the period from October 1 to September 30.
+The water year is designated by the calendar year in which it ends. Thus, the
+year ending September 30, 1999, is the &quot;1999 water year.&quot;
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../lubridate/html/year.html">year</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+
+library(smwrData)
+data(QW05078470)
+## Return an ordered factor
+waterYear(QW05078470$DATES)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

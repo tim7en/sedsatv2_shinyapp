@@ -1,0 +1,376 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Data import, export and manipulation functions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for smwrBase-package {smwrBase}"><tr><td>smwrBase-package {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Data import, export and manipulation functions</h2>
+
+<h3>Description</h3>
+
+<p>This package has specialized functions for importing, managing, or
+manipulating hydrologic data.
+</p>
+
+
+<h3>Details</h3>
+
+
+<table summary="Rd table">
+<tr>
+ <td style="text-align: left;"> Package: </td><td style="text-align: left;"> smwrBase</td>
+</tr>
+<tr>
+ <td style="text-align: left;"> 
+Type: </td><td style="text-align: left;"> Package</td>
+</tr>
+<tr>
+ <td style="text-align: left;"> 
+Version: </td><td style="text-align: left;"> 1.1.2</td>
+</tr>
+<tr>
+ <td style="text-align: left;"> 
+Date: </td><td style="text-align: left;"> 2015-12-08</td>
+</tr>
+<tr>
+ <td style="text-align: left;"> 
+License: </td><td style="text-align: left;"> File CC0</td>
+</tr>
+<tr>
+ <td style="text-align: left;"> 
+Depends: </td><td style="text-align: left;"> methods,memoise,digest,lubridate</td>
+</tr>
+<tr>
+ <td style="text-align: left;"> </td>
+</tr>
+
+</table>
+
+<p>This package contains functions that import, manage, or manipulate hydrologic data and 
+functions that apply specialized transformations used in hydrologic analyses amd modeling.
+A listing of the functions and their description is in the following table.
+</p>
+
+<table summary="Rd table">
+<tr>
+ <td style="text-align: left;">Function </td><td style="text-align: left;"> Description</td>
+</tr>
+<tr>
+ <td style="text-align: left;"> 
+%cn% </td><td style="text-align: left;"> Identify character strings that contain the specified pattern.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+anomalies </td><td style="text-align: left;"> Break down time-series data into long- and short-term deviations (anomalies) </td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+</td><td style="text-align: left;"> and the high-frequency variation.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+as.timeDay </td><td style="text-align: left;"> Convert data to objects of class "timeDay."</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+baseDay </td><td style="text-align: left;"> Computes the "base" day of the year, a reference value that can be used to </td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+</td><td style="text-align: left;"> group days for the computation of summary statistics.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+boxCox </td><td style="text-align: left;"> Apply a Box-Cox power transformation.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+coalesce </td><td style="text-align: left;"> Merge a matrix or list of vectors selecting the first non-missing value.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+conc.meq </td><td style="text-align: left;"> A list containing necessary information for the function <code>conc2meq</code>.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+conc2meq </td><td style="text-align: left;"> Convert concentration in milligrams per liter to milli-equivalents per liter.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+daysInMonth </td><td style="text-align: left;"> The number of days in a month.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+dectime </td><td style="text-align: left;"> Convert dates and times to decimal time in years. </td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+dectime2Date </td><td style="text-align: left;"> Convert decimal time in years to an object of class "Date."</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+dlpearsonIII </td><td style="text-align: left;"> The density of the log-Pearson Type III distribution.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+dms2dd </td><td style="text-align: left;"> Convert data in degrees, minutes, and seconds to decimal degrees.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+dpearsonIII </td><td style="text-align: left;"> The density of the Pearson Type III distribution.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+eventLen </td><td style="text-align: left;"> Compute the length or duration of an event.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+eventNum </td><td style="text-align: left;"> Compute the number of an event, identified by a TRUE value in a sequence.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+eventSeq </td><td style="text-align: left;"> Compute the sequence number within an event.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+eventSeries </td><td style="text-align: left;"> Create regular time-series data from recorded events.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+exportCSV </td><td style="text-align: left;"> Export a data frame to a comma-separated values file.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+exportRDB </td><td style="text-align: left;"> Export data to an ASCII relational-database file.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+fillMissing </td><td style="text-align: left;"> Interpolate missing values in a regular time-series of data.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+fourier </td><td style="text-align: left;"> Compute the Fourier series decomposition from date data.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+group2row </td><td style="text-align: left;"> Unstack data oriented in columns to rows of data.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+hyperbolic </td><td style="text-align: left;"> Apply a hyperbolic transformation.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+hysteresis </td><td style="text-align: left;"> Compute a basis for estimating hysteresis effect in some variable related to </td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+</td><td style="text-align: left;"> the argument <code>x</code>.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+IboxCox </td><td style="text-align: left;"> Apply the inverse Box-Cox power transformation.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+Ihyperbolic  </td><td style="text-align: left;"> Apply the inverse hyperbolic transformation.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+importCSV </td><td style="text-align: left;"> Import a data frame from a comma-separated values file.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+importRDB </td><td style="text-align: left;"> Import a data frame from an ASCII relational-database file.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+index.coalesce </td><td style="text-align: left;"> Return the index column number instead of the values for the first non-missing value.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+isCharLike </td><td style="text-align: left;"> Determine whether the data be treated like character data.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+IsCurve  </td><td style="text-align: left;"> Apply the inverse s-curve transformation.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+isDateLike </td><td style="text-align: left;"> Deterimne whether the data can be treated like date data.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+isGroupLike </td><td style="text-align: left;"> Determine whether the data can be treated like grouping data.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+isNumberLike </td><td style="text-align: left;"> Determine whether the data can be treated as numeric data.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+makeMeta </td><td style="text-align: left;"> Create a template meta file for a comma-separated values file.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+mergeNearest </td><td style="text-align: left;"> Merge two datasets by the nearest date and time.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+mergeQ </td><td style="text-align: left;"> Merge flow data with water-quality data.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+miss2na </td><td style="text-align: left;"> Convert a coded missing value to NA.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+more </td><td style="text-align: left;"> Display the contents of an object by pages.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+movingAve </td><td style="text-align: left;"> Compute the moving average in regular time-series data.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+movingDiff </td><td style="text-align: left;"> Compute the moving difference in regular time-series data.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+na2miss </td><td style="text-align: left;"> Convert NA to a coded missing value.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+peaks </td><td style="text-align: left;"> Compute the indices of peaks in time-series data.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+pick </td><td style="text-align: left;"> Select a value based on the value of a logical, integer, or character reference value.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+plpearsonIII </td><td style="text-align: left;"> Compute the cumulative probability of the log-Pearson Type III distribution.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+ppearsonIII </td><td style="text-align: left;"> Compute the cumulative probability of the Pearson Type III distribution.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+qlpearsonIII </td><td style="text-align: left;"> Compute the quantile of the log-Pearson Type III distribution.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+qpearsonIII </td><td style="text-align: left;"> Compute the quantile of the Pearson Type III distribution.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+quadratic </td><td style="text-align: left;"> Compute a basis for an orthogonal second-order polynomial.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+readList </td><td style="text-align: left;"> Import data arranged on lines into a list.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+recode </td><td style="text-align: left;"> Recode distinct values.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+regularSeries </td><td style="text-align: left;"> Put data collected at arbitrary times into a regular time series.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+rlpearsonIII </td><td style="text-align: left;"> Compute the random variates of the log-Pearson Type III distribution.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+rpearsonIII </td><td style="text-align: left;"> Compute the random variates of the Pearson Type III distribution.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+sCurve </td><td style="text-align: left;"> Apply the s-curve transformation.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+scaleRng </td><td style="text-align: left;"> Scale data to a specified range.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+screenData </td><td style="text-align: left;"> Screen data for missing values or gaps.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+seasons </td><td style="text-align: left;"> Create seasonal categories from dates.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+seqCollapse </td><td style="text-align: left;"> Collapse a sequence of integers to a compact character string.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+setFileType </td><td style="text-align: left;"> Support function to manage file suffixes.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+setTZ </td><td style="text-align: left;"> Set the time zone information for dates and times.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+shiftData </td><td style="text-align: left;"> Shift time-series data forward or backward.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+sumComposition </td><td style="text-align: left;"> Compute the percentages of data within a matrix.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+timeDay </td><td style="text-align: left;"> Various methods for manipulating time-of-day data, including conversion to and</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+</td><td style="text-align: left;"> from character, addition, and others.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+untable </td><td style="text-align: left;"> Expand a 2-dimensional table into the raw values.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+waterYear </td><td style="text-align: left;"> Compute the water year of date data. The water year ends on September 30 of the year.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+whichRowCol </td><td style="text-align: left;"> Identify the row and column indexes for TRUE values in a logical matrix.</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+</td>
+</tr>
+
+</table>
+
+
+
+<h3>Author(s)</h3>
+
+<p>Dave Lorenz
+</p>
+
+
+<h3>References</h3>
+
+<p>Lorenz, D.L., 2015, smwrBase&mdash;an R package for managing
+hydrologic data, version 1.1.1: U.S. Geological Survey Open-File Report
+2015&ndash;1202, 7 p.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../smwrData/html/smwrData-package.html">smwrData</a></code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Identify Rows and Columns</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for whichRowCol {smwrBase}"><tr><td>whichRowCol {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Identify Rows and Columns</h2>
+
+<h3>Description</h3>
+
+<p>Identifies the row and column numbers (indexes) of <code>TRUE</code> values in a
+logical matrix.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+whichRowCol(x, which = "both")
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>a logical matrix. Missing values are treated as <code>FALSE</code></p>
+</td></tr>
+<tr valign="top"><td><code>which</code></td>
+<td>
+<p>a character string indicating what should be returned.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A matrix of the row and column number if <code>which</code> is &quot;both.&quot;
+Otherwise a named vector of the row number, if <code>which</code> is &quot;row,&quot; or
+column number, if <code>which</code> is &quot;col.&quot;  Only the first character is needed.
+</p>
+
+
+<h3>Note</h3>
+
+<p>Some comparisons, <code>%in%</code> for example, will return a vector rather
+than a matrix and cause whichRowCol to fail.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../base/html/row.html">row</a></code>, <code><a href="../../base/html/col.html">col</a></code>, <code><a href="../../base/html/which.html">which</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+
+# Simple case to find a single value
+whichRowCol(matrix(1:20, ncol=4) == 16)
+# Where are the missing values in a data set?
+library(smwrData)
+data(MenomineeMajorIons)
+whichRowCol(sapply(MenomineeMajorIons, is.na))
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

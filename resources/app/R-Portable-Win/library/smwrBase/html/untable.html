@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Contingency Table</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for untable {smwrBase}"><tr><td>untable {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Contingency Table</h2>
+
+<h3>Description</h3>
+
+<p>Constructs a data frame from the count data in a contingency table, using the
+column and row names as classes.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+untable(x, rows = "Rows", cols = "Columns", counts = FALSE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>a contingency table. Missing values are not permitted.</p>
+</td></tr>
+<tr valign="top"><td><code>rows</code></td>
+<td>
+<p>a character string indicating the name of the column containing
+the data for the rows. The default column name is &quot;Rows.&quot;</p>
+</td></tr>
+<tr valign="top"><td><code>cols</code></td>
+<td>
+<p>a character string indicating the name of the column containing
+the data for the columns. The default column name is &quot;Columns.&quot;</p>
+</td></tr>
+<tr valign="top"><td><code>counts</code></td>
+<td>
+<p>a logical value indicating whether there should be one row in
+the result for each observation, which is the default <code>counts</code> = <code>FALSE</code>, or
+whether there should be a column that contains the number of counts for each
+row and column class, <code>counts</code> = <code>TRUE</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A data frame containing two columns named from <code>rows</code> and <code>cols</code> and an
+optional column named &quot;Counts&quot; if <code>counts</code> is set to <code>TRUE</code>.
+</p>
+
+
+<h3>Note</h3>
+
+<p>The output for this function can be used for input to contingency table
+analysis functions that require a data frame rather than a contingency table.
+To convert a column from factor to ordered, use the ordered function.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../base/html/ordered.html">ordered</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+
+## Create a small synthetic data matrix
+mdat &lt;- matrix(seq(6), nrow = 2, ncol=3,
+   dimnames = list(c("row1", "row2"), c("C.1", "C.2", "C.3")))
+untable(mdat)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

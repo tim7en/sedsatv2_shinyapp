@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Export Data</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for exportRDB {smwrBase}"><tr><td>exportRDB {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Export Data</h2>
+
+<h3>Description</h3>
+
+<p>Exports a data frame to a text-based file.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+exportRDB(x, file.name = "data.rdb", col.names = NULL, meta = FALSE,
+  code.rule = 10)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>the data frame to be written.</p>
+</td></tr>
+<tr valign="top"><td><code>file.name</code></td>
+<td>
+<p>a character string naming the file for output.</p>
+</td></tr>
+<tr valign="top"><td><code>col.names</code></td>
+<td>
+<p>a vector of column names to use instead of the column names
+in <code>x</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>meta</code></td>
+<td>
+<p>a logical value indicating whether the header should include a
+metadata template for documentation or not.</p>
+</td></tr>
+<tr valign="top"><td><code>code.rule</code></td>
+<td>
+<p>an integer value indicating how many unique numeric values
+should be included in the metadata template for cases where each distinct
+value has a descriptive meaning rather than a numeric meaning.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Setting the <code>meta</code> argument to <code>TRUE</code> generates a header that
+contains a template that can be edited by the user to describe the contents
+of the file.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The file name is returned.
+<code><a href="../../utils/html/write.table.html">write.table</a></code>, <code><a href="importRDB.html">importRDB</a></code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

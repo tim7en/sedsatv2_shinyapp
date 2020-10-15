@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Recode Data</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for na2miss {smwrBase}"><tr><td>na2miss {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Recode Data</h2>
+
+<h3>Description</h3>
+
+<p>Converts missing values (<code>NA</code>s) to or from a user specified value.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+na2miss(x, to = -99999)
+
+miss2na(x, from = -99999)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>a vector. Missing values (<code>NA</code>s) are allowed.</p>
+</td></tr>
+<tr valign="top"><td><code>to</code></td>
+<td>
+<p>the replacement value for <code>NA</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>from</code></td>
+<td>
+<p>the target value to match and replace with <code>NA</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>An object like <code>x</code> with each target value replaced by the
+specified value.
+</p>
+
+
+<h3>Note</h3>
+
+<p>The function <code>na2miss</code> converts missing values (<code>NA</code>) to the
+value <code>to</code> and is useful to prepare a vector for export and subsequent
+use by software external to R that does not handle NAs.<br /> The function
+<code>miss2na</code> converts the value <code>from</code> to <code>NA</code> and can be used to
+recode data imported from external software that uses a special value to
+indicate missing values.<br />
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../base/html/is.na.html">is.na</a></code>, <code><a href="../../base/html/sub.html">sub</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+
+## Construct simple substitutions
+na2miss(c(1, 2, 3, NA, 5, 6))
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Restructure Data</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for group2row {smwrBase}"><tr><td>group2row {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Restructure Data</h2>
+
+<h3>Description</h3>
+
+<p>Combine data from several rows into a single row based on common data in
+selected columns.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+group2row(data, carryColumns, splitColumn, collectColumns)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>data</code></td>
+<td>
+<p>a data frame containing the columns to be combined.</p>
+</td></tr>
+<tr valign="top"><td><code>carryColumns</code></td>
+<td>
+<p>the names of the columns that form a row in the output
+dataset. Each unique combination of values in these columns will be a new row
+in the output dataset.</p>
+</td></tr>
+<tr valign="top"><td><code>splitColumn</code></td>
+<td>
+<p>the name of a single column. For each unique value in
+<code>splitColumn</code> and for each column in <code>collectColumns</code>, a new column
+is created in the output.</p>
+</td></tr>
+<tr valign="top"><td><code>collectColumns</code></td>
+<td>
+<p>the names of the columns to be collected. See
+<b>Details</b>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The function <code>group2row</code> combines data from several rows into a single
+row. Certain columns in the input dataset are said to be &quot;collected.&quot; Other
+columns may be &quot;carried&quot; into the output dataset by listing them in
+<code>carryColumns</code>. A new row will be created for each unique combination of
+values in the <code>carryColumns</code>. The output row consists of the carried
+columns plus new columns that are named by the unique values in the
+<code>splitColumn</code> concatenated with the names in the <code>collectColumns</code>.
+The number of columns in the output data frame is equal to the number of
+<code>carryColumns</code> plus the number of unique values in the
+<code>splitColumn</code> times the number of names in the <code>collectColumns</code>.<br />
+</p>
+<p>The strategy for collecting columns is to use a set of index values defined
+by the <code>splitColumn</code>. The maximum number of input rows collected for
+each output row is equal to the number of unique values defined in the
+<code>splitColumn</code>. The <code>splitColumn</code> is used to identify a column from
+the input data that contains output column information. If a row of input has
+a value in this column that matches one of the index values, then that row's
+data will be included in the output in the column positions corresponding to
+the matched index. The index values are concatenated with the input column
+names of the collected columns to derive output column names.<br />
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+library(smwrData)
+data(QWstacked)
+group2row(QWstacked, c("site_no", "sample_dt", "sample_tm"), "parm_cd", 
+ c("result_va", "remark_cd"))
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

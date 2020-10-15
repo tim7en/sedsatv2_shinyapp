@@ -1,0 +1,434 @@
+rm(list = setdiff(ls(), ""))
+source("./source/pcg.R")
+library ("shinycssloaders")
+print ("sourcing")
+t1 <- Sys.time ()
+#source ("splashUi.R")
+library (plotly)
+source("./source/1_upload_module.R")
+print ("loaded module 1")
+source("./source/2_datacheck_module.R")
+print ("loaded module 2")
+source("./source/3_normalize_module.R")
+print ("loaded module 3")
+source("./source/4_outliers_module.R")
+print ("loaded module 4")
+source("./source/5_correctionNewModule.R")
+print ("loaded module 5")
+source("./source/6_bracket_module.R")
+print ("loaded module 6")
+source ("./source/6_1_multivariatenormalitytest.R")
+print ("loaded module 7")
+source("./source/7_dfa_module.R")
+print ("loaded module 8")
+source("./source/8_mixing_module.R")
+print ("loaded module 9")
+print ("loaded modules")
+#source ("fileupload.R")
+source("./source/convMixed.R")
+
+
+
+source("./source/check_types.R")
+source("./source/2_datacheck_functions.R")
+# Normalization and outliers removal
+source("./source/normalize_services.R")
+source("./source/func.R")
+library (shiny)
+library (shinybusy)
+source ('./source/convMixed.R')
+source ('./source/correction_func_improved.R')
+source ('./source/MultivariateTest.R')
+source("./source/FunFunc.R")
+library(dplyr)
+source ('./source/convMixed.R')
+
+
+library (shinyjs)
+t2 <- Sys.time()
+print (t1-t2)
+
+server <- function(input, output, session) {
+  
+  #ss <- callModule(splash_server, "splash_module")
+  
+  #Disable menuitem when the app loads
+  addCssClass(selector = "a[data-value='DatCheck']", class = "inactiveLink")
+  addCssClass(selector = "a[data-value='Transformations']", class = "inactiveLink")
+  addCssClass(selector = "a[data-value='Outliers']", class = "inactiveLink")
+  addCssClass(selector = "a[data-value='Correction']", class = "inactiveLink")
+  addCssClass(selector = "a[data-value='Bracket']", class = "inactiveLink")
+  addCssClass(selector = "a[data-value='MFA']", class = "inactiveLink")
+  addCssClass(selector = "a[data-value='DFA']", class = "inactiveLink")
+  addCssClass(selector = "a[data-value='mixmod']", class = "inactiveLink")
+
+  session$onSessionEnded(function() {
+    stopApp()
+  })
+  
+
+  # the modal dialog where the user can enter the query details.
+  query_modal <- modalDialog(
+    title = "Welcome!",
+    "Welcome to the first version of sediment fingerprinting tool built in Shiny framework.
+    Plase watch this short youtube video or close to advance.",
+    easyClose = F,
+    footer = tagList(
+      actionButton("watch", "Watch Tutorial"),
+      actionButton("watch_skip", "Close")
+    )
+  )
+  # Show the model on start up ...
+  #showModal(query_modal)
+
+  # function to create a modal, can be different functions as well
+  makeModal <- function(text, id) {
+    datid <- eval(parse(text = paste0("input$", id)))
+    if (is.null(datid) || isFALSE(datid)) {
+      modalDialog(
+        footer = list(modalButton("Close"), checkboxInput(id, "Prevent window from opening")),
+        p(text)
+      )
+    }
+  }
+
+
+  onBookmark(function (state){
+   # print ("saved")
+  }, session = getDefaultReactiveDomain())
+  
+
+  observeEvent(input$sbmenu, {
+    session$doBookmark()
+    removeModal(session = getDefaultReactiveDomain())
+
+    myval <- 1
+    onBookmark(function (state){
+      #print ("saved")
+    }, session = getDefaultReactiveDomain())
+
+    if (input$disableModal){
+    } else {
+      if (input$sbmenu == "DatCheck") {
+        showModal(makeModal(
+          "This block of a dashboard used to rename source if needed, impute nondetects,
+            provide right methods to convert negative values into positive or add a constant to zero values.",
+          "datcheck"
+        ))
+      } else if (input$sbmenu == "Transformations") {
+        showModal(makeModal(
+          "Current part of a dashboard used to review ladder of power of transformations,
+                            before outliers detection. Ladder of power defines optimal transformation used
+                            to normalize data and assess outliers outside of defined range from the central tendency (mean).",
+          "transfrm"
+        ))
+      } else if (input$sbmenu == "Outliers") {
+        showModal(makeModal(
+          "This part of the panel review  previously found outliers and allows user to edit source table.",
+          "outliers"
+        ))
+      } else if (input$sbmenu == "Correction") {
+        showModal(makeModal(
+          "This block of a dashboard used to correct source data for size, organic or both.",
+          "correction"
+        ))
+      } else if (input$sbmenu == "Bracket") {
+        showModal(makeModal(
+          "Current part removes elements which are outside of the source range.",
+          "bracket"
+        ))
+      } else if (input$sbmenu == "DFA") {
+        showModal(makeModal(
+          "Discriminant function used to differentiate source data before running a mixing model.",
+          "dfa"
+        ))
+      } else if (input$sbmenu == "mixmod") {
+        showModal(makeModal(
+          "Used to run a mixing model, analyze errors with a cross validation.",
+          "mix"
+        ))
+      }
+    }
+  })
+
+  observeEvent(input$watch_skip, {
+    removeModal()
+  })
+
+  observeEvent(input$watch, {
+    browseURL("https://drive.google.com/file/d/16_iSTwLFRjLduxci_CTkbS9GEDmphYQW/view?usp=sharing",
+      browser = getOption("browser"),
+      encodeIfNeeded = FALSE
+    )
+  })
+
+
+  zeroConstant <<- 0.001
+  negGlob <<- "x+1,x-1"
+
+
+  source_input <- callModule(upload_server, "source_upload")
+  target_input <- callModule(upload_server, "target_upload")
+  
+  #check if source_input and target_input contain necessary data;
+  mydf <- reactiveValues(
+    source = NULL,
+    target = NULL
+  )
+  observe({ 
+    mydf$source <- source_input[[2]]$data
+    mydf$target <- target_input[[2]]$data
+    query_modal <- NA
+    #if column name of source and target matches
+    #browser ()
+    if (!is.null(mydf$source) && !is.null(mydf$target)){
+      cond <- xtab_set(names(mydf$source),names(mydf$target))
+      if (length(rownames(cond)) == 1){
+          removeCssClass(selector = "a[data-value='DatCheck']", class = "inactiveLink")
+        } else {
+          addCssClass(selector = "a[data-value='DatCheck']", class = "inactiveLink")
+        }
+    } else {
+        #mydf$source = NULL
+        #mydf$target = NULL
+        NULL
+      }
+    })
+  
+  dat_check <- callModule (sidebar_func, "source_check", source_input[[1]], target_input[[1]])
+  
+  #check if dat_check contain necessary data;
+  mydfDataCheck <- reactiveValues(
+    data = NULL
+  )
+  observe({ 
+    mydfDataCheck$data <- dat_check[[1]]()
+    #Check if data has missing values;
+    #Check if data input (column names does not match names of the target);
+    #if column name of source and target matches
+    #if number of source samples for specific source less then 3,
+    #throw err
+    if (!is.null(mydfDataCheck$data) && !is.null(mydf$target)){
+      cond <- xtab_set(names(mydfDataCheck$data),names(mydf$target))
+      if (length (rownames (cond)) > 1){
+        NULL
+      } else {
+      if (any(apply(mydf$target, 2, function(x) any(is.na(x))))){
+        addCssClass(selector = "a[data-value='Transformations']", class = "inactiveLink")
+      }
+      
+      if (any(apply(mydfDataCheck$data, 2, function(x) any(is.na(x))))){
+        addCssClass(selector = "a[data-value='Transformations']", class = "inactiveLink")
+      }
+      
+      sourceNeg <- apply (mydfDataCheck$data[,-c(1,2)], 2, findNegatives)
+
+      sourceZero <- apply (mydfDataCheck$data[,-c(1,2)], 2, findZero)
+      sourceNa <- apply (mydfDataCheck$data[,-c(1,2)], 2, findNA)
+      sourceNumeric <- apply (mydfDataCheck$data[,-c(1,2)], 2, findChars)
+      sourceConditions <- data.frame(sourceNeg, sourceZero,sourceNa,sourceNumeric)
+
+      targetNeg <- apply (mydf$target[,-c(1,2)], 2, findNegatives)
+      targetZero <- apply (mydf$target[,-c(1,2)], 2, findZero)
+      targetNa <- apply (mydf$target[,-c(1,2)], 2, findNA)
+      targetNumeric <- apply (mydf$target[,-c(1,2)], 2, findChars)
+      targetConditions <- data.frame(targetNeg, targetZero,targetNa,targetNumeric)
+
+       if (nrow(sourceConditions) != nrow(targetConditions)){
+         print ("failed number of samples")  
+         addCssClass(selector = "a[data-value='Transformations']", class = "inactiveLink")
+        } else {
+        if (any(as.data.frame (table(mydfDataCheck$data[,2]))$Freq < 3)){
+          print ("failed number of samples")  
+          addCssClass(selector = "a[data-value='Transformations']", class = "inactiveLink")
+        } else if (length(rownames(cond)) != 1){
+          print ("failed rownames")
+          addCssClass(selector = "a[data-value='Transformations']", class = "inactiveLink")
+        } else if (any(sourceConditions != targetConditions)){
+          
+          # the modal dialog where the user can enter the query details.
+          query_modal <<- modalDialog(
+            title = "Warning!",
+            "We found differences in range of values for source and target samples. If isotopes included in the source and target samples, please ignore current warning.",
+            easyClose = T
+          )
+          removeCssClass(selector = "a[data-value='Transformations']", class = "inactiveLink")
+        } else {
+          removeCssClass(selector = "a[data-value='Transformations']", class = "inactiveLink")
+        }
+        }
+      }
+    }
+  })
+  
+  
+  normalize <- callModule(normalize_server, "transform", dat_check[[1]])
+  
+  observe ({
+    
+    if (any(is.na(query_modal))){
+    } else {
+      #showModal(query_modal)
+    }
+    
+    mydfDataCheck$data <- normalize[[2]]$data
+    if (is.null(normalize[[2]]$data)){
+    } else {
+        removeCssClass(selector = "a[data-value='Outliers']", class = "inactiveLink")
+      }
+  })
+  
+  outliers <- callModule(outliers_server, "outliers", dat_check[[1]], normalize[[1]])
+  
+  observe ({
+      mydfDataCheck$data <- outliers[[2]]$data
+      if (is.null(outliers[[2]]$data)){
+      }else {
+        removeCssClass(selector = "a[data-value='Correction']", class = "inactiveLink")
+      }
+  })
+
+  correction <- callModule (correction_server, "correct", outliers[[1]], target_input[[1]]) #corrected sourceinput list
+  
+  observe ({
+      mydfDataCheck$data <- correction[[2]]$data
+      if (is.null(correction[[2]]$data)){
+      }else {
+        removeCssClass(selector = "a[data-value='Bracket']", class = "inactiveLink")
+      }
+
+  })
+
+  bracket <- callModule (bracket_server, "bracket_f", correction[[1]], target_input[[1]]) #target input with drop
+  
+  observe ({
+    mydfDataCheck$data <- bracket[[2]]$data
+    if (is.null(bracket[[2]]$data)){
+    }else {
+      removeCssClass(selector = "a[data-value='MFA']", class = "inactiveLink")
+    }
+
+  })
+
+  multivarNormality <- callModule (multivariate_server, "multivariate_ui", correction[[1]], bracket[[1]], target_input[[1]])
+  
+  observe ({
+    mydfDataCheck$data <- multivarNormality[[2]]$data
+    if (is.null(multivarNormality[[2]]$data)){
+    }else {
+      removeCssClass(selector = "a[data-value='DFA']", class = "inactiveLink")
+    }
+
+  })
+
+  dfa <- callModule (dfa_server, "dfa_f", multivarNormality[[1]], bracket[[1]], target_input[[1]])
+  
+  observe ({
+    mydfDataCheck$data <- dfa[[2]]$data
+    if (is.null(dfa[[2]]$data)){
+    }else {
+      removeCssClass(selector = "a[data-value='mixmod']", class = "inactiveLink")
+    }
+  })
+
+  mixing <- callModule (mixing_server, "mixing_m", correction[[1]], target_input[[1]], dfa[[1]])
+}
+
+
+ui <- function (req) {dashboardPage(
+  dashboardHeader(title = "Shiny_Sedsat"),
+  dashboardSidebar(
+    sidebarMenu(
+      id = "sbmenu",
+      tags$head(tags$style(".inactiveLink {
+                            pointer-events: none;
+                           cursor: default;
+                           }")),
+      menuItem("1. INPUT", tabName = "dataInput", icon = icon("upload")),
+      menuItem("2. DATA CHECK", tabName = "DatCheck", icon = icon("calendar-check")),
+      menuItem("3. TRANSFORMATION", tabName = "Transformations", icon = icon("refresh")),
+      menuItem("4. OUTLIERS", tabName = "Outliers", icon = icon("remove")),
+      menuItem("5. SIZE & TOC CORRECTION", tabName = "Correction", icon = icon("random")),
+      menuItem("6. BRACKET TEST", tabName = "Bracket", icon = icon("braille")),
+      menuItem("7. MULTIVARIATE NORMALITY", tabName = 'MFA', icon = icon('list-alt')),
+      menuItem("8. DISCRIMINANT FUNCTION", tabName = "DFA", icon = icon("tasks")),
+      menuItem("9. MIXING MODEL", tabName = "mixmod", icon = icon("rocket"))
+    )
+  ),
+  dashboardBody(
+    useShinyjs(),
+    #fluidRow(splash_ui("splash_module")),
+    tags$img(
+      src = "http://wallpics4k.com/wp-content/uploads/2014/07/470318.jpg",
+      style = 'position: absolute'
+    ),
+    
+    tabItems(
+      tabItem( # First tab content
+        tabName = "dataInput",
+        tabsetPanel(
+          tabPanel(
+            "Source",
+            use_busy_spinner(spin = "pixel", color = "#1230bf", margins = c(10, 10), spin_id = NULL, height = "250px",
+                             width = "250px", position = "bottom-right"),
+            upload_ui("source_upload")
+          ),
+          tabPanel(
+            "Target",
+            use_busy_spinner(spin = "pixel", color = "#1230bf", margins = c(10, 10), spin_id = NULL, height = "250px",
+                             width = "250px", position = "bottom-right"),
+            upload_ui("target_upload")
+          )
+        )
+      ),
+      tabItem(
+        tabName = "DatCheck",
+        tabPanel(
+          "Data check",
+          sidebarLayout(
+            sidebarPanel(
+              my_sidebar("source_check")
+            ),
+            mainPanel(
+              my_mainpage("source_check")
+            )
+          )
+        )
+      ),
+      tabItem(
+        tabName = "Transformations",
+        normalize_ui("transform")
+      ),
+      tabItem(
+        tabName = "Outliers",
+        outliers_ui("outliers")
+      ),
+      tabItem(
+        tabName = "Correction",
+        correction_ui("correct")
+      ),
+      tabItem(
+        tabName = "Bracket",
+        bracket_ui("bracket_f")
+      ),
+      tabItem(
+        tabName = "MFA",
+        multivariate_ui ("multivariate_ui")
+      ),
+      
+      tabItem(
+        tabName = "DFA",
+        dfa_ui("dfa_f")
+      ),
+      tabItem(
+        tabName = "mixmod",
+        mixing_ui("mixing_m")
+      )
+    )
+  )
+)
+}
+
+options(shiny.autoreload = TRUE)
+enableBookmarking(store = "server")
+shinyApp(ui, server)

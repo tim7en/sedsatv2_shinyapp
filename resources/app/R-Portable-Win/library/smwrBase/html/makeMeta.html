@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Metadata</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for makeMeta {smwrBase}"><tr><td>makeMeta {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Metadata</h2>
+
+<h3>Description</h3>
+
+<p>Create a template meta file for a CSV file. The meta file is used by
+<code>importCSV</code> to define column types.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+makeMeta(file.name = "")
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>file.name</code></td>
+<td>
+<p>the name of the CSV file, which may include the path.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>The name of the meta file that was created.
+</p>
+
+
+<h3>Note</h3>
+
+<p>The meta file that is created will only contain column types of
+character, numeric, integer, and logical. It may need to be edited by the
+user to redefine the column types actually needed for the data, for example
+columns of class &quot;Date,&quot; &quot;POSIXct,&quot; or &quot;factor.&quot;
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="importCSV.html">importCSV</a></code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

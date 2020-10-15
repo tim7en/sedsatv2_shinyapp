@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Decimal Time</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for dectime {smwrBase}"><tr><td>dectime {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Decimal Time</h2>
+
+<h3>Description</h3>
+
+<p>Convert date/time data to be expressed as year and fractional part of year. This
+can be useful for plotting or representing time in a regression model.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+dectime(dates, times, time.format, date.format, Date.noon = TRUE,
+  year.type = c("calendar", "water", "climate"))
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dates</code></td>
+<td>
+<p>a vector of a valid date object, or character representation of
+dates. Missing values are permitted and produce corresponding missing
+values in the output.</p>
+</td></tr>
+<tr valign="top"><td><code>times</code></td>
+<td>
+<p>a character representation of times. Missing values are
+permitted and produce corresponding missing values in the output.</p>
+</td></tr>
+<tr valign="top"><td><code>time.format</code></td>
+<td>
+<p>format to convert <code>times</code>. See <b>Details</b>.</p>
+</td></tr>
+<tr valign="top"><td><code>date.format</code></td>
+<td>
+<p>format to convert <code>dates</code> is character.</p>
+</td></tr>
+<tr valign="top"><td><code>Date.noon</code></td>
+<td>
+<p>logical, if <code>TRUE</code> and <code>dates</code> is class &quot;Date,&quot; then
+set set the time to noon, otherwise no time adjustment is made. See <b>Details</b>.</p>
+</td></tr>
+<tr valign="top"><td><code>year.type</code></td>
+<td>
+<p>a character string indicating the type of year to determine the
+offset, must be one of &quot;calendar,&quot; &quot;water,&quot; or &quot;climate.&quot;</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The format for <code>times</code> must be one of &quot;hm,&quot; &quot;hms,&quot; or &quot;ms.&quot; Note that
+this is actually a conversion function, see <b>See Also</b>. If <code>times</code>
+is missing, <code>dates</code> is class &quot;Date,&quot; and <code>Date.noon</code> is <code>TRUE</code>,
+then set the time to 12:00, so that the decimal time represents the center of
+the day.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A vector representation of the data in decimal format&ndash;year and
+decimal fraction.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../lubridate/html/hm.html">hm</a></code>, <code><a href="../../base/html/strptime.html">strptime</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+
+dectime("11/11/1918", date.format="%m/%d/%Y")
+dectime(1988:1990)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

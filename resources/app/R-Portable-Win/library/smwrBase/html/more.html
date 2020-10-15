@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Display Data</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for more {smwrBase}"><tr><td>more {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Display Data</h2>
+
+<h3>Description</h3>
+
+<p>Display the contents of an object by pages.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+more(x, n = 20L, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>any valid object, generally a data frame, matrix, or table.</p>
+</td></tr>
+<tr valign="top"><td><code>n</code></td>
+<td>
+<p>a positive integer indicating how many lines to print for a page.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>additional arguments to be passed to methods for <code>head</code> or
+<code>tail</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>The object <code>x</code> is returned invisibly. Sections of <code>x</code> of
+length <code>n</code> are displayed during the execution of the function.
+</p>
+
+
+<h3>Note</h3>
+
+<p>The function <code>more</code> is intended for interactive sessions. If used
+in a non-interactive session, it simply returns <code>x</code> invisibly.
+</p>
+<p>Several keyboard commands can be used to view the contents of <code>x</code>. The 
+function <code>more</code> will display <code>n</code> lines of <code>x</code> and wait for 
+user input. Any of the following commands can be entered by the user; 
+either upper- or lowercase letters are accepted.
+</p>
+<p><code>q</code> Quit
+</p>
+<p><code>t</code> Go to top of <code>x</code>
+</p>
+<p><code>b</code> Go to bottom of <code>x</code>
+</p>
+<p><code>u</code> Go up 1/2 page
+</p>
+<p><code>p</code> Go to previous page
+</p>
+<p><code>d</code> Go down 1/2 page
+</p>
+<p><code>colName/pattern</code> Search for pattern in the column named colName
+</p>
+<p><code>h</code> or <code>?</code> Print help
+</p>
+<p><code>any other letter</code> Go down full page
+</p>
+<p>Searching for a pattern in a column uses <code>grep</code> to search for the
+specified pattern in the character representation of the data in the column.
+This makes it possible to search columns that are not type character.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../utils/html/head.html">head</a></code>, <code><a href="../../utils/html/tail.html">tail</a></code>, <code><a href="../../base/html/grep.html">grep</a></code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

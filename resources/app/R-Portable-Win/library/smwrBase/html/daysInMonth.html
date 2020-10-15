@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Days in a Month</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for daysInMonth {smwrBase}"><tr><td>daysInMonth {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Days in a Month</h2>
+
+<h3>Description</h3>
+
+<p>Computes the number of days in a month or the total number of days in the
+year to the end of the month.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+daysInMonth(month, year, cum = FALSE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>month</code></td>
+<td>
+<p>the month number, must range in value from 1 to 12. Missing
+values are permitted.</p>
+</td></tr>
+<tr valign="top"><td><code>year</code></td>
+<td>
+<p>the calendar year, replicated in length to match <code>month</code>.
+Missing values are permitted.</p>
+</td></tr>
+<tr valign="top"><td><code>cum</code></td>
+<td>
+<p>a logical value. If <code>TRUE</code>, then return the cumulative days during the calendar year
+at the end of each month. If <code>FALSE</code>, then return the number of days in the month.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A vector matching <code>month</code> of the requested number of days.
+Missing values are returned wherever either <code>month</code> or <code>year</code> is
+missing.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+# Check February on a leap year and regular year.
+# Should return 29, 28
+daysInMonth(c(2,2), c(2000, 2001))
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

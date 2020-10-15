@@ -1,0 +1,12 @@
+exportPattern("^[[:alpha:]]+")
+useDynLib(sROC)
+
+# functions
+export(kCDF, print.CDF, bw.CDF, bw.CDF.pi, CI.CDF, plot.CDF, kROC, print.ROC, plot.ROC, AUC, print.AUC)
+
+
+S3method(print, CDF)
+S3method(print, ROC)
+S3method(print, AUC)
+S3method(plot, CDF)
+S3method(plot, ROC)

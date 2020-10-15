@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Merge Datasets</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for mergeNearest {smwrBase}"><tr><td>mergeNearest {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Merge Datasets</h2>
+
+<h3>Description</h3>
+
+<p>Merge two datasets based on the the nearest date between each observation.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+mergeNearest(left, dates.left = "DATES", all.left = FALSE,
+  suffix.left = "left", right, dates.right = "DATES",
+  suffix.right = "right", Date.noon = TRUE, max.diff = "7 days")
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>left</code></td>
+<td>
+<p>the left-hand dataset.</p>
+</td></tr>
+<tr valign="top"><td><code>dates.left</code></td>
+<td>
+<p>the name of the column of dates in the left-hand dataset.</p>
+</td></tr>
+<tr valign="top"><td><code>all.left</code></td>
+<td>
+<p>logical (<code>TRUE</code> or <code>FALSE</code>), include all rows from the 
+left-hand dataset regardless of
+whether there is a matching row in the right-hand dataset?</p>
+</td></tr>
+<tr valign="top"><td><code>suffix.left</code></td>
+<td>
+<p>the suffix to apply to common column names in the
+left-hand dataset.</p>
+</td></tr>
+<tr valign="top"><td><code>right</code></td>
+<td>
+<p>the right-hand dataset.</p>
+</td></tr>
+<tr valign="top"><td><code>dates.right</code></td>
+<td>
+<p>the name of the column of dates in the right-hand dataset.</p>
+</td></tr>
+<tr valign="top"><td><code>suffix.right</code></td>
+<td>
+<p>the suffix to apply to common column names in the
+right-hand dataset.</p>
+</td></tr>
+<tr valign="top"><td><code>Date.noon</code></td>
+<td>
+<p>logical (<code>TRUE</code> or <code>FALSE</code>), adjust columns of 
+class &quot;Date&quot; to represent a noon observation rather than 12 a.m.?</p>
+</td></tr>
+<tr valign="top"><td><code>max.diff</code></td>
+<td>
+<p>the maximum allowable difference in time for a match. See
+<b>Details</b>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The format for <code>max.diff</code> should be a numeric value followed by a
+description of the time span. The time span must be one of &quot;secs,&quot; &quot;mins,&quot;
+&quot;hours,&quot; &quot;days,&quot; or &quot;weeks&quot; for seconds, minutes, hours, days, or weeks,
+respectively.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A data frame of the merged data with common column names renamed by
+the <code>suffix</code> arguments to avoid conflict.
+</p>
+
+
+<h3>Note</h3>
+
+<p>Water-quality data taken at a specific time frequently need to be
+merged with daily flow data or merged with other water-quality data such as
+replicate samples or samples of a different medium taken at about the same
+time, but having a different time stamp.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="mergeQ.html">mergeQ</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+
+library(smwrData)
+data(Q05078470)
+data(QW05078470)
+# Set the actual time of sampling in QW05078470
+QW05078470 &lt;- transform(QW05078470, DATES=DATES + as.timeDay(TIMES))
+mergeNearest(QW05078470, right=Q05078470)
+# Notice the difference in selected dates
+mergeNearest(QW05078470, right=Q05078470, Date.noon=FALSE)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,1174 @@
+15*12
+1668.52-1658.26
+52831-50984
+85569*.02
+95239.2*.002
+lower
+lowercase
+tolower(STRENGTHENED FUNCTIONAL CONNECTIVITY IN THE BRAIN DURING MUSCLE FATIGUE)
+tolower("STRENGTHENED FUNCTIONAL CONNECTIVITY IN THE BRAIN DURING MUSCLE FATIGUE")
+180*4*5
+tolower("EEG FREQUENCIES: EVIDENCE OF CENTRAL ORIGIN OF CANCER RELATED FATIGUE ")
+library(decon)
+180*4*5
+70000/52
+70000/52*12
+75000/52*12
+library(NPsimex)
+(133+15)*4-70
+17*40*52
+17*40*51
+17*40*52
+20*40*52
+22*40*52
+20*40*52
+17*40*52
+17*40*50
+18*40*50
+17*40*50
+20*40*50
+22*40*50
+17*40*50
+31000*.7/12
+32000*.7/12
+0.00047/sqrt(500)
+0.00047/sqrt(500)*100
+0.00047/sqrt(200)*100
+0.00047*100
+0.00047/sqrt(100)*100
+0.00049/100
+0.00049*100
+0.00011*100
+0.00011*sqrt(500)/sqrt(100)*100
+0.00011*sqrt(1000)/sqrt(100)*100
+0.00005*sqrt(1000)/sqrt(100)*100
+0.00027*sqrt(1000)/sqrt(100)*100
+0.00008*sqrt(1000)/sqrt(100)*100
+0.00005*sqrt(1000)/sqrt(100)*100
+0.00007*sqrt(1000)/sqrt(100)*100
+0.00004*sqrt(1000)/sqrt(100)*100
+pnorm((0.493-0.432)/0.022)
+pnorm((0.493-0.432)/0.029)
+pnorm(1.96)
+pnorm((0.493-0.432)/0.05)
+pnorm((0.493-0.432)/0.04)
+pnorm((0.207-0.201)/0.02)
+pnorm((0.207-0.201)/0.01)
+pnorm((0.332-0.313)/0.015)
+pnorm((0.332-0.313)/0.025)
+pnorm((0.207-0.201)/0.03)
+1-pnorm((0.207-0.201)/0.03)/2
+pnorm((0.727-0.711)/0.051)
+pnorm((0.332-0.313)/0.025)
+1-pnorm((0.332-0.313)/0.025)/2
+1-pnorm((0.332-0.313)/0.015)/2
+1-pnorm((0.493-0.432)/0.032)/2
+1-pnorm((0.493-0.432)/0.022)/2
+pnorm((0.493-0.432)/0.022)
+1-pnorm(1.96)/2
+(1-pnorm(1.96))/2
+(1-pnorm(1.96))*2
+(1-pnorm((0.493-0.432)/0.022))*2
+(1-pnorm((0.493-0.432)/0.042))*2
+(1-pnorm((0.493-0.432)/0.032))*2
+(1-pnorm((0.493-0.432)/0.048))*2
+(1-pnorm((0.207-0.201)/0.028))*2
+(1-pnorm((0.207-0.201)/0.018))*2
+(1-pnorm((0.401-0.387)/0.048))*2
+(1-pnorm((0.401-0.387)/0.038))*2
+(1-pnorm((0.493-0.432)/0.038))*2
+(1-pnorm((0.493-0.432)/0.032))*2
+(1-pt((0.493-0.432)/0.032,99))*2
+(1-pt((0.332-0.313)/0.017,99))*2
+(1-pt((0.332-0.313)/0.015,99))*2
+(1-pt((0.207-0.201)/0.015,99))*2
+(1-pnorm((0.207-0.201)/0.015))*2
+(1-pnorm((0.401-0.387)/0.035))*2
+(1-pnorm((0.401-0.387)/0.037))*2
+90*.24
+library(mgcv)
+set.seed(0) ## simulate some data... #
+dat <- gamSim(1,n=400,dist="normal",scale=2)#
+b<-gam(y~s(x0)+s(x1)+s(x2)+s(x3),data=dat)#
+summary(b)#
+plot(b,pages=1,residuals=TRUE)  ## show partial residuals#
+plot(b,pages=1,seWithMean=TRUE) ## `with intercept' CIs
+b
+summary(b)
+names(b)
+b$coeff
+75*21
+75*25
+167271.95+2570.02
+167271.95+2570
+family=quasi(variance="mu^2", link="log")
+quasi
+20*50+33
+550/11
+550/22
+require(graphics)
+car
+cars
+cor(rnorm(11),rnorm(11))
+1087/1359
+1087.2/1359
+1087.2*1.0775
+1087.2*1.0775-1349
+5+820+1.79+2.54+4.6+42.8+58.2+17.2
+ 58.20+17.2
+ 58.20+17.29
+58.2+17.29+1.79+2.54+4.6+42.8
+58.2+17.29+1.79+2.54+4.6+42.8+5+820
+library(caret)
+library("caret")#
+set.seed(1)#
+inTrain <- createDataPartition(mutagen, p = 3/4, list = FALSE)
+data(mutagen)
+/Users/wangx6/Downloads/caret/inst/doc/caretTrain.Rnw
+library(caret)#
+library(kernlab)#
+library(gbm)#
+library(ipred)#
+library(grid)#
+library(randomForest)#
+data(BloodBrain)#
+data(mdrr)
+print(ncol(mdrrDescr))
+mdrr
+#
+mdrrDescr
+dim(#
+mdrrDescr)
+#
+mdrrDescr[1:2,]
+mdrrClass
+820-340
+480+238+120
+480+238+127.22
+480+238+127.22-1000
+480+78+70.8+87
+140.01-104.01
+747.8-715.8
+1359*.8
+1359*.8*1.0775
+703*.8*1.0775
+1350-1359*.8*1.0775
+sqrt(4)
+4^{1/2}
+library(R2jags)
+model.file <- system.file(package="R2jags", "model", "schools.txt")#
+  # Let's take a look:#
+  file.show(model.file)#
+#
+  # data#
+  J <- 8.0#
+  y <- c(28.4,7.9,-2.8,6.8,-0.6,0.6,18.0,12.2)#
+  sd <- c(14.9,10.2,16.3,11.0,9.4,11.4,10.4,17.6)#
+#
+  jags.data <- list("y","sd","J")#
+  jags.params <- c("mu","sigma","theta")#
+  jags.inits <- function(){#
+    list("mu"=rnorm(1),"sigma"=runif(1),"theta"=rnorm(J))#
+  }#
+  #
+#=============##
+# using jags  ##
+#=============##
+  jagsfit <- jags(data=jags.data, inits=jags.inits, jags.params, #
+    n.iter=5000, model.file=model.file)
+  # run jags parallely, no progress bar, so be patient, currenlty cannot be updated.#
+  jagsfit.parallel <- jags(data=jags.data, inits=jags.inits, jags.params, #
+    n.iter=5000, model.file=model.file)#
+    #
+  # display the output#
+  print(jagsfit)#
+  plot(jagsfit)
+120*1.03
+library(MCMCglmm)
+data(PlodiaPO)  #
+model1<-MCMCglmm(PO~1, random=~FSfamily, data=PlodiaPO, verbose=FALSE)#
+summary(model1)
+a=runif(100)
+a
+b=0.5*log((1+a)/(1-a))
+b
+plot(b)
+b2=log(a/(1-a))
+plot(b2)
+library(mgcv)
+s
+formula.gam
+gam.models
+gam
+s
+gam
+825000/3
+10000/120
+12000*1.26*1.5
+0.5/sqrt(10)
+hist(rnorm(100,sd=0.1,mean=0.25))
+hist(rnorm(100,sd=0.05,mean=0.25))
+hist(rnorm(10000,sd=0.05,mean=0.25))
+hist(rnorm(100,sd=0.1,mean=0.25))
+hist(rnorm(10000,sd=0.1,mean=0.25))
+hist(rnorm(10000,sd=0.05,mean=0.25))
+120*1.03^5
+120*1.03^5*1.15
+117*1.03^5*1.15
+130*1.03^5*1.15
+(15*3)*0.6
+(12*3)*0.6
+11.75*1.1
+curve(1/(1+exp(-1-x)), from=-10, to=10)
+75000*1.26/2
+13000*.25*1.26
+13000*.30*1.26
+# Code to do penalized spline with #
+#   q-order difference penalties (q=0-3)#
+#    (if q is anything else, no penalty is applied)#
+#  Uses B-splines #
+##
+# scatterplot is (x[i],y[i]); k=number of knots (k-2 interior knots), #
+# and pen=penalty#
+# returns GCV value for unconstrained & constrained splines#
+#   type:  1=monotone increasing #
+#          2=monotone decreasing#
+#          3=convex#
+#          4=concave#
+#          5=convex increasing#
+#          6=convex decreasing#
+#          7=concave increasing#
+#          8=concave decreasing#
+##
+#  returns: cfit = constrained fit#
+#           ucfit = unconstrained fit#
+#           cgcv = constrained GCV#
+#           ucgcv = unconstrained GCV#
+#           edfc = effective degrees of freedom for constrained fit#
+#           edfu = effective degrees of freedom for unconstrained fit#
+#           knots#
+#           xpl = grid of points for plotting smooth fits#
+#           cpl = constrained fit values at xpl#
+#           ucpl = unconstrained fit values at xpl#
+#
+penspl=function(type,x,y,k,q,pen){#
+	n=length(y)#
+	sm=1e-8#
+	if(type<=2){#
+		ans=bqspline(x,k)#
+	}else{ans=bcspline(x,k)}#
+	m=length(ans$edges)/n#
+	delta=t(ans$edges)#
+	dmat=matrix(0,nrow=m-q,ncol=m)#
+#  third-order#
+	if(q==3){#
+		for(i in 4:m){#
+			dmat[i-3,i-3]=1;dmat[i-3,i-2]=-3;dmat[i-3,i-1]=3;dmat[i-3,i]=-1#
+		}#
+	}#
+# second order#
+	if(q==2){#
+		for(i in 3:m){#
+			dmat[i-2,i-2]=1;dmat[i-2,i-1]=-2;dmat[i-2,i]=1#
+		}#
+	}#
+# first order#
+	if(q==1){#
+		for(i in 2:m){#
+			dmat[i-1,i-1]=1;dmat[i-1,i]=-1#
+		}#
+	}#
+# zero order#
+	if(q==0){#
+		for(i in 1:m){#
+			dmat[i,i]=1#
+		}#
+	}#
+# if q is anything else, no penalty#
+	qmat=delta%*%t(delta)+pen*t(dmat)%*%dmat#
+	umat=chol(qmat)#
+	if(type<=1){#
+		smat=ans$slopes#
+	}else{smat0=ans$d2}#
+	if(type==3){smat=smat0}#
+	if(type==4){smat=-smat0}#
+	if(type==5){#
+		smat=matrix(0,ncol=m-1,nrow=m)#
+		smat[,1:(m-2)]=smat0#
+		smat[1,m-1]=-1;smat[2,m-1]=1#
+	}#
+	if(type==6){#
+		smat=matrix(0,ncol=m-1,nrow=m)#
+		smat[,1:(m-2)]=smat0#
+		smat[1,m-1]=1;smat[2,m-1]=-1#
+	}#
+	if(type==7){#
+		smat=matrix(0,ncol=m-1,nrow=m)#
+		smat[,1:(m-2)]=-smat0#
+		smat[m-1,m-1]=-1;smat[m,m-1]=1#
+	}#
+	if(type==8){#
+		smat=matrix(0,ncol=m-1,nrow=m)#
+		smat[,1:(m-2)]=-smat0#
+		smat[m-1,m-1]=1;smat[m,m-1]=-1#
+	}#
+	xpl=ans$xpl#
+	bpl=ans$bpl#
+	knots=ans$knots#
+	uinv=solve(umat)#
+# make cone edges#
+	bmata=t(smat)%*%uinv#
+	bmat=matrix(0,ncol=m,nrow=m)#
+	if(type==3|type==4){#
+		perpmat=matrix(nrow=2,ncol=m)#
+		uvec=matrix(runif(2*m),nrow=m,ncol=2)#
+		perpmat=uvec-t(bmata)%*%solve(bmata%*%t(bmata))%*%bmata%*%uvec#
+		bmat[1:2,]=t(perpmat)#
+		bmat[3:m,]=bmata#
+		#
+	}else{#
+		uvec=runif(m)#
+		perpvec=uvec-t(bmata)%*%solve(bmata%*%t(bmata))%*%bmata%*%uvec#
+		bmat[1,]=perpvec#
+		bmat[2:m,]=bmata#
+	}#
+	edges=t(solve(bmat))#
+	ysend=t(uinv)%*%delta%*%y#
+	np=1;if(type==3|type==4){np=2}#
+	coef=hinge(ysend,edges,np)#
+	beta=uinv%*%t(edges)%*%coef#
+	yhat=t(delta)%*%beta#
+	qinv=solve(qmat)#
+	pmat=t(delta)%*%qinv%*%delta#
+	ytil=pmat%*%y#
+	edfu=sum(diag(pmat))#
+	cv=sum((y-ytil)^2)/(1-edfu/n)^2#
+# Compute cv for constrained fit#
+	index=coef>sm#
+	index[1]=TRUE#
+	gmat=edges[index,]#
+	if(length(gmat)/m==1){gmat=matrix(gmat,ncol=m)}#
+	pcmat=t(delta)%*%uinv%*%t(gmat)%*%solve(gmat%*%t(gmat))%*%gmat%*%t(uinv)%*%delta#
+	edfc=sum(diag(pcmat))#
+	cvc=sum((y-yhat)^2)/(1-edfc/n)^2#
+	ans=new.env()#
+	ans$cfit=yhat#
+	ans$ucfit=ytil#
+	ans$ucgcv=cv#
+	ans$cgcv=cvc#
+	ans$edfu=edfu#
+	ans$edfc=edfc#
+	ans$xpl=xpl#
+	ans$cpl=bpl%*%beta#
+	ans$ucpl=bpl%*%qinv%*%delta%*%y#
+	ans$knots=knots#
+	ans#
+}#
+	#
+#
+#
+#
+#
+#############################################
+##
+# Here is the generic hinge code: #
+# project y onto the cone defined by sigma #
+# First p rows of sigma are unconstrained#
+##
+# Next rows of sigma are edge vectors#
+# #
+# returns coefficient vector#
+##
+#############################################
+hinge=function(y,sigma,p){#
+#
+n=length(y)#
+m=length(sigma)/n#
+sm=0.00000001#
+#
+# Do Gram-Schmidt orthogonalization of first p rows#
+#
+if(p>0){#
+	q1=sigma[1,]/sqrt(sum(sigma[1,]^2))#
+}#
+q=matrix(q1,ncol=1,nrow=n)#
+if(p>1){#
+	for(i in 2:p){#
+		q1=sigma[i,]-q%*%solve(t(q)%*%q)%*%t(q)%*%sigma[i,]#
+		q1=q1/sqrt(sum(q1^2))#
+		q=cbind(q,q1)#
+	}#
+}#
+l=p#
+if(p>0){#
+	h=1:p#
+	ones=1:p*0+1#
+	r=diag(ones,nrow=p,ncol=p)#
+}#
+#
+# add one edge to start#
+#
+check=0#
+if(p==0){rhat=y}#
+if(p>0){rhat=y-q%*%solve(t(q)%*%q)%*%t(q)%*%y}#
+b2=sigma%*%rhat#
+#
+if(max(b2[(p+1):m])>sm){#
+  obs=(p+1):m#
+  i=min(obs[b2[(p+1):m]==max(b2[(p+1):m])])#
+  l=p+1#
+  if(p==0){#
+    q=sigma[i,]#
+    q=q/sqrt(sum(q^2))#
+    h=i#
+    r=matrix(1,nrow=1,ncol=1)#
+  }#
+  if(p>0){#
+	q1=sigma[i,]-q%*%solve(t(q)%*%q)%*%t(q)%*%sigma[i,]#
+	q1=q1/sqrt(sum(q1^2))#
+	q=cbind(q,q1)#
+	h[l]=i#
+	r=t(q)%*%t(sigma[h,])#
+  }#
+}#
+if(max(b2[(p+1):m])<(sm)){#
+  check=1#
+}#
+if(check==1){a=t(q)%*%y}#
+# LOOP starts here:#
+nrep=0#
+while(check==0 & nrep<1000){#
+nrep=nrep+1#
+# Fit data to current EDGES#
+#
+a=t(q)%*%y#
+ #
+# check if convex: #
+#first find the b vector:#
+b=1:l*0#
+if(l>1){b[l]=a[l]/r[l,l]#
+	for( j in (l-1):1){#
+		b[j]=a[j]#
+		for(i in (j+1):l){#
+			b[j]=b[j]-r[j,i]*b[i]#
+		}#
+		b[j]=b[j]/r[j,j]#
+	}#
+}else{b[l]=a[l]/r}#
+#
+#check to see if b positive#
+#
+if(l>p){#
+	obs=(p+1):l#
+	i=obs[b[(p+1):l]==min(b[(p+1):l])]#
+	if(b[i]<(-sm)){#
+# if not, remove hinge, make new q and r#
+		c1=0#
+		if(i>1){h=c(h[1:(i-1)],h[(i+1):l])}else{h=h[2:l]}#
+		l=l-1#
+		if(i>1){#
+			q=q[,1:(i-1)]#
+		    for( j in i:l){#
+		       qnew=sigma[h[j],]-q%*%t(q)%*%sigma[h[j],]#
+		       qnew=qnew/sqrt(sum(qnew^2))#
+		       q=cbind(q,qnew)#
+    		}#
+    		r=t(q[,1:l])%*%t(sigma[h,])#
+		}#
+		if(i==1&l>1){#
+			q[,1]=sigma[h[1],]/sqrt(sum(sigma[h[1],]^2))#
+			for(j in 2:l){#
+       		qnew=sigma[h[j],]-q[,1:(j-1)]%*%t(q[,1:(j-1)])%*%sigma[h[j],]#
+       		qnew=qnew/sqrt(sum(qnew^2))#
+       		q=cbind(q[,1:(j-1)],qnew)#
+    		}#
+    		r=t(q[,1:l])%*%t(sigma[h,])#
+		}	#
+		if(i==1&l==1){#
+			q[,1]=sigma[h[1],]/sqrt(sum(sigma[h[1],]^2))#
+			r=matrix(1,nrow=1,ncol=1)#
+		}	#
+		q=q[,1:l]#
+	}#
+}#
+if(b[i]>(-sm)) {#
+c1=1#
+##
+# now see if we need to add another hinge#
+##
+theta=q%*%t(q)%*%y#
+rhat=y-theta#
+b2=sigma%*%rhat#
+#
+# check to see if b2 negative#
+#
+obs=(p+1):m#
+i=min(obs[b2[(p+1):m]==max(b2[(p+1):m])])#
+if(l<m&l>0){if(b2[i]>sm){#
+l=l+1#
+qnew=sigma[i,]-q%*%t(q)%*%sigma[i,]#
+qnew=qnew/sqrt(sum(qnew^2))#
+q=cbind(q,qnew)#
+h=c(h,i)#
+r=t(q)%*%t(sigma[h,])#
+c2=0#
+}}#
+if(b2[i]<sm){c2=1}#
+check=c1*c2#
+h#
+}#
+}#
+# find coefficient vector#
+b=1:l*0#
+b[l]=a[l]/r[l,l]#
+if(l>1){#
+	for( j in (l-1):1){#
+      b[j]=a[j]#
+      for(i in (j+1):l){#
+        b[j]=b[j]-r[j,i]*b[i]#
+      }#
+      b[j]=b[j]/r[j,j]#
+    }#
+}#
+coef=1:m*0#
+coef[h]=b#
+coef#
+}#
+#########################################
+#       MAKE THE EDGE VECTORS          ##
+#########################################
+#
+###############################################################
+# B-spline quadratic basis#
+# returns basis functions and slopes of basis functions#
+# at the knots#
+bqspline=function(x,m){#
+tk=0:(m-1)/(m-1)*(max(x)-min(x))+min(x)#
+k=3#
+t=1:(m+2*k-2)*0#
+t[1:(k-1)]=min(x);t[(m+k):(m+2*k-2)]=max(x)#
+t[k:(m+k-1)]=tk#
+n=length(x)#
+sm=1e-8#
+h=t[4]-t[3]#
+#
+bmat=matrix(1:(n*(m+k-2))*0,nrow=n)#
+index=x>=t[3]&x<=t[4]#
+bmat[index,1]=(t[4]-x[index])^2#
+bmat[index,2]=2*(x[index]-t[2])*(t[4]-x[index])+(t[5]-x[index])*(x[index]-t[3])#
+index=x>=t[4]&x<=t[5]#
+bmat[index,2]=(t[5]-x[index])^2#
+for( j in 3:(m-1) ){#
+	index=x>=t[j]&x<=t[j+1]#
+	bmat[index,j]=(x[index]-t[j])^2#
+	index=x>=t[j+1]&x<=t[j+2]#
+	bmat[index,j]=(x[index]-t[j])*(t[j+2]-x[index])+(x[index]-t[j+1])*(t[j+3]-x[index])#
+	index=x>=t[j+2]&x<=t[j+3]#
+	bmat[index,j]=(t[j+3]-x[index])^2#
+}#
+index=x>=t[m]&x<=t[m+1]#
+bmat[index,m]=(x[index]-t[m])^2#
+index=x>=t[m+1]&x<=t[m+2]#
+bmat[index,m]=(x[index]-t[m])*(t[m+2]-x[index])+2*(x[index]-t[m+1])*(t[m+3]-x[index])#
+index=x>=t[m+1]&x<=t[m+2]#
+bmat[index,m+1]=(x[index]-t[m+1])^2#
+#
+##################################################
+# plotting splines#
+#
+xpl=0:1000/1000*(max(x)-min(x))+min(x)#
+bpl=matrix(1:(1001*(m+k-2))*0,nrow=1001)#
+index=xpl>=t[3]&xpl<=t[4]#
+bpl[index,1]=(t[4]-xpl[index])^2#
+bpl[index,2]=2*(xpl[index]-t[2])*(t[4]-xpl[index])+(t[5]-xpl[index])*(xpl[index]-t[3])#
+index=xpl>=t[4]&xpl<=t[5]#
+bpl[index,2]=(t[5]-xpl[index])^2#
+for( j in 3:(m-1) ){#
+	index=xpl>=t[j]&xpl<=t[j+1]#
+	bpl[index,j]=(xpl[index]-t[j])^2#
+	index=xpl>=t[j+1]&xpl<=t[j+2]#
+	bpl[index,j]=(xpl[index]-t[j])*(t[j+2]-xpl[index])+(xpl[index]-t[j+1])*(t[j+3]-xpl[index])#
+	index=xpl>=t[j+2]&xpl<=t[j+3]#
+	bpl[index,j]=(t[j+3]-xpl[index])^2#
+}#
+index=xpl>=t[m]&xpl<=t[m+1]#
+bpl[index,m]=(xpl[index]-t[m])^2#
+index=xpl>=t[m+1]&xpl<=t[m+2]#
+bpl[index,m]=(xpl[index]-t[m])*(t[m+2]-xpl[index])+2*(xpl[index]-t[m+1])*(t[m+3]-xpl[index])#
+index=xpl>=t[m+1]&xpl<=t[m+2]#
+bpl[index,m+1]=(xpl[index]-t[m+1])^2#
+#
+#
+##################################################
+#
+slopes=matrix(0,ncol=m,nrow=m+k-2)#
+slopes[1,1]=-2*h#
+slopes[m+k-2,m]=2*h#
+slopes[2,1]=4*h#
+slopes[2,2]=-2*h#
+if(m==4){slopes[3,2]=2*h;slopes[3,3]=-2*h}#
+slopes[m+k-3,m]=-4*h#
+slopes[m+k-3,m-1]=2*h#
+if(m>4){#
+	for(j in 3:(m+k-4)){#
+		slopes[j,j-1]=2*h#
+		slopes[j,j]=-2*h#
+	}#
+}#
+#
+bmat[,1]=bmat[,1]*2#
+bmat[,m+1]=bmat[,m+1]*2#
+slopes[1,]=slopes[1,]*2#
+slopes[m+1,]=slopes[m+1,]*2#
+bpl[,1]=bpl[,1]*2#
+bpl[,m+1]=bpl[,m+1]*2#
+mb=max(bpl)#
+slopes=slopes/mb#
+bpl=bpl/mb#
+bmat=bmat/mb#
+#
+#
+ans=new.env()#
+ans$edges=bmat#
+ans$slopes=slopes#
+ans$knots=tk#
+ans$xpl=xpl#
+ans$bpl=bpl#
+ans#
+}#
+#
+###############################################################
+# cubic b-splines#
+# returns basis functions and 2nd derivative of basis functions#
+# at the knots#
+###############################################################
+bcspline=function(x,m){#
+tk=0:(m-1)/(m-1)*(max(x)-min(x))+min(x)#
+k=4#
+t=1:(m+2*k-2)*0#
+t[1:(k-1)]=min(x);t[(m+k):(m+2*k-2)]=max(x)#
+t[k:(m+k-1)]=tk#
+n=length(x)#
+sm=1e-8#
+#
+m0=matrix(1:(n*(m+k+1))*0,nrow=n)#
+for( j in 4:(m+k-1) ){#
+	if(t[j]<t[j+1]-sm){#
+		index=x<=t[j+1]&x>t[j]#
+		m0[index,j]=1#
+	}#
+}#
+m0[1,k]=1#
+#
+m1=matrix(1:(n*(m+k))*0,nrow=n)#
+for( j in 3:(m+k-1) ){#
+	index=x>t[j]&x<=t[j+2]#
+	if(t[j+1]>t[j]+sm){#
+		p1=(x[index]-t[j])/(t[j+1]-t[j])*m0[index,j]#
+	}else{p1=0}#
+	if(t[j+2]>t[j+1]+sm){#
+		p2= (t[j+2]-x[index])/(t[j+2]-t[j+1])*m0[index,j+1]#
+	}else{p2=0}#
+	m1[index,j]=p1+p2#
+}#
+imin=x==min(x)#
+m1[imin,k-1]=1#
+#
+#
+m2=matrix(1:(n*(m+k-1))*0,nrow=n)#
+for( j in 2:(m+k-1) ){#
+	index=x>t[j]&x<=t[j+3]#
+	if(t[j+2]>t[j]+sm){#
+		p1=(x[index]-t[j])/(t[j+2]-t[j])*m1[index,j]#
+	}else{p1=0}#
+	if(t[j+3]>t[j+1]+sm){#
+		p2=(t[j+3]-x[index])/(t[j+3]-t[j+1])*m1[index,j+1]#
+	}else{p2=0}#
+	m2[index,j]=p1+p2#
+}#
+m2[imin,k-2]=1#
+#
+#
+m3=matrix(1:(n*(m+k-2))*0,nrow=n)#
+for( j in 1:(m+k-2) ){#
+	index=x>=t[j]&x<=t[j+4]#
+	if(t[j+3]>t[j]+sm){#
+		p1=(x[index]-t[j])/(t[j+3]-t[j])*m2[index,j]#
+	}else{p1=0}#
+	if(t[j+4]>t[j+1]+sm){#
+		p2=(t[j+4]-x[index])/(t[j+4]-t[j+1])*m2[index,j+1]#
+	}else{p2=0}#
+	m3[index,j]=p1+p2#
+}#
+#
+#  plotting splines#
+#
+np=1000#
+xpl=0:(np-1)/(np-1)*(max(x)-min(x))+min(x)#
+m0pl=matrix(1:(np*(m+k+1))*0,nrow=np)#
+for( j in 4:(m+k-1) ){#
+	if(t[j]<t[j+1]-sm){#
+		index=xpl<=t[j+1]&xpl>t[j]#
+		m0pl[index,j]=1#
+	}#
+}#
+m0pl[1,k]=1#
+m1pl=matrix(1:(np*(m+k))*0,nrow=np)#
+for( j in 3:(m+k-1) ){#
+	index=xpl>t[j]&xpl<=t[j+2]#
+	if(t[j+1]>t[j]+sm){#
+		p1=(xpl[index]-t[j])/(t[j+1]-t[j])*m0pl[index,j]#
+	}else{p1=0}#
+	if(t[j+2]>t[j+1]+sm){#
+		p2= (t[j+2]-xpl[index])/(t[j+2]-t[j+1])*m0pl[index,j+1]#
+	}else{p2=0}#
+	m1pl[index,j]=p1+p2#
+}#
+m1pl[1,k-1]=1#
+m2pl=matrix(1:(np*(m+k-1))*0,nrow=np)#
+for( j in 2:(m+k-1) ){#
+	index=xpl>t[j]&xpl<=t[j+3]#
+	if(t[j+2]>t[j]+sm){#
+		p1=(xpl[index]-t[j])/(t[j+2]-t[j])*m1pl[index,j]#
+	}else{p1=0}#
+	if(t[j+3]>t[j+1]+sm){#
+		p2=(t[j+3]-xpl[index])/(t[j+3]-t[j+1])*m1pl[index,j+1]#
+	}else{p2=0}#
+	m2pl[index,j]=p1+p2#
+}#
+m2pl[1,k-2]=1#
+m3pl=matrix(1:(np*(m+k-2))*0,nrow=np)#
+for( j in 1:(m+k-2) ){#
+	index=xpl>=t[j]&xpl<=t[j+4]#
+	if(t[j+3]>t[j]+sm){#
+		p1=(xpl[index]-t[j])/(t[j+3]-t[j])*m2pl[index,j]#
+	}else{p1=0}#
+	if(t[j+4]>t[j+1]+sm){#
+		p2=(t[j+4]-xpl[index])/(t[j+4]-t[j+1])*m2pl[index,j+1]#
+	}else{p2=0}#
+	m3pl[index,j]=p1+p2#
+}#
+#
+# matrix of second derivatives#
+#
+secder=matrix(0,ncol=m,nrow=m+k-2)#
+secder[1,1]=6#
+secder[2,1]=-9#
+secder[2,2]=3/2#
+secder[3,1]=3#
+secder[3,2]=-5/2#
+secder[3,3]=1#
+if(m>4){#
+	for(j in 4:(m-1)){#
+		secder[j,j-2]=1;secder[j,j-1]=-2;secder[j,j]=1#
+	}#
+}#
+secder[m,m-2]=1#
+secder[m,m-1]=-5/2#
+secder[m,m]=3#
+secder[m+1,m-1]=3/2#
+secder[m+1,m]=-9#
+secder[m+2,m]=6#
+#
+ans=new.env()#
+ans$bpl=m3pl#
+ans$xpl=xpl#
+ans$edges=m3#
+ans$d2=secder#
+ans$knots=tk#
+ans#
+}
+x=runif(50)#
+#
+y=exp(2*x)+rnorm(50)#
+#
+ans=penspl(5,x,y,10,3,2.5)#
+#
+plot(x,y)#
+#
+lines(ans$xpl,ans$cpl)#
+#
+lines(ans$xpl,ans$ucpl,col=2)
+plot(x,y)
+lines(ans$xpl,ans$cpl)
+lines(ans$xpl,ans$cpl, col="blue")
+lines(ans$xpl,ans$cpl)
+lines(ans$xpl,ans$ucpl,col="blue")
+curve(exp(2*x),from=0, to=1, add=TRUE, lty=2, col="green")
+ipad
+599*1.775
+599*1.0775
+399*1.0775
+349*1.0775
+499*1.0775
+537.6725-376.0475
+429.9225-376.0475
+599*1.0775
+x <- rnorm(12)#
+Fn <- ecdf(x)#
+Fn     # a *function*#
+Fn(x)  # returns the percentiles for x#
+tt <- seq(-2,2, by = 0.1)#
+12 * Fn(tt) # Fn is a 'simple' function {with values k/12}#
+summary(Fn)#
+##--> see below for graphics#
+knots(Fn)# the unique data values {12 of them if there were no ties}
+F10 <- ecdf(rnorm(10))#
+summary(F10)#
+#
+plot(F10)#
+plot(F10, verticals= TRUE, do.points = FALSE)
+#
+y <- round(rnorm(12),1); y[3] <- y[1]#
+Fn12 <- ecdf(y)#
+Fn12#
+knots(Fn12)# unique values (always less than 12!)#
+summary(Fn12)#
+summary.stepfun(Fn12)#
+#
+## Advanced: What's inside the function closure?#
+print(ls.Fn12 <- ls(environment(Fn12)))#
+##[1] "f"  "method"  "n"  "x"  "y"  "yleft"  "yright"#
+utils::ls.str(environment(Fn12))#
+stopifnot(all.equal(quantile(Fn12), quantile(y)))
+require(graphics)#
+#
+op <- par(mfrow=c(3,1), mgp=c(1.5, 0.8,0), mar= .1+c(3,3,2,1))#
+#
+F10 <- ecdf(rnorm(10))#
+summary(F10)#
+#
+plot(F10)#
+plot(F10, verticals= TRUE, do.points = FALSE)#
+#
+plot(Fn12 , lwd = 2) ; mtext("lwd = 2", adj=1)#
+xx <- unique(sort(c(seq(-3, 2, length=201), knots(Fn12))))#
+lines(xx, Fn12(xx), col='blue')#
+abline(v=knots(Fn12),lty=2,col='gray70')
+bw.nrd
+750/2
+750/3
+setwd('/Users/wangx6/Dropbox/Research/ROC/sROC/Rpackage/sROC/inst/script')
+set.seed(100)#
+n <- 200#
+x <- c(rnorm(n/2, mean=-2, sd=1), rnorm(n/2, mean=3, sd=0.8))#
+x.CDF <- kCDF(x)#
+x.CDF#
+plot(x.CDF, alpha=0.05, main="Kernel estimate of distribution function")#
+curve(pnorm(x, mean=-2, sd=1)/2 + pnorm(x, mean=3, sd=0.8)/2, from =-6, to=6, add=TRUE, lty=2, col="blue")
+setwd('/Users/wangx6/Dropbox/Research/ROC/sROC/code')
+dyn.load("CDFKernel.so")
+setwd('/Users/wangx6/Dropbox/Research/ROC/sROC/Rpackage/sROC/inst/script')
+set.seed(100)#
+n <- 200#
+x <- c(rnorm(n/2, mean=-2, sd=1), rnorm(n/2, mean=3, sd=0.8))#
+x.CDF <- kCDF(x)#
+x.CDF#
+CI.CDF(x.CDF)
+setwd('/Users/wangx6/Dropbox/Research/ROC/sROC/Rpackage/sROC/R')
+## Non-Parametric Smooth ROC Curves for Continuous Data#
+## Xiao-Feng Wang#
+## wangx6@ccf.org#
+## Cleveland Clinic Lerner Research Institute#
+#
+## kernel estimator for cumulative distribution function (CDF)#
+#
+kCDF <- function(x, bw="pi_ucv", adjust=1, kernel=c("normal", "epanechnikov"), xgrid, ngrid=256, from, to, cut=3, na.rm = FALSE, ...){#
+	if (length(list(...))) #
+        warning("non-matched further arguments are disregarded")#
+	kernel <- match.arg(kernel)#
+    CheckValidity <- function(x,na.rm){#
+	    if (!is.numeric(x)) #
+	      stop("argument 'x' must be numeric")#
+	    name <- deparse(substitute(x))#
+	    x <- as.vector(x)#
+	    x.na <- is.na(x)#
+	    if (any(x.na)) {#
+	      if (na.rm)  x <- x[!x.na]#
+	      else stop("'x' contains missing values")#
+	    }#
+	    x.finite <- is.finite(x)#
+	    if (any(!x.finite)) {#
+	      x <- x[x.finite]#
+	    }#
+	    n<- length(x)#
+	    list(x=x,n=n, name=name, has.na=any(x.na));#
+	}#
+	data <- x#
+	xout = CheckValidity(x, na.rm=na.rm)#
+	x=xout$x; n=xout$n; name=xout$name; has.na=xout$has.na#
+	if (n < 5) stop("The sample size is too small!")#
+	#
+	if (is.character(bw)) {#
+        bw <- switch(tolower(bw), #
+			ncdf = bw.CDF(x, "ncdf"), #
+			npdf = bw.CDF(x, "npdf"), #
+			pi_nrd0 = bw.CDF.pi(x, pilot="nrd0"),#
+			pi_nrd = bw.CDF.pi(x, pilot="nrd"),#
+			pi_ucv = bw.CDF.pi(x, pilot="ucv"),#
+			pi_bcv = bw.CDF.pi(x, pilot="bcv"),#
+			pi_sj = bw.CDF.pi(x, pilot="sj"),#
+			pi_onestage = bw.CDF.pi(x, pilot="onestage"),#
+            stop("unknown bandwidth rule"))#
+    }#
+    if (!is.finite(bw)) #
+        stop("non-finite 'bw'")#
+    bw <- adjust * bw#
+	#
+	if(missing(xgrid)){#
+	 if (missing(from)) #
+	   from <- min(x) - cut*bw#
+	 if (missing(to)) #
+	   to <- max(x) + cut*bw#
+	 if (!is.finite(from)) #
+	   stop("non-finite 'from'")#
+	 if (!is.finite(to)) #
+	   stop("non-finite 'to'")#
+	 if(from >= to){#
+	   stop("'from' is not smaller than 'to'!")#
+	 }else{#
+	   xgrid=seq(from, to, length=ngrid);#
+	 }#
+	}else{#
+	   xgrid=sort(as.vector(xgrid));#
+	}#
+	ngrid <- length(xgrid)#
+#
+	kCDF <- switch(substr(tolower(kernel), 1, 4), #
+		norm = .C("NKern", x=as.double(x), n=as.integer(n), xgrid=as.double(xgrid), ngrid=as.integer(ngrid), bw=as.double(bw), Fhat=double(ngrid)),#
+		epan = .C("EKern", x=as.double(x), n=as.integer(n), xgrid=as.double(xgrid), ngrid=as.integer(ngrid), bw=as.double(bw), Fhat=double(ngrid)),#
+		stop("The specified kernel type is not supported!"))#
+#
+	return(structure(list(x = kCDF[["xgrid"]], Fhat = kCDF[["Fhat"]], bw = bw, #
+        n = n, call = match.call(), data.name = name, data=data, has.na=has.na), #
+        class = "CDF"))#
+}#
+#
+print.CDF <- function (CDF, digits = NULL, ...) #
+{#
+    cat("\nCall:\n\t", deparse(CDF$call), "\n\nData: ", CDF$data.name, #
+        " (", CDF$n, " obs.);", "\tBandwidth 'bw' = ", formatC(CDF$bw, #
+            digits = digits), "\n\n", sep = "")#
+    print(summary(as.data.frame(CDF[c("x", "Fhat")])), digits = digits, ...)#
+    invisible(CDF)#
+}#
+#
+## Bandwidth selection for kCDF#
+#
+bw.CDF <- function (x, method="npdf") #
+{#
+	n <- length(x)#
+    if (n < 2L) #
+        stop("need at least 2 data points")#
+	xsd <- sd(x)#
+	bw <- switch(tolower(method), ncdf=(180*sqrt(pi)/(7*n))^(1/3)*min(xsd, IQR(x)/1.349),#
+			npdf=(4/(3*n))^(1/5)*min(xsd, IQR(x)/1.349),#
+			stop("Unknown bandwidth rule!!!"))#
+    return(bw)#
+}#
+#
+bw.CDF.pi <- function (x, pilot="UCV") #
+{#
+	if (length(x) < 2L) stop("need at least 2 data points")#
+	n <- length(x)#
+	xsd <- sd(x)#
+    xgrid <- x#
+    ngrid <- length(xgrid)#
+	g <- switch(tolower(pilot), #
+			nrd0=bw.nrd0(x),#
+			nrd=bw.nrd(x),#
+			ucv=bw.ucv(x),#
+			bcv=bw.bcv(x),#
+			sj=bw.SJ(x),#
+			onestage=(3/(n*3/(8*sqrt(pi))*(min(xsd, IQR(x)/1.349))^(-5)))^(1/5), #
+			stop("Unknown bandwidth rule!!!"))#
+	phi <- .C("phi2", x=as.double(x), n=as.integer(n), xgrid=as.double(xgrid), ngrid=as.integer(ngrid), bw=as.double(g), phi=double(ngrid))#
+    phi2 <- mean(phi[["phi"]])#
+	bw <- (45/(-7*n*phi2))^(1/3)#
+    return(bw)#
+}#
+#
+## ----------------Pointwise Confidence Intervals for Smooth CDF --------------#
+## confidence level 100(1 − \alpha) %#
+#
+CI.CDF <- function(CDF, alpha=0.05){#
+	x <- CDF$x#
+	Fhat <- CDF$Fhat#
+	n <- CDF$n#
+	Fhat.SD <- sqrt(Fhat*(1-Fhat)/n)#
+	crit <- qnorm(1-alpha/2)#
+	Fhat.upper <- Fhat + crit*Fhat.SD#
+	Fhat.lower <- Fhat - crit*Fhat.SD#
+	return(list(x=x, Fhat=Fhat, Fhat.upper=Fhat.upper, Fhat.lower=Fhat.lower, alpha=alpha))#
+}#
+#
+plot.CDF  <- function (CDF, CI=TRUE, alpha=0.05, main = NULL, xlab = NULL, ylab = "CDF", lwd=2, lty=1, ...) #
+{#
+    if (is.null(xlab)) #
+        xlab <- paste("N =", CDF$n, "  Bandwidth =", formatC(CDF$bw))#
+    if (is.null(main)) #
+        main <- deparse(CDF$call)#
+	if (CI) {#
+		result <- CI.CDF(CDF, alpha=alpha)#
+		plot.default(result$x, result$Fhat, main = main, xlab = xlab, ylim= c(0,1), ylab = ylab, type = "n", lwd=lwd, ...)#
+		lines(result$x, result$Fhat.lower, lwd=lwd, lty=lty, ...)#
+		lines(result$x, result$Fhat.upper, lwd=lwd, lty=lty, ...)#
+		polygon(c(result$x, rev(result$x)), c(result$Fhat.lower, #
+		     rev(result$Fhat.upper)), col = "grey", #
+		     border = FALSE)#
+		lines(result$x, result$Fhat, lwd=lwd, lty=lty, ...)#
+	} else {#
+		plot.default(CDF$x, CDF$Fhat, main = main, xlab = xlab, ylim= c(0,1), ylab = ylab, type = "l", lwd=lwd, ...)#
+	}#
+    invisible(NULL)#
+}#
+#
+#
+#
+## kernel estimator for receiver operating characteristic (ROC) Curve#
+#
+kROC <- function(x, y, bw.x="pi_ucv", bw.y="pi_ucv", adjust=1, kernel=c("normal", "epanechnikov"), xgrid, ngrid=256, from, to, cut=3, na.rm = FALSE, ...){#
+	if (length(list(...))) #
+        warning("non-matched further arguments are disregarded")#
+#
+	kernel <- match.arg(kernel)#
+    CheckValidity <- function(x,na.rm){#
+	    if (!is.numeric(x)) #
+	      stop("argument 'x' or 'y' must be numeric")#
+	    name <- deparse(substitute(x))#
+	    x <- as.vector(x)#
+	    x.na <- is.na(x)#
+	    if (any(x.na)) {#
+	      if (na.rm)  x <- x[!x.na]#
+	      else stop("'x' or 'y' contains missing values")#
+	    }#
+	    x.finite <- is.finite(x)#
+	    if (any(!x.finite)) {#
+	      x <- x[x.finite]#
+	    }#
+	    n <- length(x)#
+	    list(x=x,n=n, name=name, has.na=any(x.na));#
+	}#
+	xout = CheckValidity(x, na.rm=na.rm)#
+	x=xout$x; nx=xout$n; x.name=xout$name; x.has.na=xout$has.na#
+	yout = CheckValidity(y, na.rm=na.rm)#
+	y=yout$x; ny=yout$n; y.name=yout$name; y.has.na=yout$has.na#
+	if (nx < 5 | ny < 5) stop("The sample size of x or y is too small!")#
+#
+	if (is.character(bw.x)) {#
+        bw.x <- switch(tolower(bw.x), #
+			ncdf = bw.CDF(x, "ncdf"), #
+			npdf = bw.CDF(x, "npdf"), #
+			pi_nrd0 = bw.CDF.pi(x, pilot="nrd0"),#
+			pi_nrd = bw.CDF.pi(x, pilot="nrd"),#
+			pi_ucv = bw.CDF.pi(x, pilot="ucv"),#
+			pi_bcv = bw.CDF.pi(x, pilot="bcv"),#
+			pi_sj = bw.CDF.pi(x, pilot="sj"),#
+			pi_onestage = bw.CDF.pi(x, pilot="onestage"),#
+            stop("unknown bandwidth rule"))#
+    }#
+	if (is.character(bw.y)) {#
+        bw.y <- switch(tolower(bw.y), #
+			ncdf = bw.CDF(y, "ncdf"), #
+			npdf = bw.CDF(y, "npdf"), #
+			pi_nrd0 = bw.CDF.pi(y, pilot="nrd0"),#
+			pi_nrd = bw.CDF.pi(y, pilot="nrd"),#
+			pi_ucv = bw.CDF.pi(y, pilot="ucv"),#
+			pi_bcv = bw.CDF.pi(y, pilot="bcv"),#
+			pi_sj = bw.CDF.pi(y, pilot="sj"),#
+			pi_onestage = bw.CDF.pi(y, pilot="onestage"),#
+            stop("unknown bandwidth rule"))#
+    }#
+#
+	if(missing(xgrid)){#
+	 if (missing(from)) #
+	   from <- min(c(x,y)) - cut*min(c(bw.x,bw.y))#
+	 if (missing(to)) #
+	   to <- max(c(x,y)) + cut*min(c(bw.x,bw.y))#
+	 if (!is.finite(from)) #
+	   stop("non-finite 'from'")#
+	 if (!is.finite(to)) #
+	   stop("non-finite 'to'")#
+	 if(from >= to){#
+	   stop("'from' is not smaller than 'to'!")#
+	 }else{#
+	   xgrid=seq(from, to, length=ngrid);#
+	 }#
+	}else{#
+	   xgrid=sort(as.vector(xgrid));#
+	}#
+#
+	x.CDF <- kCDF(x,bw=bw.x, adjust=adjust, kernel=kernel, xgrid=xgrid)#
+	y.CDF <- kCDF(y,bw=bw.y, adjust=adjust, kernel=kernel, xgrid=xgrid)#
+	return(structure(list(FPR =1 - y.CDF$Fhat, TPR=1 - x.CDF$Fhat, bw.x = bw.x, bw.y = bw.y, #
+        nx = nx, ny = ny, call = match.call(), x.data.name = x.name, y.data.name = y.name, x.has.na=x.has.na, y.has.na=y.has.na), #
+        class = "ROC"))#
+}#
+#
+print.ROC <- function (ROC, digits = NULL, ...) #
+{#
+    cat("\nCall:\n\t", deparse(ROC$call), "\n\nData: ", ROC$x.data.name, #
+        " (", ROC$nx, " obs.) and ", ROC$y.data.name, " (", ROC$ny, " obs.);", "\n\n", sep = "")#
+	cat("\tBandwidth 'bw.x' = ", formatC(ROC$bw.x, digits = digits), " 'bw.y' = ", formatC(ROC$bw.y, #
+		            digits = digits),"\n\n", sep = "")#
+    print(summary(as.data.frame(ROC[c("FPR", "TPR")])), digits = digits, #
+        ...)#
+    invisible(x)#
+}#
+#
+plot.ROC  <- function (ROC, main = NULL, diagonal = TRUE, xlab = "FPR", ylab = "TPR", type = "l", lwd=2, ...) #
+{#
+    if (is.null(main)) #
+        main <- "Smooth ROC curve"#
+    plot.default(ROC$FPR, ROC$TPR, main = main, xlab = xlab, ylab = ylab, xlim=c(0,1), ylim= c(0,1), type = type, lwd=lwd,#
+        ...)#
+	if (diagonal) abline(a=0,b=1)#
+    invisible(NULL)#
+}#
+#
+AUC <- function(ROC, method="Simpson", ngrid=256){#
+	FPR <- ROC$FPR#
+	TPR <- ROC$TPR#
+	#
+	TrapezInt <- function(x, y, ngrid = 501, equal=FALSE){#
+		n <- length(x)#
+		if (n != length(y)) stop("'x' and 'y' have different length.")#
+		if (equal) {#
+			int <- (x[2]-x[1])*(sum(y)-y[1]/2-y[n]/2)#
+		} else {#
+	    	ap <- approx(x, y, n=ngrid)#
+	 		int <- (ap$x[2]-ap$x[1])*(sum(ap$y)-ap$y[1]/2-ap$y[ngrid]/2)#
+		}		#
+		return(int)#
+	}#
+#
+	SimpsonInt <- function (x, y, ngrid = 256) #
+		{#
+	    	if (length(x) != length(y)) stop("'x' and 'y' have different length.")#
+	    	ap <- approx(x, y, n = 2 * ngrid + 1)#
+	    	int <- (ap$x[2]-ap$x[1]) * (ap$y[2 * (1:ngrid) - 1] + 4 * ap$y[2 * (1:ngrid)] + ap$y[2 * (1:ngrid) + 1])/3#
+	    	return(sum(int))#
+		}#
+#
+	AUC <- switch(substr(tolower(method), 1, 4),#
+	 			trap = TrapezInt(FPR,TPR,ngrid=ngrid),#
+	 			simp = SimpsonInt(FPR,TPR,ngrid=ngrid),#
+	            stop("unknown numerical integration method!"))#
+	return(structure(list(AUC=AUC), class="AUC"))#
+}#
+#
+print.AUC <- function(AUC, digits = NULL, ...){#
+	cat("\tAUC for the ROC curve is ", formatC(AUC$AUC, digits = digits),".\n\n", sep = "")#
+}
+setwd('/Users/wangx6/Dropbox/Research/ROC/sROC/Rpackage/sROC/inst/script')
+set.seed(100)#
+n <- 200#
+x <- c(rnorm(n/2, mean=-2, sd=1), rnorm(n/2, mean=3, sd=0.8))#
+x.CDF <- kCDF(x)#
+x.CDF#
+CI.CDF(x.CDF)
+setwd('/Users/wangx6/Dropbox/Research/ROC/sROC/Rpackage/sROC/inst/script')
+summary(CI.CDF(x.CDF))
+setwd('/Users/wangx6/Dropbox/Research/ROC/sROC/Rpackage/sROC/inst/script')
+plot(x.CDF, alpha=0.05, main="Kernel estimate of distribution function")
+\

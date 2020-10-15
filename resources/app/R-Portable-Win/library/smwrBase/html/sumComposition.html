@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Percentage Composition</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for sumComposition {smwrBase}"><tr><td>sumComposition {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Percentage Composition</h2>
+
+<h3>Description</h3>
+
+<p>Compute percentage or proportion of elements in a composition.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+sumComposition(x, ..., Range = 100)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>any numeric vector, matrix, or data frame containing only numeric
+columns.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>any additional vectors or matrices.</p>
+</td></tr>
+<tr valign="top"><td><code>Range</code></td>
+<td>
+<p>the output range, generally 100 for percentages 
+(the default) or 1 for proportions.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Missing values are permitted in <code>x</code> or <code>...</code> and result in missing 
+values for the row in the output.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A matrix with columns matching all of the data in <code>x</code> and
+<code>...{}</code> with rows summing to <code>Range</code>.
+</p>
+
+
+<h3>Note</h3>
+
+<p>This function is designed to meet a very simple need in some 
+applications like constructing data for Piper (Piper, 1944) or trilinear diagrams.
+For more in-depth manipulations of compositional data, the user is directed
+to the <code>compositions</code> or other similar package.
+</p>
+
+
+<h3>References</h3>
+
+<p>Piper, A.M., 1944, A graphical procedure in the geochemical interpretation 
+of water analyses: Transactions of the American Geophysical Union, v. 25, p. 914-923.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+
+# Create tiny dataset
+TinyCations &lt;- data.frame(Ca=c(32, 47, 28), Mg=c(10,12,15), Na=c(7, 5, 7))
+sumComposition(TinyCations)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

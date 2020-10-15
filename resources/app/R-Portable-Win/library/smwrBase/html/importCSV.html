@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Import Files</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for importCSV {smwrBase}"><tr><td>importCSV {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Import Files</h2>
+
+<h3>Description</h3>
+
+<p>Imports a comma-separated variable file to a data frame.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+importCSV(file.name = "", tz = "")
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>file.name</code></td>
+<td>
+<p>a character string specifying the name of the comma-separated variable 
+(CSV) file containing the data to be imported; <code>importCSV</code> requires <code>file.name</code>
+to be a readable file on the computer.</p>
+</td></tr>
+<tr valign="top"><td><code>tz</code></td>
+<td>
+<p>a character string indicating the time-zone information for data
+imported as &quot;POSIXct.&quot; The default is to use the local setting.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>All of the dates in a date column must have the same format as the first
+non-blank date in the column. Any date with a format different from that of
+the first non-blank date in the column will be imported as <code>NA</code> (missing
+value). Dates imported as class &quot;Date&quot; using a 4-digit year,
+2-digit month, and 2-digit day with the period (.), hyphen (-), slash (/), or
+no separator. Time and date data are imported as class &quot;POSIXct&quot; and
+assumes the standard POSIX format for date and time.<br />
+</p>
+
+
+<h3>Value</h3>
+
+<p>A data frame with one column for each data column in the CSV
+file.
+</p>
+
+
+<h3>Note</h3>
+
+<p>A NULL data frame is created if there are no data in the file.<br />
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../utils/html/read.csv.html">read.csv</a></code>, <code><a href="../../utils/html/read.table.html">read.table</a></code>, <code><a href="../../base/html/scan.html">scan</a></code>,
+<code><a href="../../base/html/as.Date.html">as.Date</a></code>, <code><a href="../../base/html/as.POSIXct.html">as.POSIXct</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+## These datasets are available in smwrData as text files
+TestDir &lt;- system.file("misc", package="smwrData")
+TestPart &lt;- importCSV(file.path(TestDir, "TestPart.csv"))
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

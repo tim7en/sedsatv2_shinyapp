@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Regular Series</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for regularSeries {smwrBase}"><tr><td>regularSeries {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Regular Series</h2>
+
+<h3>Description</h3>
+
+<p>Some time-series analyses require data that are uniformly spaced in time.
+This function will construct a regular series from randomly spaced data
+using any of several user-definable methods.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+regularSeries(x, times, period = "month", which = "middle", begin, end,
+  k.period = 1)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>a vector of observations that represents a series.</p>
+</td></tr>
+<tr valign="top"><td><code>times</code></td>
+<td>
+<p>a date-like vector corresponding to data.</p>
+</td></tr>
+<tr valign="top"><td><code>period</code></td>
+<td>
+<p>character string that is valid input to the POSIXct method
+for the function <code>seq</code> is acceptable, specifying the spacing between 
+successive periods. For example &quot;year,&quot; &quot;month,&quot; or &quot;day.&quot;</p>
+</td></tr>
+<tr valign="top"><td><code>which</code></td>
+<td>
+<p>a character string indicating the method to use, or the name of
+a function. See <b>Details</b> for options.</p>
+</td></tr>
+<tr valign="top"><td><code>begin</code></td>
+<td>
+<p>the beginning date as POSIXt or as character.</p>
+</td></tr>
+<tr valign="top"><td><code>end</code></td>
+<td>
+<p>the end date as POSIXt or as character.</p>
+</td></tr>
+<tr valign="top"><td><code>k.period</code></td>
+<td>
+<p>the number of units of <code>period</code> in each period of the
+output series.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>For <code>regularSeries</code>, if there is no observation during a period, then that
+value is set to <code>NA</code>. If there is one observation, then the value is set
+to the value of that single observation. The value of <code>which</code> controls how
+periods with multiple observations are handled. Three character strings are
+recognized for selecting a single value: &quot;earliest&quot; selects the earliest
+observation in the period, &quot;middle&quot; selects the observation closest to the
+middle of the period, and &quot;latest&quot; selects the latest observation in the
+period. If <code>which</code> is not one of these, then it should be the name of a
+function such as mean or median.<br />
+</p>
+
+
+<h3>Value</h3>
+
+<p>The function <code>regularSeries</code> returns a data frame with the
+following columns:
+</p>
+<table summary="R valueblock">
+<tr valign="top"><td><code>Season</code></td>
+<td>
+<p>the season number.</p>
+</td></tr>
+<tr valign="top"><td><code>SeasonStartDate</code></td>
+<td>
+<p>the starting date of the corresponding season
+number&mdash;the season includes dates greater than or equal to this date.</p>
+</td></tr>
+<tr valign="top"><td><code>SeasonEndDate</code></td>
+<td>
+<p>the end date of the corresponding season number&mdash;the
+season includes dates strictly less than this date.</p>
+</td></tr>
+<tr valign="top"><td><code>Value</code></td>
+<td>
+<p>the value from <code>x</code> for the corresponding season number.</p>
+</td></tr>
+<tr valign="top"><td><code>ValueDate</code></td>
+<td>
+<p>the date from <code>times</code> for the corresponding season
+number if <code>which</code> was one of &quot;earliest,&quot; &quot;middle,&quot; or &quot;latest&quot;;
+otherwise missing.</p>
+</td></tr>
+</table>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+library(smwrData)
+data(QW05078470)
+with(QW05078470, regularSeries(P00665, DATES))
+# there should be no values for season numbers 2, 5, or 10
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Find Local Maxima</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for peaks {smwrBase}"><tr><td>peaks {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Find Local Maxima</h2>
+
+<h3>Description</h3>
+
+<p>Find the local maxima in a vector.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+peaks(x, span = 3, ties = "first", ends = TRUE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>any numeric vector. Missing values are permitted, but suppress
+identifying peaks within <code>span</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>span</code></td>
+<td>
+<p>The window width, the default value is 3, meaning compare each
+value to both of its neighbors. The value for <code>span</code> must be odd and if
+set to an even value, then it is increased to the next largest odd value.</p>
+</td></tr>
+<tr valign="top"><td><code>ties</code></td>
+<td>
+<p>a character indicating how to handle ties. See <b>Details</b>.</p>
+</td></tr>
+<tr valign="top"><td><code>ends</code></td>
+<td>
+<p>a logical value indicating whether or not to include either the
+first or last observations in the sequence if it is a local maximum.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Possible values for <code>ties</code> include &quot;none,&quot; which treats sequential tied values as
+individual values; all other values can be thought of as collapsing
+sequential tied values&mdash;&quot;first,&quot; &quot;middle,&quot; or &quot;last&quot; identify the first,
+middle, or last, respectively, of a sequence of ties as the peak if appropriate.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A vector matching <code>x</code> of logical values indicating whether the
+corresponding element is a local maximum or not.
+</p>
+
+
+<h3>Note</h3>
+
+<p>A peak is defined as an element in a sequence that is strictly greater
+than all other elements within a window of width <code>span</code> centered at that
+element. As such, setting <code>ties</code> to &quot;none&quot; has the effect of not
+identifying peaks with sequential tied values.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../base/html/max.html">max</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+
+# Note the effect of missing values
+peaks(c(1:6,5,4,NA,4,6,9,NA))
+peaks(c(1:6,NA,5,4,NA,4,6,9,NA))
+# Note the effect of ties
+peaks(c(1:6,6,6,5,4,3,4,6,9))
+peaks(c(1:6,6,6,5,4,3,4,6,9), ties="none")
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

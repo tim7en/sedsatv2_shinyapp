@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Test whether an object can be treated in a particular way</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for isCharLike {smwrBase}"><tr><td>isCharLike {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Test whether an object can be treated in a particular way</h2>
+
+<h3>Description</h3>
+
+<p>Tests if an object can be treated as a character, to name something; as a
+date; as a grouping variable, has distinct values; or as a number.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+isCharLike(x)
+
+isDateLike(x)
+
+isGroupLike(x)
+
+isNumberLike(x)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>any object.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The function <code>isCharLike</code> tests whether <code>x</code> is of class &quot;character&quot;
+or &quot;factor.&quot; The function <code>isDateLike</code> tests whether <code>x</code> is of
+class &quot;Date&quot; or &quot;POSIXt.&quot; The function <code>isGroupLike</code> tests whether
+<code>x</code> is of class &quot;character&quot; or &quot;factor&quot; or if <code>x</code> is of type
+&quot;integer&quot; or &quot;logical.&quot; The function <code>isNumberLike</code> tests whether
+<code>x</code> is of type &quot;numeric&quot; or of class &quot;Date.&quot;
+</p>
+
+
+<h3>Value</h3>
+
+<p>A logical value <code>TRUE</code> if <code>x</code> meets the criteria, or
+<code>FALSE</code> if it does not.
+</p>
+
+
+<h3>Note</h3>
+
+<p>This function is most useful within other functions to control how that
+function handles a particular argument.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../base/html/class.html">class</a></code>, <code><a href="../../base/html/is.numeric.html">is.numeric</a></code>,
+<code><a href="../../base/html/is.factor.html">is.factor</a></code>, <code><a href="../../base/html/is.character.html">is.character</a></code>,
+<code><a href="../../base/html/is.integer.html">is.integer</a></code>, <code><a href="../../base/html/is.logical.html">is.logical</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+
+## The first should be FALSE and the second TRUE
+isCharLike(as.Date("2004-12-31"))
+isCharLike("32")
+
+## The first should be FALSE and the second TRUE
+isDateLike(32)
+isDateLike(as.Date("2004-12-31"))
+
+## The first should be FALSE and the second TRUE
+isGroupLike(as.Date("2004-12-31"))
+isGroupLike(32)
+
+## The first should be FALSE and the second TRUE
+isNumberLike(as.Date("2004-12-31"))
+isNumberLike(32)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

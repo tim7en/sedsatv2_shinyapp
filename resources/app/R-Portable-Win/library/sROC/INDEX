@@ -1,0 +1,14 @@
+AUC                     Area Under Curve
+CI.CDF                  Pointwise Confidence Intervals for Kernel
+                        Smooth CDF
+bw.CDF                  Bandwidth Selectors for Kernel CDF Estimation
+bw.CDF.pi               Plug-in Bandwidth Selectors for Kernel CDF
+                        Estimation
+kCDF                    Kernel Estimation for Cumulative Distribution
+                        Function
+kROC                    Kernel Estimation for ROC Curves
+plot.CDF                Plot a CDF Object
+plot.ROC                Plot a ROC Object
+print.AUC               Print a AUC Object
+print.CDF               Print a CDF Object
+print.ROC               Print a ROC Object

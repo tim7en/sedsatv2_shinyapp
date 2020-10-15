@@ -1,0 +1,7 @@
+hzTest                  Deprecated Function for Henze-Zirklers's
+                        Multivariate Normality Test
+mardiaTest              Deprecated Function for Mardia's Multivariate
+                        Normality Test
+mvn                     Multivariate Normality Tests
+roystonTest             Deprecated Function for Royston's Multivariate
+                        Normality Test

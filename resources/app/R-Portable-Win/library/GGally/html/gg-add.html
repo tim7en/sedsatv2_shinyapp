@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Modify a ggmatrix object by adding an ggplot2 object to all...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for +.gg {GGally}"><tr><td>+.gg {GGally}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Modify a ggmatrix object by adding an ggplot2 object to all plots</h2>
+
+<h3>Description</h3>
+
+<p>This operator allows you to add ggplot2 objects to a ggmatrix object.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+## S3 method for class 'gg'
+e1 + e2
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>e1</code></td>
+<td>
+<p>An object of class <code>ggplot</code> or <code>theme</code></p>
+</td></tr>
+<tr valign="top"><td><code>e2</code></td>
+<td>
+<p>A component to add to <code>e1</code></p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If the first object is an object of class <code>ggmatrix</code>, you can add
+the following types of objects, and it will return a modified ggplot
+object.
+</p>
+
+<ul>
+<li> <p><code>theme</code>: update plot theme
+</p>
+</li></ul>
+
+<p>The <code>+</code> operator completely replaces elements
+with elements from e2.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../ggplot2/html/+.gg.html">+.gg</a></code> and <code><a href="../../ggplot2/html/theme.html">theme</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+data(tips, package = "reshape")
+pm &lt;- ggpairs(tips[, 2:3])
+## change to black and white theme
+pm + ggplot2::theme_bw()
+## change to linedraw theme
+# pm + ggplot2::theme_linedraw()
+## change to custom theme
+# pm + ggplot2::theme(panel.background = ggplot2::element_rect(fill = "lightblue"))
+## add a list of information
+extra &lt;- list(ggplot2::theme_bw(), ggplot2::labs(caption = "My caption!"))
+pm + extra
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>GGally</em> version 1.5.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

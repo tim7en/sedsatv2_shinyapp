@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Partial Value Matching</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for %cn% {smwrBase}"><tr><td>%cn% {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Partial Value Matching</h2>
+
+<h3>Description</h3>
+
+<p>Matches partial values, such as substrings.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+x %cn% pattern
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>the character vector to be matched. Missing values are permitted.</p>
+</td></tr>
+<tr valign="top"><td><code>pattern</code></td>
+<td>
+<p>the pattern to be matched against, may be a regular
+expression.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A vector the same length as <code>x</code> of logical values indicating
+whether <code>pattern</code> is found in the element of <code>x</code> or not.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../base/html/%25in%25.html">%in%</a></code>, <code><a href="../../base/html/regexpr.html">regexpr</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+
+## A simple example
+c("abc", "def") %cn% "c"
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

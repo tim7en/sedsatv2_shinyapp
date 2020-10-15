@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Seasonal Categories</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for seasons {smwrBase}"><tr><td>seasons {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Seasonal Categories</h2>
+
+<h3>Description</h3>
+
+<p>Create categories for any definitions of seasons by month and day.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+seasons(x, breaks, Names = paste("Season Ending ", breaks, sep = ""))
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>any vector of valid dates or date-time data of class &quot;Date&quot; or &quot;POSIXt.&quot;</p>
+</td></tr>
+<tr valign="top"><td><code>breaks</code></td>
+<td>
+<p>either month names of the end of the seasons or specific days
+in the form of &quot;mm/dd,&quot; where mm is the 2-digit month and dd is the 2-digit
+day. Breaks in the form of &quot;mm/dd&quot; indicate the last day of each season.
+Breaks must be in calendar order.</p>
+</td></tr>
+<tr valign="top"><td><code>Names</code></td>
+<td>
+<p>optional names for the seasons.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The default names for the seasons are of the form &quot;Season Ending ...,&quot; where
+... is derived from <code>breaks</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A factor of seasonal categories.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../lubridate/html/month.html">month</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+
+## Just two seasons
+seasons(as.Date(c("2001-03-31", "2001-06-30", "2001-09-30")), breaks=c("June", "December"))
+## The equivalent using mm/dd format
+seasons(as.Date(c("2001-03-31", "2001-06-30", "2001-09-30")), breaks=c("06/30", "12/31"))
+## Not run: 
+# Apply to a real dataset
+library(smwrData)
+data(QW05078470)
+transform(QW05078470, Seas=seasons(DATES, breaks=c("June", "December")))
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

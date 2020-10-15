@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Recode Data</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for recode {smwrBase}"><tr><td>recode {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Recode Data</h2>
+
+<h3>Description</h3>
+
+<p>Converts a specified value to another value.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+recode(x, from, to)
+
+## S3 method for class 'factor'
+recode(x, from, to)
+
+## S3 method for class 'integer'
+recode(x, from, to)
+
+## S3 method for class 'character'
+recode(x, from, to)
+
+## S3 method for class 'numeric'
+recode(x, from, to)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>a vector. Missing values (<code>NA</code>s) are allowed.</p>
+</td></tr>
+<tr valign="top"><td><code>from</code></td>
+<td>
+<p>the target value to match and replace.</p>
+</td></tr>
+<tr valign="top"><td><code>to</code></td>
+<td>
+<p>the replacement value.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>An object like vector with each target value replaced by the
+specified value.
+</p>
+
+
+<h3>Note</h3>
+
+<p>When used on numeric (type &quot;double&quot;), the recode
+function uses an approximate match within a small tolerance range to avoid
+mismatches due to computations.<br /> The function <code>sub</code> offers greater
+flexibility than <code>recode</code> for replacing parts of text instead of the
+complete text.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../base/html/sub.html">sub</a></code>, <code><a href="na2miss.html">na2miss</a></code>, <code><a href="na2miss.html">miss2na</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+XT &lt;- c(1, 2, 0, 4)
+recode(XT, 0, 3)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

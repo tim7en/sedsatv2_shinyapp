@@ -1,0 +1,11 @@
+AUC	AUC
+bw.CDF	bw.CDF
+bw.CDF.pi	bw.CDF.pi
+CI.CDF	CI.CDF
+kCDF	kCDF
+kROC	kROC
+plot.CDF	plot.CDF
+plot.ROC	plot.ROC
+print.AUC	print.AUC
+print.CDF	print.CDF
+print.ROC	print.ROC

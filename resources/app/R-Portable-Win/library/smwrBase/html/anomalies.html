@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Anomalies</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for anomalies {smwrBase}"><tr><td>anomalies {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Anomalies</h2>
+
+<h3>Description</h3>
+
+<p>Decompose a series of observations into deviations (anomalies) from the mean
+for selected periods and the remainder (HFV or high frequency variation)
+using the method described in Appendix A of Vecchia (2000).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+anomalies(x, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>a time series (ts) or a vector of observations that represents a
+daily series. Missing values (NAs) are allowed only at the beginning and end
+of the series.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>named anomalies and the length of the selected periods,
+generally in days. The anomalies must be specified in order of decreasing
+length.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The intent of computing anomalies is to give flexibility in fitting the
+relation between flux, or concentration, and flow for time periods longer
+than a couple of years. Taking a very simple regression model:<br />
+</p>
+<p><em>C = B0 + B1 * Q + e</em>,<br />
+</p>
+<p>where <em>C</em> is the concentration, <em>B0</em> and <em>B1</em> are the regression coefficients, <em>Q</em> is
+the flow, and <em>e</em> is the error. This can be re-expressed in terms of flow
+anomalies (for this example, 5- and 1-year anomalies are used, many others are possible):<br />
+</p>
+<p><em>C = B0 + B1 * Qbar + B1 * A5 + B1 * A1 + B1 * HFV + e</em>,<br />
+</p>
+<p>where <em>C</em>, <em>B0</em>, <em>B1</em>, and <em>e</em> are the same as the simple regression, and <em>Qbar</em> is the
+mean flow, <em>A5</em> is the 5-year anomaly, <em>A1</em> is the 1-year anomaly, and <em>HFV</em> is the
+high-frequency variation. The simple regression model assumes that the
+regression coefficient (<em>B1</em>) is constant for all anomalies. Computing
+anomalies removes that constraint and is represented by this model:<br />
+</p>
+<p><em>C = B0 + B1 * A5 + B2 * A1 + B3 * HFV + e</em>,<br />
+</p>
+<p>where <em>C</em>, <em>A5</em>, <em>A1</em>, <em>HFV</em>, and <em>e</em> are the same as the re-expressed model, and <em>B0</em>,
+<em>B1</em>, <em>B2</em>, and <em>B3</em> are regression coefficients (numerically different from the
+simple coefficients). <em>Qbar</em> is a constant and is not needed for the regression.<br />
+</p>
+<p>Anomalies are computed sequentially. First, the mean of <code>x</code> is computed and
+subtracted from the data. Then for each anomaly, the running mean of the
+specified period is computed (the anomaly) and is subtracted from the data.
+The remainder is the HFV. This procedure ensures that the sum of the
+anomalies plus the mean is equal to the original data.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A matrix of the specified anomalies and HFV. The mean of <code>x</code> is
+included as an attribute.
+</p>
+
+
+<h3>Note</h3>
+
+<p>The output matrix contains missing values in the beginning,
+corresponding to the length of the longest anomaly.<br />
+</p>
+<p>A long time-frame anomaly that is often of interest, is the 5-year
+anomaly, which is 1,826 days.
+</p>
+
+
+<h3>References</h3>
+
+<p>Vecchia, A.V., 2000, Water-quality trend analysis and sampling
+design for the Souris River, Saskatchewan, North Dakota, and Manitoba: U.S.
+Geological Survey Water-Resources Investigations Report 00-4019, 77 p.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+library(smwrData)
+data(Q05078770)
+anomalies(log(Q05078770$FLOW), A3mo=90)
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

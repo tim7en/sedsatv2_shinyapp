@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Base Day</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for baseDay {smwrBase}"><tr><td>baseDay {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Base Day</h2>
+
+<h3>Description</h3>
+
+<p>Computes the base day of the year, a reference value that can be 
+used to group days for the computation of summary statistics.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+baseDay(x, numeric = TRUE, year = c("calendar", "water", "climate"))
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>a vector of class POSIXt, Dates, or character that represents a
+date. Missing values are permitted.</p>
+</td></tr>
+<tr valign="top"><td><code>numeric</code></td>
+<td>
+<p>a logical value; <code>TRUE</code> means return the numeric value
+of the day, <code>FALSE</code> means return a factor.</p>
+</td></tr>
+<tr valign="top"><td><code>year</code></td>
+<td>
+<p>a character string indicating the basis of the factor levels. See
+<b>Details</b>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The base day is computed such that all dates have the same reference value
+regardless of whether the year is a leap year or not. If <code>year</code> is 
+&quot;calendar,&quot; then the factor levels or day number begin on January 1; if <code>year</code> is
+&quot;water,&quot; then the factor levels or day number begin on October 1; and if <code>year</code> is
+&quot;climate,&quot; then the factor levels or day number begin on April 1.
+</p>
+
+
+<h3>Value</h3>
+
+<p>An integer value representing the base day number if <code>numeric</code>
+is <code>TRUE</code>. Otherwise a factor with levels for every day of the year.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+
+# The default numeric result
+baseDay(c("2000-02-29", "2000-03-01", "2001-03-01"))
+# The result as a factor
+baseDay(c("2000-02-29", "2000-03-01", "2001-03-01"), numeric=FALSE)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

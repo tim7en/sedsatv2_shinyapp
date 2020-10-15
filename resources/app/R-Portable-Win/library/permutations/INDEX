@@ -1,0 +1,36 @@
+Ops.permutation         Arithmetic Ops Group Methods for permutations
+allperms                All permutations of a given size
+as.function.permutation
+                        Coerce a permutation to a function
+c                       Concatenation of permutations
+cayley                  Cayley tables for permutation groups
+commutator              Group-theoretic commutator and group action
+conjugate               Are two permutations conjugate?
+cyclist                 details of cyclists
+derangement             Tests for a permutation being a derangement
+dodecahedron            The dodecahedron group
+fbin                    The fundamental bijection
+fixed                   Fixed elements
+get1                    Retrieve particular cycles or components of
+                        cycles
+id                      The identity permutation
+inverse                 Inverse of a permutation
+length.word             Various vector-like utilities for permutation
+                        objects.
+megaminx                megaminx
+megaminx_plotter        Plotting routine for megaminx sequences
+nullperm                Null permutations
+orbit                   Orbits of integers
+perm_matrix             Permutation matrices
+permorder               The order of a permutation
+permutation             Functions to create and coerce word objects and
+                        cycle objects
+permutations-package    The Symmetric Group: Permutations of a Finite
+                        Set
+print.permutation       Print methods for permutation objects
+rperm                   Random permutations
+sgn                     Sign of a permutation
+shape                   Shape of a permutation
+size                    Gets or sets the size of a permutation
+tidy                    Utilities to neaten permutation objects
+valid                   Functions to validate permutations

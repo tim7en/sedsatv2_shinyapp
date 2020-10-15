@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Replace missing values</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for coalesce {smwrBase}"><tr><td>coalesce {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Replace missing values</h2>
+
+<h3>Description</h3>
+
+<p>Construct a vector with as few missing values as possible from a selected
+sequence of vectors.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+coalesce(mat, ...)
+
+index.coalesce(mat, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>mat</code></td>
+<td>
+<p>a vector or matrix.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>additional vectors or matrices, must have the same number of
+rows as <code>mat</code>. The last argument can be a constant that would substitute for
+all remaining missing values.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>For <code>coalesce</code>, a vector in which each element is determined by
+selecting the first non-missing value in the order in which they are
+specified in the argument list. The first step is to construct a matrix from
+all arguments. The output is initially set to column 1; for any missing values
+in the column, the data from column 2 are used and so on until all columns have
+been searched or all missing values replaced.<br />
+</p>
+<p>For <code>index.coalesce</code>, an integer vector indicating which column from mat or
+from the vectors or constant specified for ... produced the result in coalesce.
+</p>
+
+
+<h3>Note</h3>
+
+<p>This function is most useful for creating a column in a dataset from
+related columns that represent different methods. For example, a single
+column of alkalinity may be desired when there are multiple columns of
+alkalinity determined by various methods.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+
+coalesce(c(1,NA,NA,3), c(2,2,NA,2))
+# should be: [1]  1  2 NA  3
+coalesce(c(1,NA,NA,3), c(2,2,NA,2), 0)
+# should be: [1] 1 2 0 3
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

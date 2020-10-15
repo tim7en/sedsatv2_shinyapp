@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Collapse a Sequence</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for seqCollapse {smwrBase}"><tr><td>seqCollapse {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Collapse a Sequence</h2>
+
+<h3>Description</h3>
+
+<p>Collapse a numeric sequence into a compact form that represents continuous
+ranges and discontinuous values.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+seqCollapse(x, sequential = "-", skips = ", ")
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>an integer vector, missing values and repeated values are permitted
+and removed before collapsing.</p>
+</td></tr>
+<tr valign="top"><td><code>sequential</code></td>
+<td>
+<p>the separator for sequential values.</p>
+</td></tr>
+<tr valign="top"><td><code>skips</code></td>
+<td>
+<p>the separator for gaps in the sequence.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A character string that represents that data in <code>x</code> in a compact
+form. If <code>x</code> is empty, then &quot;&quot; is returned.
+</p>
+
+
+<h3>Note</h3>
+
+<p>This function is commonly used to express years in a compact form.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../base/html/paste.html">paste</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+
+# A single value
+seqCollapse(1968)
+# A single, continuous range of values
+seqCollapse(1968:1992)
+# A collection of continuous and individual values
+seqCollapse(c(1968:1992, 1998, 2002, 2006:2012))
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

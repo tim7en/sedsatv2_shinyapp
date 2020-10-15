@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Hyperbolic transform</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for hyperbolic {smwrBase}"><tr><td>hyperbolic {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Hyperbolic transform</h2>
+
+<h3>Description</h3>
+
+<p>Functions for transforming and back-transforming data using a hyperbolic
+function.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+hyperbolic(x, factor = 0, scale = mean(x, na.rm = TRUE))
+
+Ihyperbolic(x, factor = 0, scale)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>a numeric vector to be transformed by <code>hyperbolic</code> or
+back-trasnformed by <code>Ihyperbolic</code>. Must be strictly positive. Missing
+values are allowed. See <b>Details</b>.</p>
+</td></tr>
+<tr valign="top"><td><code>factor</code></td>
+<td>
+<p>the hyperbolic adjustment term in the hyperbolic equation.</p>
+</td></tr>
+<tr valign="top"><td><code>scale</code></td>
+<td>
+<p>the scaling factor for the data.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If <code>x</code> contains missing values, then <code>scale</code> is computed after
+omitting the missing values and the output vector has a missing value
+wherever <code>x</code> has a missing value.<br />
+</p>
+<p>The basic equation for the hyberbolic transform is 1/(1 + (10^<code>factor</code> * <code>x</code>)/
+<code>scale</code>). The basic equation is adjusted to produce fairly consistent values for small changes
+in <code>factor</code> and increase for increasing values in <code>x</code>.<br />
+</p>
+<p>The function <code>hyperbolic</code> computes the forward transform and the
+function <code>Ihyperbolic</code> computes the inverse [hyperbolic] transform, or back-transform.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A numeric vector of the transformed or back-transformed values in
+<code>x</code> with an attribute &quot;scale&quot; of the values used for <code>scale</code>. The range
+of the values returned from <code>hyperbolic</code> is between 0 and 2 times <code>scale</code>.
+</p>
+
+
+<h3>Note</h3>
+
+<p>The original hyperbolic transform used a linear factor. The version in
+these functions uses the common log of the factor to make the factors easier
+to use.<br />
+</p>
+<p>When used with the default value for <code>scale</code>, <code>factor</code> values
+outside the range of +/- 3 have very little effect on the transform.
+</p>
+
+
+<h3>References</h3>
+
+<p>The use of a variable hyperbolic transform to help model the
+relations between stream water chemistry and flow was first described in:
+</p>
+<p>Johnson, N.M., Likens, G.E., Borman, F.H., Fisher, D.W., and Pierce, R.S.,
+1969, A working model for the variation in stream water chemistry at the
+Hubbard Brook Experimental Forest, New Hampshire: Water Resources Research,
+v. 5, no. 6, p. 1353&ndash;1363.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="boxCox.html">boxCox</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+X.test &lt;- c(1,4,9,16,25,36,49)
+hyperbolic(X.test) # accept the defaults
+hyperbolic(X.test, factor=1)
+hyperbolic(X.test, factor=-1)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

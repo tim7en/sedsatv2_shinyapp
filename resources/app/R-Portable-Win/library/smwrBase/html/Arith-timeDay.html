@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Arithmetic Operators for 'timeDay' objects</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for Arith-timeDay {smwrBase}"><tr><td>Arith-timeDay {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Arithmetic Operators for <code>timeDay</code> objects</h2>
+
+<h3>Description</h3>
+
+<p>Addition of time-of-day data to either &quot;Date&quot; or &quot;POSIXt&quot; classes. 
+This is useful when dates and times are recorded in separate
+columns in a dataset.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+## S4 method for signature 'timeDay,POSIXt'
+Arith(e1, e2)
+
+## S4 method for signature 'POSIXt,timeDay'
+Arith(e1, e2)
+
+## S4 method for signature 'timeDay,Date'
+Arith(e1, e2)
+
+## S4 method for signature 'Date,timeDay'
+Arith(e1, e2)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>e1, e2</code></td>
+<td>
+<p>timeDay and POSIXt or Date objects. Missing values are permitted in 
+either argument and result in a missing value in the output.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A vector of class &quot;POSIXct.&quot;
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+as.Date("2001-03-04") + as.timeDay("10:00")
+## Not run: 
+library(smwrData)
+data(QW05078470)
+# Note that the result is reported in the local time zone!
+QW05078470$DATES + as.timeDay(QW05078470$TIMES)
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

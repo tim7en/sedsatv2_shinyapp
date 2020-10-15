@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Import Files</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for importRDB {smwrBase}"><tr><td>importRDB {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Import Files</h2>
+
+<h3>Description</h3>
+
+<p>Imports a formatted, tab-delimited file to a data frame.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+importRDB(file.name = "", date.format = NULL, tz = "",
+  convert.type = TRUE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>file.name</code></td>
+<td>
+<p>a character string specifying the name of the relational database 
+(RDB) file containing the data to be imported.</p>
+</td></tr>
+<tr valign="top"><td><code>date.format</code></td>
+<td>
+<p>a character string specifying the format of all date
+columns. Required for columns that contain date and time. The default value,
+<code>NULL</code>, will read any valid date (not date and time) format. The special
+formats &quot;none,&quot; which suppresses date conversion; and &quot;varies,&quot; which can be 
+used when the date data included time data sometimes and sometimes not. 
+For the latter special format, the date and time data must be in POSIX format
+(YYYY-mm-dd HH:MM) with optional seconds. For dates that are missing time data, the time 
+will be set to midnight in the specified or local time zone.</p>
+</td></tr>
+<tr valign="top"><td><code>tz</code></td>
+<td>
+<p>the time zone information of the data.</p>
+</td></tr>
+<tr valign="top"><td><code>convert.type</code></td>
+<td>
+<p>logical <code>TRUE</code> or <code>FALSE</code>, convert data according 
+to the format line? Setting <code>convert.type</code> to <code>FALSE</code> forces all data
+to be imported as character.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>All of the dates in a date column must have the same format as the first
+non-blank date in the column. Any date with a format different from that of
+the first non-blank date in the column will be imported as <code>NA</code> (missing
+value). By default, dates are imported as class &quot;Date&quot; using a 4-digit year,
+2-digit month, and 2-digit day with the period (.), hyphen (-), slash (/), or
+no separator.<br />
+</p>
+<p>If a valid <code>date.format</code> is supplied, then the data are imported using
+<code>as.POSIXct</code>, and time information can be included in the data. If
+<code>date.format</code> is &quot;none,&quot; then conversion of the date information is
+suppressed and the data are retained as character strings.<br />
+</p>
+<p>The value for <code>tz</code> should be a valid &quot;Olson&quot; format consisting typically 
+of a continent and city. See <code><a href="../../base/html/timezones.html">timezone</a></code> for a description of 
+time zones. For the United States, use these time-zone specifications where
+daylight savings time is used:
+</p>
+
+<table summary="Rd table">
+<tr>
+ <td style="text-align: left;">Eastern </td><td style="text-align: left;"> "America/New_York" </td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+Central </td><td style="text-align: left;"> "America/Chicago" </td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+Mountain </td><td style="text-align: left;"> "America/Denver" </td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+Pacific </td><td style="text-align: left;"> "America/Los_Angeles" </td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+Alaska </td><td style="text-align: left;"> "America/Anchorage" </td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+Hawii </td><td style="text-align: left;"> "America/Honolulu" </td>
+</tr>
+
+</table>
+
+<p>Use these time specifications where daylight savings time is not used:
+#'</p>
+
+<table summary="Rd table">
+<tr>
+ <td style="text-align: left;">Eastern </td><td style="text-align: left;"> "America/Jamaica" </td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+Central </td><td style="text-align: left;"> "America/Managua" </td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+Mountain </td><td style="text-align: left;"> "America/Phoenix" </td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+Pacific </td><td style="text-align: left;"> "America/Metlakatla" </td>
+</tr>
+
+</table>
+
+
+
+<h3>Value</h3>
+
+<p>A data frame with one column for each data column in the RDB
+file.
+</p>
+
+
+<h3>Note</h3>
+
+<p>A NULL data frame is created if there are no data in the file.
+</p>
+<p>The header information contained in the RDB file is retained in the output
+dataset as <code>comment</code>.
+</p>
+<p>If <code>convert.type</code> is <code>TRUE</code>, then non-numeric values, other than blanks,
+are converted to <code>NaN</code> (not a number) rather than <code>NA</code> (missing value) 
+in numeric columns. <code>NaN</code> values are treated like <code>NA</code> values but can 
+be identified using the <code>is.nan</code> function.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../utils/html/read.table.html">read.table</a></code>, <code><a href="../../base/html/as.Date.html">as.Date</a></code>, <code><a href="../../base/html/as.POSIXct.html">as.POSIXct</a></code>,
+<code><a href="../../base/html/comment.html">comment</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+## This dataset is available in smwrData as a text file
+TestDir &lt;- system.file("misc", package="smwrData")
+TestFull &lt;- importRDB(file.path(TestDir, "TestFull.rdb"))
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

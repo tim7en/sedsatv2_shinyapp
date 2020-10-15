@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: File or Object Name</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for setFileType {smwrBase}"><tr><td>setFileType {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>File or Object Name</h2>
+
+<h3>Description</h3>
+
+<p>Create a new file or object name from an old name with an optional new
+suffix.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+setFileType(filename, type = "tmp", replace = FALSE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>filename</code></td>
+<td>
+<p>a single character string of the name of the file or object.</p>
+</td></tr>
+<tr valign="top"><td><code>type</code></td>
+<td>
+<p>character string identifying the new suffix.</p>
+</td></tr>
+<tr valign="top"><td><code>replace</code></td>
+<td>
+<p>logical (<code>TRUE</code> or <code>FALSE</code>): replace the current suffix?</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A character string like <code>filename</code> but with a new suffix.
+</p>
+
+
+<h3>Note</h3>
+
+<p>This function is designed as a support function for many
+functions.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Dave Lorenz, original coding by Jim Slack, U.S. Geological Survey retired.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+# Replace the .dat suffix with .txt
+setFileType("TestName.dat", "txt", replace=TRUE)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

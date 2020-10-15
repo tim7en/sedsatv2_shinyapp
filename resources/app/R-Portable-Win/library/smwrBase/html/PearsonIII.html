@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Pearson Type III distribution</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for dpearsonIII {smwrBase}"><tr><td>dpearsonIII {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Pearson Type III distribution</h2>
+
+<h3>Description</h3>
+
+<p>Density, cumulative probability, quantiles, and random generation for the
+Pearson Type III distribution.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+dpearsonIII(x, mean = 0, sd = 1, skew = 0)
+
+ppearsonIII(q, mean = 0, sd = 1, skew = 0)
+
+qpearsonIII(p, mean = 0, sd = 1, skew = 0)
+
+rpearsonIII(n, mean = 0, sd = 1, skew = 0)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x, q</code></td>
+<td>
+<p>vector of quantiles. Missing values are permitted and result in
+corresponding missing values in the output.</p>
+</td></tr>
+<tr valign="top"><td><code>mean</code></td>
+<td>
+<p>vector of means of the distribution of the data.</p>
+</td></tr>
+<tr valign="top"><td><code>sd</code></td>
+<td>
+<p>vector of standard deviation of the distribution of the data.</p>
+</td></tr>
+<tr valign="top"><td><code>skew</code></td>
+<td>
+<p>vector of skewness of the distribution of the data.</p>
+</td></tr>
+<tr valign="top"><td><code>p</code></td>
+<td>
+<p>vector of probabilities.</p>
+</td></tr>
+<tr valign="top"><td><code>n</code></td>
+<td>
+<p>number of observations. If length(<code>n</code>) &gt; 1, then the length is taken
+to be the number required.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Elements of <code>x</code>, <code>q</code>, or <code>p</code> that are missing will result in 
+missing values in the returned data.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Either the density (<code>dpearsonIII</code>), cumulative probability
+(<code>ppearsonIII</code>), quantile (<code>qpearsonIII</code>), or random sample
+(<code>rpearsonIII</code>) for the described distribution.
+</p>
+
+
+<h3>Note</h3>
+
+<p>The log-Pearson Type III distribution is used extensively in flood-frequency 
+analysis in the United States. The Pearson Type III forms the basis
+for that distribution.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="LogPearsonIII.html">dlpearsonIII</a></code>, <code><a href="../../stats/html/dnorm.html">dnorm</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Simple examples
+dpearsonIII(c(.5, .75, .9), 1.5, .25, 0)
+## compare to normal
+qnorm(c(.5, .75, .9), 1.5, .25)
+## Make a skewed distribution
+dpearsonIII(c(.5, .75, .9), 1.5, .25, 0.25)
+## Simple examples
+ppearsonIII(c(.5, .75, .9), 1.5, .25, 0)
+## compare to normal
+qnorm(c(.5, .75, .9), 1.5, .25)
+## Make a skewed distribution
+ppearsonIII(c(.5, .75, .9), 1.5, .25, 0.25)
+## Simple examples
+qpearsonIII(c(.5, .75, .9), 1.5, .25, 0)
+## compare to normal
+qnorm(c(.5, .75, .9), 1.5, .25)
+## Make a skewed distribution
+qpearsonIII(c(.5, .75, .9), 1.5, .25, 0.25)
+# Simple examples
+rpearsonIII(c(.5, .75, .9), 1.5, .25, 0)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

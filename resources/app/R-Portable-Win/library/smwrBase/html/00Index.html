@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>R: Functions to import and manipulate hydrologic data</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+<h1> Functions to import and manipulate hydrologic data
+<img class="toplogo" src="../../../doc/html/Rlogo.svg" alt="[R logo]" />
+</h1>
+<hr/>
+<div style="text-align: center;">
+<a href="../../../doc/html/packages.html"><img class="arrow" src="../../../doc/html/left.jpg" alt="[Up]" /></a>
+<a href="../../../doc/html/index.html"><img class="arrow" src="../../../doc/html/up.jpg" alt="[Top]" /></a>
+</div><h2>Documentation for package &lsquo;smwrBase&rsquo; version 1.1.5</h2>
+
+<ul><li><a href="../DESCRIPTION">DESCRIPTION file</a>.</li>
+<li><a href="../doc/index.html">User guides, package vignettes and other documentation.</a></li>
+<li><a href="../demo">Code demos</a>.  Use <a href="../../utils/help/demo">demo()</a> to run them.</li>
+<li><a href="../NEWS">Package NEWS</a>.</li>
+</ul>
+
+<h2>Help Pages</h2>
+
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="smwrBase-package.html">smrwBase-package</a></td>
+<td>Data import, export and manipulation functions</td></tr>
+<tr><td style="width: 25%;"><a href="smwrBase-package.html">smwrBase-package</a></td>
+<td>Data import, export and manipulation functions</td></tr>
+<tr><td style="width: 25%;"><a href="zcn.html">%cn%</a></td>
+<td>Partial Value Matching</td></tr>
+<tr><td style="width: 25%;"><a href="anomalies.html">anomalies</a></td>
+<td>Anomalies</td></tr>
+<tr><td style="width: 25%;"><a href="Arith-timeDay.html">Arith-method</a></td>
+<td>Arithmetic Operators for 'timeDay' objects</td></tr>
+<tr><td style="width: 25%;"><a href="Arith-timeDay.html">Arith-timeDay</a></td>
+<td>Arithmetic Operators for 'timeDay' objects</td></tr>
+<tr><td style="width: 25%;"><a href="as.character.timeDay.html">as.character.timeDay</a></td>
+<td>Character Vector</td></tr>
+<tr><td style="width: 25%;"><a href="as.data.frame.timeDay.html">as.data.frame.timeDay</a></td>
+<td>Data Frames</td></tr>
+<tr><td style="width: 25%;"><a href="as.timeDay.html">as.timeDay</a></td>
+<td>Methods for Function 'as.timeDay'</td></tr>
+<tr><td style="width: 25%;"><a href="as.timeDay.html">as.timeDay-method</a></td>
+<td>Methods for Function 'as.timeDay'</td></tr>
+<tr><td style="width: 25%;"><a href="baseDay.html">baseDay</a></td>
+<td>Base Day</td></tr>
+<tr><td style="width: 25%;"><a href="baseDay2decimal.html">baseDay2decimal</a></td>
+<td>Base Day</td></tr>
+<tr><td style="width: 25%;"><a href="boxCox.html">boxCox</a></td>
+<td>Box-Cox Power Transform</td></tr>
+<tr><td style="width: 25%;"><a href="c.timeDay.html">c.timeDay</a></td>
+<td>Concatenate Data</td></tr>
+<tr><td style="width: 25%;"><a href="coalesce.html">coalesce</a></td>
+<td>Replace missing values</td></tr>
+<tr><td style="width: 25%;"><a href="conc.meq.html">conc.meq</a></td>
+<td>Special Data</td></tr>
+<tr><td style="width: 25%;"><a href="conc2meq.html">conc2meq</a></td>
+<td>Concentrations to Milliequivalents</td></tr>
+<tr><td style="width: 25%;"><a href="daysInMonth.html">daysInMonth</a></td>
+<td>Days in a Month</td></tr>
+<tr><td style="width: 25%;"><a href="dectime.html">dectime</a></td>
+<td>Decimal Time</td></tr>
+<tr><td style="width: 25%;"><a href="dectime2Date.html">dectime2Date</a></td>
+<td>Date Conversion</td></tr>
+<tr><td style="width: 25%;"><a href="LogPearsonIII.html">dlpearsonIII</a></td>
+<td>Log-Pearson Type III distribution</td></tr>
+<tr><td style="width: 25%;"><a href="dms2dd.html">dms2dd</a></td>
+<td>Decimal Degrees</td></tr>
+<tr><td style="width: 25%;"><a href="PearsonIII.html">dpearsonIII</a></td>
+<td>Pearson Type III distribution</td></tr>
+<tr><td style="width: 25%;"><a href="eventProcessing.html">eventLen</a></td>
+<td>Event Processing</td></tr>
+<tr><td style="width: 25%;"><a href="eventProcessing.html">eventNum</a></td>
+<td>Event Processing</td></tr>
+<tr><td style="width: 25%;"><a href="eventProcessing.html">eventSeq</a></td>
+<td>Event Processing</td></tr>
+<tr><td style="width: 25%;"><a href="eventSeries.html">eventSeries</a></td>
+<td>Regular Series</td></tr>
+<tr><td style="width: 25%;"><a href="exportCSV.html">exportCSV</a></td>
+<td>Export Data</td></tr>
+<tr><td style="width: 25%;"><a href="exportRDB.html">exportRDB</a></td>
+<td>Export Data</td></tr>
+<tr><td style="width: 25%;"><a href="fillMissing.html">fillMissing</a></td>
+<td>Fill Missing Values</td></tr>
+<tr><td style="width: 25%;"><a href="format.timeDay.html">format.timeDay</a></td>
+<td>Encode in a Common Format</td></tr>
+<tr><td style="width: 25%;"><a href="fourier.html">fourier</a></td>
+<td>Fourier Series Components</td></tr>
+<tr><td style="width: 25%;"><a href="group2row.html">group2row</a></td>
+<td>Restructure Data</td></tr>
+<tr><td style="width: 25%;"><a href="hyperbolic.html">hyperbolic</a></td>
+<td>Hyperbolic transform</td></tr>
+<tr><td style="width: 25%;"><a href="hysteresis.html">hysteresis</a></td>
+<td>Compute Hysteresis</td></tr>
+<tr><td style="width: 25%;"><a href="boxCox.html">IboxCox</a></td>
+<td>Box-Cox Power Transform</td></tr>
+<tr><td style="width: 25%;"><a href="hyperbolic.html">Ihyperbolic</a></td>
+<td>Hyperbolic transform</td></tr>
+<tr><td style="width: 25%;"><a href="importCSV.html">importCSV</a></td>
+<td>Import Files</td></tr>
+<tr><td style="width: 25%;"><a href="importRDB.html">importRDB</a></td>
+<td>Import Files</td></tr>
+<tr><td style="width: 25%;"><a href="coalesce.html">index.coalesce</a></td>
+<td>Replace missing values</td></tr>
+<tr><td style="width: 25%;"><a href="insertMissing.html">insertMissing</a></td>
+<td>Insert Missing Data</td></tr>
+<tr><td style="width: 25%;"><a href="is.na.timeDay.html">is.na.timeDay</a></td>
+<td>Missing Values</td></tr>
+<tr><td style="width: 25%;"><a href="scaleRng.html">IscaleRng</a></td>
+<td>Scale Data</td></tr>
+<tr><td style="width: 25%;"><a href="isLike.html">isCharLike</a></td>
+<td>Test whether an object can be treated in a particular way</td></tr>
+<tr><td style="width: 25%;"><a href="sCurve.html">IsCurve</a></td>
+<td>S-Curve Transform</td></tr>
+<tr><td style="width: 25%;"><a href="isLike.html">isDateLike</a></td>
+<td>Test whether an object can be treated in a particular way</td></tr>
+<tr><td style="width: 25%;"><a href="isLike.html">isGroupLike</a></td>
+<td>Test whether an object can be treated in a particular way</td></tr>
+<tr><td style="width: 25%;"><a href="isLike.html">isNumberLike</a></td>
+<td>Test whether an object can be treated in a particular way</td></tr>
+<tr><td style="width: 25%;"><a href="length.timeDay.html">length.timeDay</a></td>
+<td>Length of an Object</td></tr>
+<tr><td style="width: 25%;"><a href="LogPearsonIII.html">LogPearsonIII</a></td>
+<td>Log-Pearson Type III distribution</td></tr>
+<tr><td style="width: 25%;"><a href="makeMeta.html">makeMeta</a></td>
+<td>Metadata</td></tr>
+<tr><td style="width: 25%;"><a href="makepredictcall.html">makepredictcall.boxCox</a></td>
+<td>Utility Function for Safe Prediction</td></tr>
+<tr><td style="width: 25%;"><a href="makepredictcall.html">makepredictcall.hyperbolic</a></td>
+<td>Utility Function for Safe Prediction</td></tr>
+<tr><td style="width: 25%;"><a href="makepredictcall.html">makepredictcall.quadratic</a></td>
+<td>Utility Function for Safe Prediction</td></tr>
+<tr><td style="width: 25%;"><a href="makepredictcall.html">makepredictcall.scaleRng</a></td>
+<td>Utility Function for Safe Prediction</td></tr>
+<tr><td style="width: 25%;"><a href="Math-timeDay.html">Math-method</a></td>
+<td>Mathematical Functions for 'timeDay' objects</td></tr>
+<tr><td style="width: 25%;"><a href="Math-timeDay.html">Math-timeDay</a></td>
+<td>Mathematical Functions for 'timeDay' objects</td></tr>
+<tr><td style="width: 25%;"><a href="mergeNearest.html">mergeNearest</a></td>
+<td>Merge Datasets</td></tr>
+<tr><td style="width: 25%;"><a href="mergeQ.html">mergeQ</a></td>
+<td>Merge Flow into another Dataset</td></tr>
+<tr><td style="width: 25%;"><a href="na2miss.html">miss2na</a></td>
+<td>Recode Data</td></tr>
+<tr><td style="width: 25%;"><a href="more.html">more</a></td>
+<td>Display Data</td></tr>
+<tr><td style="width: 25%;"><a href="movingAve.html">movingAve</a></td>
+<td>Moving Averages</td></tr>
+<tr><td style="width: 25%;"><a href="movingDiff.html">movingDiff</a></td>
+<td>Moving Differences</td></tr>
+<tr><td style="width: 25%;"><a href="na2miss.html">na2miss</a></td>
+<td>Recode Data</td></tr>
+<tr><td style="width: 25%;"><a href="peaks.html">peaks</a></td>
+<td>Find Local Maxima</td></tr>
+<tr><td style="width: 25%;"><a href="PearsonIII.html">PearsonIII</a></td>
+<td>Pearson Type III distribution</td></tr>
+<tr><td style="width: 25%;"><a href="pick.html">pick</a></td>
+<td>Conditional Element Selection</td></tr>
+<tr><td style="width: 25%;"><a href="LogPearsonIII.html">plpearsonIII</a></td>
+<td>Log-Pearson Type III distribution</td></tr>
+<tr><td style="width: 25%;"><a href="PearsonIII.html">ppearsonIII</a></td>
+<td>Pearson Type III distribution</td></tr>
+<tr><td style="width: 25%;"><a href="print.timeDay.html">print.timeDay</a></td>
+<td>Print an Object</td></tr>
+<tr><td style="width: 25%;"><a href="LogPearsonIII.html">qlpearsonIII</a></td>
+<td>Log-Pearson Type III distribution</td></tr>
+<tr><td style="width: 25%;"><a href="PearsonIII.html">qpearsonIII</a></td>
+<td>Pearson Type III distribution</td></tr>
+<tr><td style="width: 25%;"><a href="quadratic.html">quadratic</a></td>
+<td>Linear and Quadratic Terms</td></tr>
+<tr><td style="width: 25%;"><a href="readList.html">readList</a></td>
+<td>Import Data</td></tr>
+<tr><td style="width: 25%;"><a href="recode.html">recode</a></td>
+<td>Recode Data</td></tr>
+<tr><td style="width: 25%;"><a href="recode.html">recode.character</a></td>
+<td>Recode Data</td></tr>
+<tr><td style="width: 25%;"><a href="recode.html">recode.factor</a></td>
+<td>Recode Data</td></tr>
+<tr><td style="width: 25%;"><a href="recode.html">recode.integer</a></td>
+<td>Recode Data</td></tr>
+<tr><td style="width: 25%;"><a href="recode.html">recode.numeric</a></td>
+<td>Recode Data</td></tr>
+<tr><td style="width: 25%;"><a href="regularSeries.html">regularSeries</a></td>
+<td>Regular Series</td></tr>
+<tr><td style="width: 25%;"><a href="LogPearsonIII.html">rlpearsonIII</a></td>
+<td>Log-Pearson Type III distribution</td></tr>
+<tr><td style="width: 25%;"><a href="PearsonIII.html">rpearsonIII</a></td>
+<td>Pearson Type III distribution</td></tr>
+<tr><td style="width: 25%;"><a href="scaleRng.html">scaleRng</a></td>
+<td>Scale Data</td></tr>
+<tr><td style="width: 25%;"><a href="screenData.html">screenData</a></td>
+<td>Screen Data for Completeness</td></tr>
+<tr><td style="width: 25%;"><a href="sCurve.html">sCurve</a></td>
+<td>S-Curve Transform</td></tr>
+<tr><td style="width: 25%;"><a href="seasons.html">seasons</a></td>
+<td>Seasonal Categories</td></tr>
+<tr><td style="width: 25%;"><a href="seqCollapse.html">seqCollapse</a></td>
+<td>Collapse a Sequence</td></tr>
+<tr><td style="width: 25%;"><a href="setFileType.html">setFileType</a></td>
+<td>File or Object Name</td></tr>
+<tr><td style="width: 25%;"><a href="setTZ.html">setTZ</a></td>
+<td>Set Time Zone</td></tr>
+<tr><td style="width: 25%;"><a href="shiftData.html">shiftData</a></td>
+<td>Shift Data</td></tr>
+<tr><td style="width: 25%;"><a href="show-methods.html">show-method</a></td>
+<td>Methods for Function 'show' for Time-of-Day Objects</td></tr>
+<tr><td style="width: 25%;"><a href="show-methods.html">show-methods</a></td>
+<td>Methods for Function 'show' for Time-of-Day Objects</td></tr>
+<tr><td style="width: 25%;"><a href="smwrBase-package.html">smwrBase</a></td>
+<td>Data import, export and manipulation functions</td></tr>
+<tr><td style="width: 25%;"><a href="sumComposition.html">sumComposition</a></td>
+<td>Percentage Composition</td></tr>
+<tr><td style="width: 25%;"><a href="timeDay-class.html">timeDay-class</a></td>
+<td>Time of Day</td></tr>
+<tr><td style="width: 25%;"><a href="untable.html">untable</a></td>
+<td>Contingency Table</td></tr>
+<tr><td style="width: 25%;"><a href="waterYear.html">waterYear</a></td>
+<td>Water Year</td></tr>
+<tr><td style="width: 25%;"><a href="whichRowCol.html">whichRowCol</a></td>
+<td>Identify Rows and Columns</td></tr>
+<tr><td style="width: 25%;"><a href="zsubset.timeDay.html">[.timeDay</a></td>
+<td>Extract Parts of an Object</td></tr>
+</table>
+</body></html>

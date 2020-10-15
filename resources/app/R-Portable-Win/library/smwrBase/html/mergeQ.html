@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Merge Flow into another Dataset</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for mergeQ {smwrBase}"><tr><td>mergeQ {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Merge Flow into another Dataset</h2>
+
+<h3>Description</h3>
+
+<p>Merges the flow (or other data) column from one or many daily-value datasets
+into a another dataset with one or more stations.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+mergeQ(QWdata, STAID = "STAID", FLOW = "FLOW", DATES = "DATES",
+  Qdata = NULL, Prefix = NULL, Plot = TRUE, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>QWdata</code></td>
+<td>
+<p>a data frame with at least a date column on which to merge.</p>
+</td></tr>
+<tr valign="top"><td><code>STAID</code></td>
+<td>
+<p>a character string of the name of the station-identifier column.
+The column name must agree in the <code>QWdata</code> and flow datasets.</p>
+</td></tr>
+<tr valign="top"><td><code>FLOW</code></td>
+<td>
+<p>a character string of the name of the flow column. The column
+name must agree in flow datasets and will be the column name in
+the merged dataset. See <b>Details</b></p>
+</td></tr>
+<tr valign="top"><td><code>DATES</code></td>
+<td>
+<p>a character string of the name of the column containing the date
+information. The column name must agree in <code>QWdata</code> and flow datasets.
+All datasets must be sorted by date.</p>
+</td></tr>
+<tr valign="top"><td><code>Qdata</code></td>
+<td>
+<p>a data frame containing daily-flow values.</p>
+</td></tr>
+<tr valign="top"><td><code>Prefix</code></td>
+<td>
+<p>a character string indicating the prefix of the names of
+datasets containing daily-flow values.</p>
+</td></tr>
+<tr valign="top"><td><code>Plot</code></td>
+<td>
+<p>a logical value indicating whether to plot the joint distribution
+of sampled flows and observed flows.  See <b>Notes</b> for a description of
+the plot. Used only if a single column is specified in <code>FLOW</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>defines the dataset containing daily flow values for each
+station identifier.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>More than one column can be specified for <code>FLOW</code> when merging a single
+station, and the flow data are specified in <code>Qdata</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A data frame like <code>QWdata</code> with an attached flow column(s).
+</p>
+
+
+<h3>Note</h3>
+
+<p>The station-identifier columns must be of class character.<br />
+</p>
+<p>There are fours ways to merge flow and water-quality data:<br />
+</p>
+<p>A dataset that contains data for a single site does not require
+a <code>STAID</code> column.  <code>Qdata</code> must be supplied. This case must be used if
+the flow record is incomplete or does not cover the range of dates in
+<code>QWdata</code>; all other methods will fail if that is the case. See Example 1.<br />
+</p>
+<p>A dataset that contains data for one or more sites can be
+merged with a dataset that contains flow data for the sites in that
+first dataset. This method will fail if there is not a complete list
+of station identifiers in the flow dataset. See Example 2. <br />
+</p>
+<p>A dataset that contains data for one or more sites can be
+merged with flow datasets that have names based on <code>STAID</code>. The structure of
+the name must be some common prefix followed by the station identifier. The
+station identifier must conform to a valid name.  This method will
+fill in missing values (<code>NA</code>s) if a dataset corresponding to a station
+identifier is not available. See Example 3. <br />
+</p>
+<p>A dataset that contains data for one or more sites can be
+merged with flow datasets that have arbitrary names. Station identifiers that
+do not conform to valid names must be quoted. This method will fail if
+there is not a complete list of station identifiers supplied as arguments.
+See Example 4. <br />
+</p>
+<p>The plot shows the joint distribution of the sampled flows and observed flows
+from the sampling time period. The quantile-quantile plots are used to assess
+whether the sampled and observed flows have the same distribution. If the
+distributions are the same, then the plot will be approximately a straight
+line (included as a reference line). The extreme points can have more
+variability than points toward the center. A plot that shows the upper end
+trailing upward indicates that the largest flows have been under sampled and
+the sampled data may not give a reliable estimate of loads.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="mergeNearest.html">mergeNearest</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+library(smwrData)
+data(Q05078470)
+data(Q05078770)
+data(Qall)
+data(QW05078470)
+data(QWall)
+#                   Example 1
+#
+mergeQ(QW05078470, Qdata=Q05078470, Plot=FALSE)
+
+#                   Example 2
+#
+mergeQ(QWall, FLOW="Flow", Qdata=Qall, Plot=FALSE)
+
+#                   Example 3
+#
+mergeQ(QWall, Prefix="Q", Plot=FALSE)
+
+#                   Example 4
+# Note quotes required for station identifiers
+mergeQ(QWall, "05078470"=Q05078470, "05078770"=Q05078770, Plot=FALSE)
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

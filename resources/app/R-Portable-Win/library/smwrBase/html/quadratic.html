@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Linear and Quadratic Terms</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for quadratic {smwrBase}"><tr><td>quadratic {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Linear and Quadratic Terms</h2>
+
+<h3>Description</h3>
+
+<p>Computes orthogonal polynomials of degree 2 (Cohn and others, 1992). Used
+primarily in a linear regression formula.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+quadratic(x, center = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>a numeric vector. Missing values
+are permitted and result in corresponding missing values in the output.</p>
+</td></tr>
+<tr valign="top"><td><code>center</code></td>
+<td>
+<p>an optional value to use for the center of <code>x</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A matrix of two columns&mdash;the centered value of <code>x</code> and its
+square.
+</p>
+
+
+<h3>Note</h3>
+
+<p>If <code>center</code> is specified, then the polynomials will not
+necessarily be orthogonal. If used in a linear regression formula, then the
+coefficient of the linear term is the slope at <code>center</code>.<br />
+The function <code>quadratic</code> differs
+from <code>poly</code> in that the data are not scaled, so the regression
+coefficients are directly interpretable in terms of the units of <code>x</code>.
+</p>
+
+
+<h3>References</h3>
+
+<p>Cohn, T.A., Caulder, D.L., Gilroy, E.J., Zynjuk, L.D., and
+Summers, R.M., 1992, The validity of a simple statistical model for
+estimating fluvial constituent loads&mdash;An empirical study involving nutrient
+loads entering Chesapeake Bay: Water Resources Research, v. 28, no. 5, p.
+937&ndash;942.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../stats/html/poly.html">poly</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+
+## first and second orthogonal polynomials for the sequence from 1 to 10
+quadratic(seq(10))
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

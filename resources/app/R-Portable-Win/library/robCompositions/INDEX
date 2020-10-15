@@ -1,0 +1,137 @@
+GDPsatis                GDP satisfaction
+SDev                    Simplicial deviance
+aDist                   Aitchison distance
+addLR                   Additive logratio coordinates
+addLRinv                Inverse additive logratio mapping
+adjust                  Adjusting for original scale
+adtest                  Anderson-Darling Normality Tests
+adtestWrapper           Wrapper for Anderson-Darling tests
+ageCatWorld             child, middle and eldery population
+alcohol                 alcohol consumptions by country and type of
+                        alcohol
+alcoholreg              regional alcohol per capita (15+) consumption
+                        by WHO region
+arcticLake              arctic lake sediment data
+balances                Balance calculation
+biomarker               biomarker
+biplot.factanal         Biplot method
+biplot.pcaCoDa          Biplot method
+bootnComp               Bootstrap to find optimal number of components
+cancer                  hospital discharges on cancer and distribution
+                        of age
+cancerMN                malignant neoplasms cancer
+ced                     Compositional error deviation
+cenLR                   Centred logratio coefficients
+cenLRinv                Inverse centred logratio mapping
+chorizonDL              C-horizon of the Kola data with rounded zeros
+clustCoDa               Cluster analysis for compositional data
+clustCoDa_qmode         Q-mode cluster analysis for compositional parts
+coffee                  coffee data set
+compareMahal            Compares Mahalanobis distances from two
+                        approaches
+constSum                Constant sum
+coord                   Coordinate representation of compositional
+                        tables
+corCoDa                 Correlations for compositional data
+cubeCoord               Coordinate representation of a compositional
+                        cube and of a sample of compositional cubes
+daCoDa                  Linear and quadratic discriminant analysis for
+                        compositional data.
+daFisher                Discriminant analysis by Fisher Rule.
+economy                 economic indicators
+educFM                  education level of father (F) and mother (M)
+election                election data
+electionATbp            Austrian presidential election data
+employment              employment in different countries by gender and
+                        status.
+employment2             Employment in different countries by Sex, Age,
+                        Contract, Value
+employment_df           Employment in different countries by gender and
+                        status.
+expenditures            synthetic household expenditures toy data set
+expendituresEU          mean consumption expenditures data.
+gemas                   GEMAS geochemical data set
+gjovik                  gjovik
+gm                      gmean
+gmean_sum               Geometric mean
+govexp                  government spending
+haplogroups             haplogroups data.
+ilr.2x2                 ilr coordinates in 2x2 compositional tables
+impAll                  Replacement of rounded zeros and missing
+                        values.
+impCoda                 Imputation of missing values in compositional
+                        data
+impKNNa                 Imputation of missing values in compositional
+                        data using knn methods
+impRZalr                alr EM-based imputation of rounded zeros
+impRZilr                EM-based replacement of rounded zeros in
+                        compositional data
+imputeBDLs              EM-based replacement of rounded zeros in
+                        compositional data
+imputeUDLs              Imputation of values above an upper detection
+                        limit in compositional data
+ind2x2                  Independence 2x2 compositional table
+indTab                  Independence table
+instw                   value added, output and input for different
+                        ISIC codes and countries.
+int2x2                  Interaction 2x2 table
+intArray                Interaction array
+intTab                  Interaction table
+is.equivalent           equivalence class
+isic32                  ISIC codes by name
+laborForce              labour force by status in employment
+lifeExpGdp              life expectancy and GDP (2008) for EU-countries
+lmCoDaX                 Classical and robust regression of
+                        non-compositional (real) response on
+                        compositional predictors
+machineOperators        machine operators
+manu_abs                Distribution of manufacturing output
+mcad                    metabolomics mcad data set
+missPatterns            missing or zero pattern structure.
+mortality               mortality and life expectancy in the EU
+mortality_tab           mortality table
+nutrients               nutrient contents
+nutrients_branded       nutrient contents (branded)
+orthbasis               Orthonormal basis
+outCoDa                 Outlier detection for compositional data
+pTab                    Propability table
+payments                special payments
+pcaCoDa                 Robust principal component analysis for
+                        compositional data
+perturbation            Perturbation and powering
+pfa                     Factor analysis for compositional data
+phd                     PhD students in the EU
+phd_totals              PhD students in the EU (totals)
+pivotCoord              Pivot coordinates and their inverse
+plot.imp                Plot method for objects of class imp
+plot.pcaCoDa            Plot method
+plot.smoothSpl          plot smoothSpl
+precipitation           24-hour precipitation
+print.imp               Print method for objects of class imp
+production              production splitted by nationality on
+                        enterprise level
+rSDev                   Relative simplicial deviance
+rSDev.test              Relative simplicial deviance tests
+rcodes                  codes for UNIDO tables
+rdcm                    relative difference between covariance matrices
+robCompositions-package
+                        Robust Estimation for Compositional Data.
+skyeLavas               aphyric skye lavas data
+smoothSplines           Estimate density from histogram
+smoothSplinesVal        Estimate density from histogram - for different
+                        'alpha'
+socExp                  social expenditures
+stats                   Classical estimates for tables
+summary.imp             Summary method for objects of class imp
+tabCoord                Coordinate representation of compositional
+                        tables and a sample of compositional tables
+teachingStuff           teaching stuff
+ternaryDiag             Ternary diagram
+ternaryDiagAbline       Adds a line to a ternary diagram.
+ternaryDiagEllipse      Adds tolerance ellipses to a ternary diagram.
+ternaryDiagPoints       Add points or lines to a given ternary diagram.
+trondelagC              regional geochemical survey of soil C in Norway
+trondelagO              regional geochemical survey of soil O in Norway
+unemployed              unemployed of young people
+variation               Robust and classical variation matrix
+zeroOut                 Detection of outliers of zero-inflated data

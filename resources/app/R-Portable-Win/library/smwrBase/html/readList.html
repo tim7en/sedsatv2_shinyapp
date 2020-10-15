@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Import Data</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for readList {smwrBase}"><tr><td>readList {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Import Data</h2>
+
+<h3>Description</h3>
+
+<p>Import data arranged on lines into a list.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+readList(file, names = TRUE, sep = "", nlines = 1, convert = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>file</code></td>
+<td>
+<p>a character string specifying the name of the file.</p>
+</td></tr>
+<tr valign="top"><td><code>names</code></td>
+<td>
+<p>logical, if <code>TRUE</code>, then take component names from the first 
+entry in the line. If <code>FALSE</code>, then the components are sequentially 
+numbered.</p>
+</td></tr>
+<tr valign="top"><td><code>sep</code></td>
+<td>
+<p>the separator character for the data in each line. If a blank
+string (the default), then any white space is taken as the separator.</p>
+</td></tr>
+<tr valign="top"><td><code>nlines</code></td>
+<td>
+<p>the number of lines that represent a single collection of data,</p>
+</td></tr>
+<tr valign="top"><td><code>convert</code></td>
+<td>
+<p>character string indicating how to convert the data. Must be
+a valid value for the <code>Class</code> argument of <code>as</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A list with one component for each <code>nlines</code> in the input file.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../methods/html/as.html">as</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+# Make a 3-line example dataset with component names A, B, and C.
+cat("A 1 2 3 4\nB 5 6 7\nC 8 9\n", file="readList.test")
+# Read the example dataset
+readList("readList.test")
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

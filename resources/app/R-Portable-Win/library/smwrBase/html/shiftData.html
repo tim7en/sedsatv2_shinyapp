@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Shift Data</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for shiftData {smwrBase}"><tr><td>shiftData {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Shift Data</h2>
+
+<h3>Description</h3>
+
+<p>Returns a vector like the input, but with the position of the data shifted up
+or down.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+shiftData(x, k = 1, fill = NA, circular = FALSE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>any vector.</p>
+</td></tr>
+<tr valign="top"><td><code>k</code></td>
+<td>
+<p>a positive or negative whole number of positions to shift the data.
+Positive values shift data to a higher position and negative values shift
+data to a lower position.</p>
+</td></tr>
+<tr valign="top"><td><code>fill</code></td>
+<td>
+<p>a scalar value like <code>x</code> used to fill in the first <code>k</code>
+positions or the last -<code>k</code> positions if <code>circular</code>=<code>FALSE</code>. Ignored if
+<code>circular</code>=<code>TRUE</code>. The default value is <code>NA</code>. If <code>x</code> is class
+&quot;factor,&quot; then <code>fill</code> must be <code>NA</code> or a valid level in <code>x</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>circular</code></td>
+<td>
+<p>logical (<code>TRUE</code> or <code>FALSE</code>). If <code>TRUE</code>, then treat 
+<code>x</code> as a circular buffer, rotating values from the end into the beginning 
+if <code>k</code> is positive and vice versa if <code>k</code> is negative. If <code>FALSE</code>, 
+then use the value of fill. The default value is <code>FALSE</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A vector like <code>x</code>, with data shifted in position.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../stats/html/lag.html">lag</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+
+shiftData(1:5, k=1)
+# [1] NA  1  2  3  4
+shiftData(1:5, k=1, circ=TRUE)
+# [1] 5 1 2 3 4
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

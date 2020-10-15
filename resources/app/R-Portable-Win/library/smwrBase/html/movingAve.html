@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Moving Averages</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for movingAve {smwrBase}"><tr><td>movingAve {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Moving Averages</h2>
+
+<h3>Description</h3>
+
+<p>Implements the Savitzky-Golay (Savitzky and Golay, 1964) filter 
+on a regular series of data to compute a moving average.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+movingAve(x, span = 3, order = 0, pos = "center")
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>the data to be averaged or differenced. Missing values are permitted
+but result in missing values in the output.</p>
+</td></tr>
+<tr valign="top"><td><code>span</code></td>
+<td>
+<p>the length of the data to be averaged.</p>
+</td></tr>
+<tr valign="top"><td><code>order</code></td>
+<td>
+<p>the polynomial order for averaging. Must be less than
+<code>span</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>pos</code></td>
+<td>
+<p>how to position the output data relative to the value returned;
+&quot;center&quot; means that the value represents the average of the
+most central value relative to the <code>span</code>, &quot;end&quot; or &quot;trailing&quot; means the
+the value is the average of the preceding <code>span</code> values,
+and &quot;begin&quot; or &quot;leading&quot; means the value is the average of the
+following <code>span</code> values.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A vector of the same length as <code>x</code> containing the averages.
+</p>
+
+
+<h3>Note</h3>
+
+<p>For odd values of <code>span</code> and <code>pos</code> equal to &quot;center,&quot;
+<code>order</code> equal to 0 or 1 gives the same result.<br /> 
+</p>
+<p>In general, there is no
+reason to use polynomial orders greater than 2, and <code>pos</code> should always
+be set to &quot;center&quot; for polynomial orders greater than 1 to avoid strange
+behavior due to end effects.<br />
+</p>
+<p>The weights for the averages are computed based on linear model theory 
+(Savitzky and Golay, 1964; Wood and Hockens, 1970). Wood and Hockens (1970) 
+also discuss some artifacts resulting from smoothing.
+</p>
+
+
+<h3>References</h3>
+
+<p>Savitzky, A., and Golay, M.J.E., 1964, Smoothing and differentiation of data 
+by simplified least squares procedures: Analytical Chemistry, v. 36, no. 8, p. 
+1627&ndash;1639.<br />
+</p>
+<p>Wood, L.C., and Hockens, S.N., 1970, Least squares smoothing
+operators: Geophysics, v. 35, no. 6, p. 1005&ndash;1019.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../stats/html/filter.html">filter</a></code>, <code><a href="../../base/html/diff.html">diff</a></code>, <code><a href="movingDiff.html">movingDiff</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+
+## Construct a simple valley
+movingData &lt;- abs(seq(-5, 5))
+movingAve(movingData, span=5)
+movingAve(movingData, span=5, order=2)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

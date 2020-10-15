@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Insert Missing Data</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for insertMissing {smwrBase}"><tr><td>insertMissing {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Insert Missing Data</h2>
+
+<h3>Description</h3>
+
+<p>Inserts rows of missing values into a data frame for gaps in a sequence.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+insertMissing(x, col, fill = FALSE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>the data frame.</p>
+</td></tr>
+<tr valign="top"><td><code>col</code></td>
+<td>
+<p>the name of the column that defines the sequence.</p>
+</td></tr>
+<tr valign="top"><td><code>fill</code></td>
+<td>
+<p>logical (<code>TRUE</code> or <code>FALSE</code>), fill with many rows of data to 
+match the sequence?  If <code>FALSE</code>, insert only a single row. See <b>Note</b>.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A data frame like <code>x</code>, but with rows of missing values where
+there is a break in the sequence in column <code>col</code>.
+</p>
+
+
+<h3>Note</h3>
+
+<p>Setting <code>fill</code> to <code>TRUE</code> is useful for setting up datasets
+for <code>fillMissing</code> if there are gaps in the retrieved data.  Setting 
+<code>fill</code> to <code>FALSE</code>, the default, is useful for creating a break 
+in the sequence for plotting the data.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="fillMissing.html">fillMissing</a></code>, <code><a href="screenData.html">screenData</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+library(smwrData)
+data(Q05078470)
+# Plot the original data
+with(Q05078470[100:120, ], plot(DATES, FLOW, type="l"))
+# Remove 3 rows from the data set
+Q05078470 &lt;- Q05078470[-(109:111), ]
+# Plot the data--line drawn through the missing record
+with(Q05078470[100:117, ], lines(DATES, FLOW, col="green"))
+# Insert a missing record
+Q05078470 &lt;- insertMissing(Q05078470, "DATES")
+# Now plot to show gap in line
+with(Q05078470[100:118, ], lines(DATES, FLOW, col="blue"))
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

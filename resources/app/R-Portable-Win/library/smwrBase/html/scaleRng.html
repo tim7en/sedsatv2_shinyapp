@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Scale Data</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for scaleRng {smwrBase}"><tr><td>scaleRng {smwrBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Scale Data</h2>
+
+<h3>Description</h3>
+
+<p>Transforms numeric data to a specified range.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+scaleRng(x, Min = 0, Max = 1, x.range = range(x, na.rm = TRUE))
+
+IscaleRng(x, Min, Max, x.range)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>any numeric vector. Missing values are permitted and
+result in missing values in the corresponding output.</p>
+</td></tr>
+<tr valign="top"><td><code>Min</code></td>
+<td>
+<p>the minimum of the output range.</p>
+</td></tr>
+<tr valign="top"><td><code>Max</code></td>
+<td>
+<p>the maximum of the output range.</p>
+</td></tr>
+<tr valign="top"><td><code>x.range</code></td>
+<td>
+<p>the input range to map to the output range. The default range is 
+computed from the range of <code>x</code> after removing missing values.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The function <code>scaleRng</code> maps the minimum of <code>x.range</code> to <code>Min</code>
+and the maximum of <code>x.range</code> to <code>Max</code> and uses linear interpolation 
+for other values in <code>x</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A numeric vector scaled to the specified range.
+</p>
+
+
+<h3>Note</h3>
+
+<p>Some applications recommend or require data scaled to a consistent range.
+The function <code>scaleRng</code> will do that and can be used to back-transform
+the data.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+
+## simple case with back-transform
+x.tmp &lt;- print(scaleRng(c(1.2, 2.3, 3.4, 5.6)))
+IscaleRng(x.tmp)
+## now set the expected ranges
+x.tmp &lt;- print(scaleRng(c(1.2, 2.3, 3.4, 5.6), x.range=c(1, 6)))
+IscaleRng(x.tmp)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>smwrBase</em> version 1.1.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,70 @@
+%cn%                    Partial Value Matching
+Arith-timeDay           Arithmetic Operators for 'timeDay' objects
+Math-timeDay            Mathematical Functions for 'timeDay' objects
+[.timeDay               Extract Parts of an Object
+anomalies               Anomalies
+as.character.timeDay    Character Vector
+as.data.frame.timeDay   Data Frames
+as.timeDay              Methods for Function 'as.timeDay'
+baseDay                 Base Day
+baseDay2decimal         Base Day
+boxCox                  Box-Cox Power Transform
+c.timeDay               Concatenate Data
+coalesce                Replace missing values
+conc.meq                Special Data
+conc2meq                Concentrations to Milliequivalents
+daysInMonth             Days in a Month
+dectime                 Decimal Time
+dectime2Date            Date Conversion
+dlpearsonIII            Log-Pearson Type III distribution
+dms2dd                  Decimal Degrees
+dpearsonIII             Pearson Type III distribution
+eventNum                Event Processing
+eventSeries             Regular Series
+exportCSV               Export Data
+exportRDB               Export Data
+fillMissing             Fill Missing Values
+format.timeDay          Encode in a Common Format
+fourier                 Fourier Series Components
+group2row               Restructure Data
+hyperbolic              Hyperbolic transform
+hysteresis              Compute Hysteresis
+importCSV               Import Files
+importRDB               Import Files
+insertMissing           Insert Missing Data
+is.na.timeDay           Missing Values
+isCharLike              Test whether an object can be treated in a
+                        particular way
+length.timeDay          Length of an Object
+makeMeta                Metadata
+makepredictcall.quadratic
+                        Utility Function for Safe Prediction
+mergeNearest            Merge Datasets
+mergeQ                  Merge Flow into another Dataset
+more                    Display Data
+movingAve               Moving Averages
+movingDiff              Moving Differences
+na2miss                 Recode Data
+peaks                   Find Local Maxima
+pick                    Conditional Element Selection
+print.timeDay           Print an Object
+quadratic               Linear and Quadratic Terms
+readList                Import Data
+recode                  Recode Data
+regularSeries           Regular Series
+sCurve                  S-Curve Transform
+scaleRng                Scale Data
+screenData              Screen Data for Completeness
+seasons                 Seasonal Categories
+seqCollapse             Collapse a Sequence
+setFileType             File or Object Name
+setTZ                   Set Time Zone
+shiftData               Shift Data
+show-methods            Methods for Function 'show' for Time-of-Day
+                        Objects
+smwrBase-package        Data import, export and manipulation functions
+sumComposition          Percentage Composition
+timeDay-class           Time of Day
+untable                 Contingency Table
+waterYear               Water Year
+whichRowCol             Identify Rows and Columns
