@@ -59,7 +59,6 @@ csvfile_module <- function(input, output, session, stringsAsFactors) {
     {
       return(NULL)
     }
-    #dats[, 3:ncol(dats)] <- apply(dats[, 3:ncol(dats)], 2, as.numeric) # drop first two columns and convert data frame columns to numeric
     options(warn = 1)
     dats
   })
@@ -169,25 +168,27 @@ upload_server <- function(input, output, session, stringsAsFactors) {
   # read in data and output based on column selection
   datasource <- reactive({
     req(input_file())
-    #req(input$colNames)
-    indx <- which(input$colNames %in% colnames(input_file()))
-    if (length(indx) <3 ){
-      NULL
-    }else if (is.null(indx)) {
+    if (length(input$colNames) !=  length(colnames (input_file ()))){
       NULL
     } else {
-      input_file()[, c(input$colNames[indx])]
+        indx <- which(input$colNames %in% colnames(input_file()))
+      if (length(indx) < 3){
+        NULL
+      }else if (is.null(indx)) {
+        NULL
+      } else {
+        input_file()[, c(input$colNames[indx])]
+      }
     }
+    input_file()
   })
 
-
-  
   # data table output
   output$sourceTable <- renderDT({
-    print (input$colNames)
-    indx <- which(colnames(input_file()) %in% input$colNames )
-    datas <- input_file()[, c(1,2, indx)]
-    datas
+    req (datasource())
+    indx <- which(colnames(datasource()) %in% input$colNames )
+      datas <- datasource()[, c(1,2, indx)]
+      datas
   })
 
   # sliderinput for corrplot R threshold
@@ -291,20 +292,6 @@ upload_server <- function(input, output, session, stringsAsFactors) {
   })
   
   myreturn <- reactiveValues()
-  
-  dataoutput <- reactive({
-    req(input_file())
-    req(input$colNames)
-    indx <- which(colnames(input_file()) %in% input$colNames)
-    if (is.null(indx)) {
-      NULL
-    }
-    print (input_file()[,c(1,2,indx)])
-    input_file()[, c(1,2, indx)]
-  })
-  
-  
-  observe({ myreturn$data <- dataoutput()})
-  return(list(dataoutput, myreturn))
+  observe({ myreturn$data <- datasource()})
+  return(list(datasource, myreturn))
 }
-

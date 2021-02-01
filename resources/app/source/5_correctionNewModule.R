@@ -45,7 +45,6 @@ correction_ui <- function(id) {
             "All Options",
             use_busy_spinner(spin = "pixel", color = "#1230bf", margins = c(10, 10), spin_id = NULL, height = "250px",
                              width = "250px", position = "bottom-right"),
-            
             box(
               title = "Available options", status = "success", height =
                 "auto", solidHeader = T, width = "12",
@@ -53,7 +52,10 @@ correction_ui <- function(id) {
                 width = 12,
                 shinycssloaders::withSpinner(DTOutput(ns("resOutput"))), style = "height:'500px'; overflow-y: scroll;overflow-x: scroll;"
               )
-            )
+            ),
+            br (),
+            br (),
+            downloadButton (ns('downloadresOutput'), 'Download')
           ),
           tabPanel (
             "Selected results",
@@ -64,7 +66,10 @@ correction_ui <- function(id) {
                 width = 12,
                 withSpinner(DTOutput(ns("selectedOut"))), style = "height:'500px'; overflow-y: scroll;overflow-x: scroll;"
               )
-            )
+            ),
+            br (),
+            br (),
+            downloadButton (ns('downloadselectedOut'), 'Download')
           ),
           tabPanel (
             'Corrected data',
@@ -143,6 +148,27 @@ correction_server <- function(input, output, session, sourceData, targetData){
     },
     content = function(file) {
       write.csv(downloadSourceCorrected(), file, row.names = F)
+    }
+  )
+
+  output$downloadresOutput <- downloadHandler(
+    filename = function() {
+      paste(paste0("Selected_source-",input$targetID), input, Sys.Date(), ".csv", sep="")
+    },
+    content = function(file) {
+      resoutput$myresult[,4]<- gsub("I(", "(",resoutput$myresult[,4], fixed = T)
+      write.csv(resoutput$myresult, file, row.names = F)
+    }
+  ) 
+  
+  output$downloadselectedOut <- downloadHandler(
+    filename = function() {
+      paste(paste0("Selected_source-",input$targetID), input, Sys.Date(), ".csv", sep="")
+    },
+    content = function(file) {
+      dat <- selectedOutTable()
+      dat[,5]<- gsub("I(", "(",dat[,5], fixed = T)
+      write.csv(dat, file, row.names = F)
     }
   )
   

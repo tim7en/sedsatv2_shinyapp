@@ -44,7 +44,7 @@ my_sidebar <- function(id) {
         fluidRow(
           column(
             width = 6,
-            infoBoxOutput(ns("iBox")),
+            uiOutput(ns("ibutton")),
             br(),
             br(),
             br(),
@@ -52,7 +52,7 @@ my_sidebar <- function(id) {
             br(),
             br(),
             br(),
-            "Succesfull conversion result in a GREEN box, failed in a RED box."
+            "Succesfull conversion result in a GREEN box, failed or no conversion in a GREY box."
           ),
           column(
             width = 6,
@@ -77,7 +77,6 @@ my_sidebar <- function(id) {
         "Missing",
         uiOutput(ns("datMissing")),
         uiOutput(ns("datMissingSub")),
-        #uiOutput(ns("datMissingAdj")),
         uiOutput(ns("datMissNegSel")),
         uiOutput(ns("imputeMissing")),
         uiOutput(ns("datDetLimit")),
@@ -178,7 +177,6 @@ sidebar_func <- function(input, output, session, datas, tdatas) {
 
   datsum <- reactive({
     req(datrv$dataTable)
-    print (datrv$dataTable)
     if (is.null(datrv$dataTable))
     {
       return(NULL)
@@ -198,7 +196,6 @@ sidebar_func <- function(input, output, session, datas, tdatas) {
     ns <- session$ns
     dat <- datsum()
     s <- colnames(dat)[which(as.numeric(as.matrix(dat[4, ])) > 0 & as.numeric(as.matrix(dat[4, ])) < nrow(datrv$dataTable))]
-    print (s)
     #zero <- unique(c(colnames(dat)[which(as.numeric(as.matrix(dat[5, ])) > 0)], colnames(dat)[which(as.numeric(as.matrix(dat[5, ])) > 0)]))
     selectInput(ns("negtsPar"), "Some values below 0", choices = c(s), selected = c(s), multiple = TRUE)
   })
@@ -228,32 +225,22 @@ sidebar_func <- function(input, output, session, datas, tdatas) {
 
   # could be replaced to textOutput instead of selectInput
   output$datMissNegSel <- renderUI({
-    #req(input$missingDatAdj)
     ns <- session$ns
     dat <- datsum()
     cl_remove <- unique(c(colnames(dat)[which(as.numeric(as.matrix(dat[4, ])) > 0)], colnames(dat)[which(as.numeric(as.matrix(dat[5, ])) > 0)]))
-    #if (input$missingDatAdj == "Impute") {
       clnames <- colnames(dat)[which(as.numeric(as.matrix(dat[2, ])) > 0)]
       drops <- which(clnames %in% input$missingDat)
       clnames <- clnames[-c(drops)]
       mychoices <- colnames(dat)[which(!colnames(dat) %in% c(input$missingDat))]
       mychoices <- (mychoices[-c(1, 2)])
       selectInput(ns("missingDatNeg"), "Excluded from imputation (negatives, zero)", choices = c(mychoices, clnames), selected = c(cl_remove, clnames), multiple = TRUE)
-    # } else {
-    #   NULL
-    # }
   })
 
   output$datDetLimit <- renderUI({
-    #req(input$missingDatAdj)
     req(input$imputeSelected)
     ns <- session$ns
     if (input$imputeSelected == "def") {
-      #if (input$missingDatAdj == "Impute") {
         textInput(ns("detLim"), "Detection limits", value = "1")
-      # } else {
-      #   NULL
-      # }
     } else { # This function is repsonsible for loading in the selected file
       fileInput(ns("dataFile"), "Choose CSV file",
         accept = c("text/csv", "text/comma-separated-values,text/plain")
@@ -346,8 +333,6 @@ sidebar_func <- function(input, output, session, datas, tdatas) {
 
   output$imputeMissing <- renderUI({
     ns <- session$ns
-    #req(input$missingDatAdj)
-    #if (input$missingDatAdj == "Impute") {
       radioButtons(
         ns("imputeSelected"), "Impute method :",
         c(
@@ -356,20 +341,8 @@ sidebar_func <- function(input, output, session, datas, tdatas) {
           "Single Reporting Limits" = "selTab"
         )
       )
-    # } else {
-    #   NULL
-    # }
   })
-  # datLevels_rename <- eventReactive(input$amendRevalueButton, {
-  #   datrv$dataTable[,2] <- dat$mylist[1]
-  #   datrv$dataTable
-  # })
-  
-  # observe (input$amendRevalueButton, {
-  #   datrv$dataTable[,2] <- dat$mylist[1]
-  #   datrv$dataTable
-  # })
-  
+
   # main function to rename factor levels
   datLevels_rename <- eventReactive(input$acceptRevalueButton, {
     col_indx <- 2 # which(names(datrv$dataTable) == input$factorsData) # find columns selected
@@ -393,9 +366,10 @@ sidebar_func <- function(input, output, session, datas, tdatas) {
     }
     datrv$dataTable
   })
-
+  #datnegconv <- NULL
   # main function to check possible conversion methods
-  datnegconv <- eventReactive(input$acceptNegConvButton, {
+  datnegconv <- reactive({
+    req (input$negText)
     if (nchar(input$negText) > 0) {
       expr <- tryCatch(
         {
@@ -463,6 +437,23 @@ sidebar_func <- function(input, output, session, datas, tdatas) {
       return()
     }
   })
+  
+  output$ibutton <- renderUI ({
+    req (datas())
+    if (!is.null(datnegconv())) {
+      if (datnegconv() == 1) {
+        actionButton(
+          "button1", label = "Passed", style = "background-color: green"
+        )
+      } else {
+        NULL
+      }
+    } else {
+      actionButton(
+        "button2", label = " - ", style = "background-color: grey"
+      )
+    }
+  })
 
   output$iBox <- renderInfoBox({
     req(datas())
@@ -489,18 +480,28 @@ sidebar_func <- function(input, output, session, datas, tdatas) {
     }
   })
 
-  output$iBoxZero <- renderInfoBox({
-    req(datas())
+  
+  output$iBoxZero <- renderUI ({
     if (!is.null(zero())) {
-      infoBox(
-        "OK",
-        NULL,
-        icon = icon("refresh"),
-        width = 4,
-        color = "green"
+      actionButton(
+        "button1", label = "Passed", style = "background-color: green"
       )
     }
   })
+  
+  
+  # output$iBoxZero <- renderInfoBox({
+  #   req(datas())
+  #   if (!is.null(zero())) {
+  #     infoBox(
+  #       "OK",
+  #       NULL,
+  #       icon = icon("refresh"),
+  #       width = 4,
+  #       color = "green"
+  #     )
+  #   }
+  # })
 
   zero <- eventReactive(input$acceptZeroConversionButton, {
     input$zeroConstant
@@ -513,10 +514,6 @@ sidebar_func <- function(input, output, session, datas, tdatas) {
 
   # main function to deal with missingDat data , impute nondetects using detection limits or other available options (mean, median)
   datmissingconv <- eventReactive(input$acceptMissConvButton, {
-    #req(input$missingDatLvl)
-    #req(input$missingDatAdj)
-    #print ('button clicked')
-
     col_ind <- 2 # which(names(datrv$dataTable) %in% input$factorsData2)
     dats <- datrv$dataTable[which(as.character(datrv$dataTable[, col_ind]) %in% as.character(input$missingDatLvl)), ]
     join_flag <- grep("JOIN", input$missingDatLvl)
@@ -542,9 +539,6 @@ sidebar_func <- function(input, output, session, datas, tdatas) {
       datrv$dataTable[which(as.character(datrv$dataTable[, col_ind]) %in% as.character(input$missingDatLvl)), ] <- d
       datrv$dataTable
     } else { # if the join flag tagged, use all of them to get the mean or median from the entire data set
-
-      print (input$imputeSelected)
-      
       if (as.numeric(datsum()[, input$missingDat][2]) == length(input$missingDatLvl) - 1) {
         ## cat("Not enough observations to fill with mean/median with join \n", file = log_con, append = TRUE)
         return(NULL)
@@ -579,6 +573,7 @@ sidebar_func <- function(input, output, session, datas, tdatas) {
       datrv$dataTable[, c(input$missingDat)] <- dats[, c(input$missingDat)]
       datrv$dataTable
     } else if (input$imputeSelected == "selMat") {
+      print ('multiple reporting limits')
       req(filedata())
       dat <- filedata()
       src <- datrv$dataTable
@@ -609,33 +604,31 @@ sidebar_func <- function(input, output, session, datas, tdatas) {
       datrv$dataTable[, c(input$missingDat)] <- impute_dat[, c(input$missingDat)]
       datrv$dataTable
     } else if (input$imputeSelected == "selTab") {
+      print ('single reporting limits')
       req(filedata())
       dats <- filedata()
       dats[,1] <- as.character (dats[,1])
       dats[,1] <- gsub( " ", "", dats[,1]) 
       
-      #dats[, 2][(match(input$missingDat, dats[, 1]))]
-      
       detLim_vals <- dats[, 2][(match(input$missingDat, dats[, 1]))]
       dat <- (datrv$dataTable)[, -c(1, 2)] # remove first two columns (source and organic content)
+      
       dat <- dat[, which(!names(dat) %in% input$missingDatNeg)]
       dl <- rep(0, length(names(dat)))
       ind <- which(names(dat) %in% input$missingDat)
       dl[ind] <- detLim_vals
       dat[is.na(dat)] <- 0
-      print (detLim_vals)
       if (is.na(detLim_vals)) {
         return(NULL)
       }
-      dats <- tryCatch({
-        dats <- lrEM(dat, label = 0, dl = dl, ini.cov = "multRepl", closure = 10^6)
-        return (dats)
+      
+      impute_dat <- tryCatch({
+        lrEM(dat, label = 0, dl = dl, ini.cov = "multRepl", closure = 10^6)
       }, error = function (e) {
-        dats <- lrEM(dat, label = 0, dl = dl, ini.cov = "multRepl")
-        return (dats)
+        lrEM(dat, label = 0, dl = dl, ini.cov = "multRepl")
       })
 
-      datrv$dataTable[, c(input$missingDat)] <- dats[, c(input$missingDat)]
+      datrv$dataTable[, c(input$missingDat)] <- impute_dat[, c(input$missingDat)]
       datrv$dataTable
     }
   })
