@@ -170,6 +170,12 @@ outliers_server <- function(input, output, session, datas, getspQQval) {
     datas <- matchOutliers()
     vals <- c(datas[[2]])
     datas <- as.matrix(datas[[1]])
+    datas <- as.data.frame(datas)
+    datas[,-c(1,2)] <- apply (datas[,-c(1,2)], 2, as.numeric)
+    datas[,-c(1,2)] <- apply (datas[,-c(1,2)], 2, round, 2)
+    datas <- as.matrix(datas)
+    #print (head (datas))
+
     datas[is.na(datas)] <- "MISSING"
     if (!is.null(matchOutliers()[[2]])) {
       vals <- c(matchOutliers()[[2]])

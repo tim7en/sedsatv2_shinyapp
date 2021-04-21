@@ -105,7 +105,12 @@ multivariate_server <- function (input, output, session, corrected_function, tar
       return (NULL)
     } else {
       hide_spinner()
+      datas <- resultoutput()[[indx]]
+      datas[,-c(1,2)] <- apply (datas[,-c(1,2)], 2, round, 2)
+      #resultoutput()[[indx]][,-c(1,2)]<- apply (resultoutput()[[indx]][,-c(1,2)], 2, round, 2)
+      #print (datas)
       resultoutput()[[indx]]
+      datas
     }
   })
   

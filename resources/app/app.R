@@ -358,11 +358,6 @@ ui <- function (req) {dashboardPage(
   dashboardBody(
     useShinyjs(),
     #fluidRow(splash_ui("splash_module")),
-    tags$img(
-      src = "http://wallpics4k.com/wp-content/uploads/2014/07/470318.jpg",
-      style = 'position: absolute'
-    ),
-    
     tabItems(
       tabItem( # First tab content
         tabName = "dataInput",
@@ -430,5 +425,5 @@ ui <- function (req) {dashboardPage(
 }
 
 options(shiny.autoreload = TRUE)
-enableBookmarking(store = "server")
+#enableBookmarking(store = "server")
 shinyApp(ui, server)

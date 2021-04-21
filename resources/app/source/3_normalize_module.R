@@ -212,6 +212,7 @@ normalize_server <- function(input, output, session, datinput, state) {
     myDataMat <- cbind (as.character(datID), myDataMat)
     myDataMat <- as.data.frame (myDataMat)
     myDataMat[-c(1,2)] <- apply (myDataMat[-c(1,2)], 2, as.numeric)
+    myDataMat[-c(1,2)] <- apply (myDataMat[-c(1,2)], 2, round, 2)
     colnames (myDataMat)[c(1,2)] <- c('sample', 'SourceType')
     return(list(myDataOutput, myFormulaOutput, myDataMat))
   })

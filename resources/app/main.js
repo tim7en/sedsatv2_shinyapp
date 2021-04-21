@@ -79,21 +79,18 @@ function createWindow () {
           }
         })
       */
-      mainWindow.webContents.once('dom-ready', () => {
-        console.log(new Date().toISOString()+'::mainWindow loaded')
-        setTimeout( () => {
-          mainWindow.show()
-          //mainWindow.reload()
-          loading.hide()
-          loading.close()
-          mainWindow.reload()
-
-        }, 3000)
-
+      mainWindow.loadURL('http://127.0.0.1:' + port)
+      mainWindow.webContents.once('did-finish-load', () => {
+        console.log(new Date().toISOString() + '::mainWindow loaded')
+          setTimeout(() => {
+              mainWindow.show()
+              loading.hide()
+              loading.close()
+              mainWindow.reload()
+          }, 3000)
       })
-      console.log(port)
       // long loading html
-      mainWindow.loadURL('http://127.0.0.1:'+port)
+
       
       /**
       mainWindow.loadURL(url.format({

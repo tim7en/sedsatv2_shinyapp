@@ -329,7 +329,12 @@ dfa_server <- function (input, output, session, corrected_function, target_funct
   
   #output data table
   output$dfaTableResults <- renderDT ({
-    dfaresults ()
+    datas <- dfaresults ()
+    devidefunc <- function (x, n){
+      x <- x/n
+      return (x)
+    }
+    datas <- apply (datas, 2,devidefunc, 100 )
   })
   
   myreturn <- reactiveValues ()

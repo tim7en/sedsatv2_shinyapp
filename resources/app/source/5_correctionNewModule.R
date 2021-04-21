@@ -492,6 +492,7 @@ correction_server <- function(input, output, session, sourceData, targetData){
   output$correctedListDf <- renderDT ({
     req (input$targetID)
     i <- which (myTarget()[,1] %in% input$targetID)
+    resoutput2$dfList[[i]][,-c(1,2)] <- apply(resoutput2$dfList[[i]][,-c(1,2)], 2, round, 2)
     resoutput2$dfList[[i]]
   })
   
