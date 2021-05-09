@@ -13,6 +13,7 @@ outliers_ui <- function(id) {
             sidebarPanel(
               uiOutput(ns("nStd")),
               uiOutput(ns("rbSl"))
+              ,textOutput(ns("descriptionOut4"))
             ), width = 4
           ),
           mainPanel(
@@ -96,6 +97,8 @@ outliers_ui <- function(id) {
 
 outliers_server <- function(input, output, session, datas, getspQQval) {
 
+  output$descriptionOut4 <- renderText ({"Use this module to review data outliers that are above or below N standard deviations selected by user after normalization. Data can be kept by changing number of deviates and can be removed by selecting specific rows by the user."})
+  
   output$downloadRemoved <- downloadHandler(
     filename = function() {
       paste("Removed-rows-", Sys.Date(), ".csv", sep = "")

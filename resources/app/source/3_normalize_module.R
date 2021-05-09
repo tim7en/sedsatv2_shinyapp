@@ -19,6 +19,7 @@ normalize_ui <- function(id) {
             sidebarPanel(
               uiOutput(ns("shapiroP")),
               uiOutput(ns("spPlotpick"))
+              ,span(textOutput(ns("descriptionOut3")))
             ), width = 4
           ),
           mainPanel(
@@ -108,6 +109,8 @@ normalize_ui <- function(id) {
 
 normalize_server <- function(input, output, session, datinput, state) {
   
+  
+  output$descriptionOut3 <- renderText ({"Current module reviews normality of each data column for source and target and applies normalization using power transformation"})
   
   output$downloadShapiroP <- downloadHandler(
     filename = function() {
