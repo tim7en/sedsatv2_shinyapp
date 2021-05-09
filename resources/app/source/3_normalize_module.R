@@ -19,11 +19,11 @@ normalize_ui <- function(id) {
             sidebarPanel(
               uiOutput(ns("shapiroP")),
               uiOutput(ns("spPlotpick"))
-<<<<<<< HEAD
+#<<<<<<< HEAD
               ,span(textOutput(ns("descriptionOut3")))
-=======
+#=======
               #,span(textOutput(ns("descriptionOut3")))
->>>>>>> c93056dc7f903a36381b7918469f2293df53c9b0
+#>>>>>>> c93056dc7f903a36381b7918469f2293df53c9b0
             ), width = 4
           ),
           mainPanel(
