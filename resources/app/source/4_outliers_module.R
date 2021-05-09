@@ -13,7 +13,11 @@ outliers_ui <- function(id) {
             sidebarPanel(
               uiOutput(ns("nStd")),
               uiOutput(ns("rbSl"))
+<<<<<<< HEAD
               ,textOutput(ns("descriptionOut4"))
+=======
+              #,textOutput(ns("descriptionOut4"))
+>>>>>>> c93056dc7f903a36381b7918469f2293df53c9b0
             ), width = 4
           ),
           mainPanel(

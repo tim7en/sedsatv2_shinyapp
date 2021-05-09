@@ -24,7 +24,11 @@ my_sidebar <- function(id) {
       tabPanel(
         "Rename to Combine Sources",
         br(),
+<<<<<<< HEAD
         textOutput(ns("descriptionOut")),
+=======
+        #textOutput(ns("descriptionOut")),
+>>>>>>> c93056dc7f903a36381b7918469f2293df53c9b0
         br(),
         br(),
         uiOutput(ns("datLevels")),
