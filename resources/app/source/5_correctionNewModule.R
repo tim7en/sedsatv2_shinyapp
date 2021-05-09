@@ -7,8 +7,8 @@ correction_ui <- function(id) {
     div(
       style = "width: 70%;", # <----- here use shinyjs
       sidebarPanel(
-        tabPanel(
-          "Initial input",
+        # tabPanel(
+        #   "Initial input",
           uiOutput(ns("correctButton")), #With correction or skip correction
           uiOutput(ns('modelSelectedOutput')), #Raw model or the best model
           uiOutput(ns("sourceAdjustFor")), #Adjust for a selected element
@@ -33,8 +33,9 @@ correction_ui <- function(id) {
           uiOutput(ns("CooksD")), #Cooks distance
           uiOutput(ns("sourceApplyCorrelation")), #Button
           br(),
-          br()
-        )
+          br(),
+          width = 3
+        #)
       )
     ),
     mainPanel(
@@ -43,14 +44,14 @@ correction_ui <- function(id) {
         tabsetPanel(
           tabPanel(
             "All Options",
-            use_busy_spinner(spin = "pixel", color = "#1230bf", margins = c(10, 10), spin_id = NULL, height = "250px",
+            use_busy_spinner(spin = "pixel", color = "#1230bf", margins = c(10, 10), spin_id = NULL, height = "auto",
                              width = "250px", position = "bottom-right"),
             box(
               title = "Available options", status = "success", height =
                 "auto", solidHeader = T, width = "12",
               column(
                 width = 12,
-                shinycssloaders::withSpinner(DTOutput(ns("resOutput"))), style = "height:'500px'; overflow-y: scroll;overflow-x: scroll;"
+                shinycssloaders::withSpinner(DTOutput(ns("resOutput"))), style = "height:'auto'; overflow-y: scroll;overflow-x: scroll;"
               )
             ),
             br (),
@@ -64,7 +65,7 @@ correction_ui <- function(id) {
                 "auto", width = "12", solidHeader = T,
               column(
                 width = 12,
-                withSpinner(DTOutput(ns("selectedOut"))), style = "height:'500px'; overflow-y: scroll;overflow-x: scroll;"
+                withSpinner(DTOutput(ns("selectedOut"))), style = "height:'auto'; overflow-y: scroll;overflow-x: scroll;"
               )
             ),
             br (),
@@ -80,7 +81,7 @@ correction_ui <- function(id) {
                 width = 12,
                 uiOutput(ns('selectTarget')),
                 br(),
-                withSpinner (DTOutput(ns("correctedListDf"))), style = "height:'500px'; overflow-y: scroll; overflow-x: scroll;" 
+                withSpinner (DTOutput(ns("correctedListDf"))), style = "height:'auto'; overflow-y: scroll; overflow-x: scroll;" 
               )
             ),
             br (),
@@ -102,7 +103,7 @@ correction_ui <- function(id) {
             ),
             box (
               title = "Plot of transformed & untransformed sources for selected Target", status = "primary",
-              height = 870L, width = "12", solidHeader = T,
+              height = 'auto', width = "12", solidHeader = T,
               column(
                 width = 12,
                 plotlyOutput(ns('transformedPlot'))
@@ -135,7 +136,7 @@ correction_ui <- function(id) {
         )
       )
     )
-  )
+  , fluid = T)
  )
 }
 
@@ -589,7 +590,7 @@ correction_server <- function(input, output, session, sourceData, targetData){
       geom_smooth(method = lm)+
       theme(panel.spacing = unit(2, "lines"), legend.position = "bottom")
     p <- p+facet_wrap(Classes~., ncol = 2, scales = "free") #split in horizontal direction
-    ggplotly(p, height = 800, width = 1000) %>%
+    ggplotly(p, height = 'auto', width = 1000) %>%
       layout(legend = list(orientation = "h", x = 0, y = -0.2))
   })
   

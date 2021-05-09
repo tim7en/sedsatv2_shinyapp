@@ -184,15 +184,15 @@ server <- function(input, output, session) {
     if (!is.null(mydf$source) && !is.null(mydf$target)){
       cond <- xtab_set(names(mydf$source),names(mydf$target))
       if (length(rownames(cond)) == 1){
+          # showModal(makeModal(
+          #   "Source and target data columns match", "match"
+          # ))      
           removeCssClass(selector = "a[data-value='DatCheck']", class = "inactiveLink")
-          showModal(makeModal(
-            "Source and target data columns match", "match"
-          ))
         } else {
+          # showModal(makeModal(
+          #   "Source and target data columns do not match", "nomatch"
+          # ))
           addCssClass(selector = "a[data-value='DatCheck']", class = "inactiveLink")
-          showModal(makeModal(
-            "Source and target data columns do not match", "nomatch"
-          ))
         }
     } else {
         #mydf$source = NULL
