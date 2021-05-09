@@ -24,7 +24,7 @@ my_sidebar <- function(id) {
       tabPanel(
         "Rename to Combine Sources",
         br(),
-        "This page assists in checking and renaming sediment sources",
+        #textOutput(ns("descriptionOut")),
         br(),
         br(),
         uiOutput(ns("datLevels")),
@@ -140,6 +140,8 @@ sidebar_func <- function(input, output, session, datas, tdatas) {
 
   ns <- session$ns
   datrv <- reactiveValues(dataTable = NULL)
+  
+  output$descriptionOut <- renderText ({"This page assists in checking and renaming sediment sources. In addition by selection other tabs you can impute non-detect values, add a constant to a data, or check it for negative and zeroes."})
 
   output$downloadDatas <- downloadHandler(
     filename = function() {
