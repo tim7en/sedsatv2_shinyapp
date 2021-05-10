@@ -282,8 +282,11 @@ correction_server <- function(input, output, session, sourceData, targetData){
   # action button, apply
   output$sourceApplyCorrelation <- renderUI({
     req(mySource())
+    req (input$correctButton)
     ns <- session$ns
-    actionButton(ns("sourceApplyCorrelation"), "Apply")
+    if (input$correctButton %in% "Cor") {
+      actionButton(ns("sourceApplyCorrelation"), "Apply")
+    } else {}
   })
   
   dats <- eventReactive(input$sourceApplyCorrelation, {
@@ -492,7 +495,7 @@ correction_server <- function(input, output, session, sourceData, targetData){
   output$correctedListDf <- renderDT ({
     req (input$targetID)
     i <- which (myTarget()[,1] %in% input$targetID)
-    resoutput2$dfList[[i]][,-c(1,2)] <- apply(resoutput2$dfList[[i]][,-c(1,2)], 2, round, 2)
+    resoutput2$dfList[[i]][,-c(1,2)] <- apply(resoutput2$dfList[[i]][,-c(1,2)], 2, round, 5)
     resoutput2$dfList[[i]]
   })
   
